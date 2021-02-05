@@ -1,0 +1,81 @@
+#PERLLOC#
+
+# A perl template file for parsing the LocusLink and UniGene source
+# file to map GenBank Accession numbers to LocusLink ids.
+
+open(DATA, "<#UGFILE#") || die "Can not open #UGFILE#";
+open(OUT, ">#OUTFILE#") || die "Can not open #OUTFILE#";
+
+%outhash = ();
+
+$/ = "//";
+
+while( <DATA> ) {
+    $locusid = "NA";
+    $gb = "NA";
+    @lines = split("\n");   
+
+    foreach $x (@lines) {
+        if( $x =~ /^LOCUSLINK/ ) {
+	    #@temp = split/\s+|;/, $x;
+            @temp = split/LOCUSLINK/, $x;
+	    ($locusid = $temp[1]) =~ s/\s+//g;
+	    next;
+	}
+
+	if( $x =~ /^SEQUENCE\s+ACC=([0-9a-zA-Z]*)[\.]?.*;\s+.*$/x  ) {
+             if($locusid ne "NA"){
+	         if (exists $outhash{$1}){
+	             $outhash{$1} = $outhash{$1} . ";" . $locusid;
+                 }else{
+                     $outhash{$1} = $locusid;
+                 }
+             }  
+	     next;
+   	}
+    }
+}
+
+close DATA;
+open(DATA2, "<#LLFILE#") || die "Can not open #LLFILE#";
+
+while( <DATA2> ) {
+    @lines = split("\t|\n");  
+
+    if($lines[0] eq "#ORGCODE#"){
+        if($lines[5] ne "-"){ 
+            @temp = split/\./, $lines[5];
+            if(exists $outHash{$temp[0]}){
+                $outHash{$temp[0]} = $outHash{$temp[0]} . ";" . $lines[1];
+            }else{
+                $outHash{$temp[0]} = $lines[1];
+            }
+        }
+        if($lines[7] ne "-"){
+            @temp = split/\./, $lines[7];
+            if(exists $outHash{$temp[0]}){
+                $outHash{$temp[0]} = $outHash{$temp[0]} . ";" . $lines[1];
+            }else{
+                $outHash{$temp[0]} = $lines[1];
+            }
+        }   
+    }
+}
+
+close DATA2;
+
+foreach $x (keys %outhash){
+    @temp = split/;/, $outhash{$x};
+    %seen = ();
+    $uniq = "NA";
+    foreach $item (@temp){
+        if($uniq ne "NA"){
+            $uniq = $uniq . ";". $item unless($seen{$item})++;
+        }else{
+            $uniq = $item; 
+        }
+    }
+    print OUT $x, "\t", $uniq, "\n";
+}
+
+

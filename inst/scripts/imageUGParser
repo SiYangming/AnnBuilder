@@ -1,0 +1,45 @@
+
+%aHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    if(exists $aHash{$vals[1]}){
+	$aHash{$vals[1]} = $aHash{$vals[1]} . "," . $vals[0];
+    }else{
+        $aHash{$vals[1]} = $vals[0];
+    }
+}
+close BASE;
+
+$/ = "//";
+
+while( <DATA> ) {
+    $locusid = "NA";
+    @lines = split("\n");   
+
+    foreach $x (@lines) {
+        if( $x =~ /^LOCUSLINK/ ) {
+	    @temp = split/\s+/, $x;
+	    $locusid = $temp[1];
+	    next;
+	}
+	if( $x =~ /^SEQUENCE\s+.*IMAGE:([0-9]*);\s+.*$/x ){
+	    if(exists $aHash{$1}){
+		@affys = split/,/, $aHash{$1};
+		foreach $x (@affys){
+		    print OUT $x, "\t", $locusid, "\n";
+		} 
+	    }
+	    next;
+   	}
+    }
+}
+
+close DATA;
+
+
+
+
+
+
+

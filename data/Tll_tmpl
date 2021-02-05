@@ -1,0 +1,967 @@
+>>1
+LOCUSID: 1
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+ACCNUM: AA484435|2213248|na
+TYPE: m
+ACCNUM: AI022193|3239546|na
+TYPE: m
+ACCNUM: T80683|703568|na
+TYPE: m
+ACCNUM: W25099|1302954|na
+TYPE: m
+OFFICIAL_SYMBOL: A1BG
+OFFICIAL_GENE_NAME: alpha-1-B glycoprotein
+CHR: 19
+COMP: 10090|A1bg|na|na|117586|19|A1BG|ncbi_mgd
+ALIAS_PROT: Glycoprotein, alpha-1B
+UNIGENE: Hs.41997
+BUTTON: unigene.gif
+LINK: http://www.ncbi.nlm.nih.gov/UniGene/clust.cgi?ORG=Hs&CID=41997
+OMIM: 138670
+MAP: 19cen-q13.2|<a href="http://www.ncbi.nlm.nih.gov/entrez/dispomim.cgi?id=138670">OMIM</a>|C|
+MAPLINK: default_human_cyto|A1BG
+BUTTON: homol.gif
+LINK: http://www.ncbi.nlm.nih.gov/HomoloGene/homolquery.cgi?TEXT=1[loc]
+BUTTON: gdb.gif
+LINK: http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:119638
+DB_DESCR: GeneCards
+DB_LINK: http://bioinformatics.weizmann.ac.il/cards-bin/carddisp?A1BG
+PMID: 8889549,2591067
+>>2
+LOCUSID: 2
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+STATUS: REVIEWED
+NM: NM_000014|6226959|na
+NP: NP_000005|4557225
+CDD: Ependymins|EPEND|86|na|3.773540e+01
+CDD: Alpha-2-macroglobulin family|pfam00207|2501|na|9.679920e+02
+CDD: Alpha-2-macroglobulin family N-terminal region|pfam01835|1889|na|7.322500e+02
+PRODUCT: alpha 2 macroglobulin precursor
+ASSEMBLY: M11313
+CONTIG: NT_009702
+EVID: supported by alignment with both mRNA and ESTs (1)
+XM: XM_006925|17455492|na
+XP: XP_006925|17455493|na
+CDD: Alpha-2-macroglobulin family|pfam00207|2507|0.000e+00|970.304
+CDD: Alpha-2-macroglobulin family N-terminal region|pfam01835|1933|0.000e+00|749.199
+ACCNUM: X68728|450521|na
+TYPE: g
+PROT: CAA48670|825615
+ACCNUM: Z11711|24760|na
+TYPE: g
+PROT: CAA77774|24761
+ACCNUM: M11313|177869|na
+TYPE: m
+PROT: AAA51551|177870
+ACCNUM: M36501|177871|na
+TYPE: m
+PROT: AAA51552|177872
+OFFICIAL_SYMBOL: A2M
+OFFICIAL_GENE_NAME: alpha-2-macroglobulin
+PREFERRED_PRODUCT: alpha 2 macroglobulin precursor
+SUMMARY: Summary: Alpha-2-macroglobulin is a protease inhibitor and cytokine transporter. It inhibits many proteases, including trypsin, thrombin and collagenase. A2M is implicated in Alzheimer disease (AD) due to its ability to mediate the clearance and degradation of A-beta, the major component of beta-amyloid deposits.
+CHR: 12
+STS: RH70338|-|31955|na|na|epcr
+STS: SGC31674|12|40245|na|na|epcr
+STS: stSG1290R|12|46849|na|na|epcr
+STS: SGC33440|-|54816|na|na|epcr
+STS: RH46356|-|75646|na|na|epcr
+STS: WIAF-1430-STS|12|95143|na|seq_map|epcr
+COMP: 10090|A2m|6|6 62.00 cM|11287|12|A2M|ncbi_mgd
+COMP: 10090|A2m|6|6 62.00 cM|11287|12|A2M|ucsc_mgd
+UNIGENE: Hs.74561
+BUTTON: unigene.gif
+LINK: http://www.ncbi.nlm.nih.gov/UniGene/clust.cgi?ORG=Hs&CID=74561
+OMIM: 103950
+MAP: 12p13.3-p12.3|<a href="http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:119639">HUGO</a>|C|
+MAPLINK: default_human_gene|A2M
+PHENOTYPE: Alzheimer disease, susceptibility to
+PHENOTYPE_ID: 103950
+PHENOTYPE: Emphysema due to alpha-2-macroglobulin deficiency
+PHENOTYPE_ID: 103950
+BUTTON: snp.gif
+LINK: http://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?locusId=2
+BUTTON: homol.gif
+LINK: http://www.ncbi.nlm.nih.gov/HomoloGene/homolquery.cgi?TEXT=2[loc]
+BUTTON: gdb.gif
+LINK: http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:119639
+BUTTON: hgmd.gif
+LINK: http://www.uwcm.ac.uk/uwcm/mg/search/119639.html
+BUTTON: ensembl.gif
+LINK: http://www.ensembl.org/Homo_sapiens/contigview?geneid=NM_000014
+BUTTON: ucsc.gif
+LINK: http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg8&position=NM_000014
+BUTTON: proteome.gif
+LINK: http://www.proteome.com/databases/HumanPD/reports/2.html
+DB_DESCR: GeneCards
+DB_LINK: http://bioinformatics.weizmann.ac.il/cards-bin/carddisp?A2M
+PMID: 2581245,2408344,1707161,1370808,1281457
+SUMFUNC: Alpha-2-macroglobulin; protease inhibitor, binds/aids in cellular internalization of proteins|Proteome
+GO: molecular function|protein carrier|NR|GO:0008320|Proteome|na
+GO: molecular function|proteinase inhibitor|NR|GO:0004866|Proteome|na
+GO: biological process|intracellular protein traffic|NR|GO:0006886|Proteome|na
+EXTANNOT: organismal role|CNS-specific functions|NR|Proteome|1281457
+EXTANNOT: biochemical function|Inhibitor or repressor|NR|Proteome|1281457
+>>3
+LOCUSID: 3
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: M24415|187575|na
+TYPE: g
+OFFICIAL_SYMBOL: A2MP
+OFFICIAL_GENE_NAME: alpha-2-macroglobulin pseudogene
+CHR: 12
+MAP: 12p13.3-p12.3|<a href="http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:128103">HUGO</a>|C|
+MAPLINK: default_human_pheno|A2MP
+BUTTON: gdb.gif
+LINK: http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:128103
+DB_DESCR: GeneCards
+DB_LINK: http://bioinformatics.weizmann.ac.il/cards-bin/carddisp?A2MP
+PMID: 2478422
+>>8
+LOCUSID: 8
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+OFFICIAL_SYMBOL: AA
+OFFICIAL_GENE_NAME: atrophia areata, peripapillary chorioretinal degeneration
+CHR: 11
+OMIM: 108985
+MAP: 11p15|<a href="http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:568984">HUGO</a>|C|
+MAPLINK: default_human_cyto|AA
+PHENOTYPE: Atrophia areata
+PHENOTYPE_ID: 108985
+BUTTON: gdb.gif
+LINK: http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:568984
+DB_DESCR: GeneCards
+DB_LINK: http://bioinformatics.weizmann.ac.il/cards-bin/carddisp?AA
+PMID: 7795606
+>>9
+LOCUSID: 9
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+STATUS: PROVISIONAL
+NM: NM_000662|4505334|na
+NP: NP_000653|4505335
+CDD: N-acetyltransferase|pfam00797|1030|na|4.056250e+02
+PRODUCT: N-acetyltransferase 1
+ASSEMBLY: AF071552
+ACCNUM: AF008204|2618821|na
+TYPE: g
+PROT: AAB84384|2258431
+ACCNUM: AF032677|2641552|na
+TYPE: g
+PROT: AAB86878|2641553
+ACCNUM: AF032678|2641554|na
+TYPE: g
+PROT: AAB86879|2641555
+ACCNUM: AF067408|3265061|na
+TYPE: g
+PROT: AAC24707|3265062
+ACCNUM: AF071552|3265151|na
+TYPE: g
+PROT: AAC24712|3265152
+ACCNUM: AF082903|3435297|na
+TYPE: g
+PROT: AAD13343|3435298
+ACCNUM: AF082904|3435299|na
+TYPE: g
+PROT: AAC32388|3435300
+ACCNUM: U80835|2245375|na
+TYPE: g
+PROT: AAB62398|2245376
+ACCNUM: X17059|34993|na
+TYPE: g
+PROT: CAA34905|34994
+OFFICIAL_SYMBOL: NAT1
+OFFICIAL_GENE_NAME: N-acetyltransferase 1 (arylamine N-acetyltransferase)
+ALIAS_SYMBOL: AAC1
+PREFERRED_PRODUCT: N-acetyltransferase 1
+CHR: 8
+COMP: 10090|Nat1|8|8 31.00 cM|17960|8|NAT1|ncbi_mgd
+COMP: 10090|Nat1|8|8 31.00 cM|17960|8|NAT1|ucsc_mgd
+COMP: 10090|U35886|8|8 14135.38 cR|17961|8|AW390667|natgen_paper
+ALIAS_PROT: arylamine N-acetyltransferase-1
+ALIAS_PROT: arylamide acetylase 1 (N-acetyltransferase 1)
+UNIGENE: Hs.155956
+BUTTON: unigene.gif
+LINK: http://www.ncbi.nlm.nih.gov/UniGene/clust.cgi?ORG=Hs&CID=155956
+OMIM: 108345
+ECNUM: 2.3.1.5
+MAP: 8p23.1-p21.3|<a href="http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:125364">HUGO</a>|C|
+MAPLINK: default_human_cyto|NAT1
+BUTTON: snp.gif
+LINK: http://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?locusId=9
+BUTTON: homol.gif
+LINK: http://www.ncbi.nlm.nih.gov/HomoloGene/homolquery.cgi?TEXT=9[loc]
+BUTTON: gdb.gif
+LINK: http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:125364
+BUTTON: ensembl.gif
+LINK: http://www.ensembl.org/Homo_sapiens/contigview?geneid=NM_000662
+BUTTON: ucsc.gif
+LINK: http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg8&position=NM_000662
+BUTTON: proteome.gif
+LINK: http://www.proteome.com/databases/HumanPD/reports/9.html
+DB_DESCR: GeneCards
+DB_LINK: http://bioinformatics.weizmann.ac.il/cards-bin/carddisp?NAT1
+DB_DESCR: Arylamine N-Acetyltransferase Nomenclature
+DB_LINK: http://www.louisville.edu/medschool/pharmacology/NAT.html
+PMID: 10908296,10862520,9168895,7773298,2340091
+SUMFUNC: Arylamine N-acetyltransferase 1; N- or O-acetylates arylamines and heterocyclic amines, detoxifies carcinogens and xenobiotics|Proteome
+GO: molecular function|arylamine N-acetyltransferase|E|GO:0004060|Proteome|10908296
+EXTANNOT: cellular role|Other metabolism|E|Proteome|10908296
+EXTANNOT: biochemical function|Transferase|E|Proteome|10908296
+>>10
+LOCUSID: 10
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+STATUS: REVIEWED
+NM: NM_000015|4557782|na
+NP: NP_000006|4557783
+CDD: N-acetyltransferase|pfam00797|838|na|3.274050e+02
+PRODUCT: arylamide acetylase 2
+ASSEMBLY: D90042
+CONTIG: NT_008271
+EVID: supported by alignment with both mRNA and ESTs (1)
+XM: NM_000015|4557782|na
+XP: NP_000006|4557783|na
+ACCNUM: AF042740|2801806|na
+TYPE: g
+PROT: AAC03773|2801807
+ACCNUM: AF055874|3063613|na
+TYPE: g
+PROT: AAC14117|3063614
+ACCNUM: AF055875|3063615|na
+TYPE: g
+PROT: AAC14118|3063616
+ACCNUM: D10870|219871|na
+TYPE: g
+PROT: BAA01640|219872
+ACCNUM: D10871|219874|na
+TYPE: g
+PROT: BAA01641|219875
+ACCNUM: D10872|219877|na
+TYPE: g
+PROT: BAA01642|219878
+ACCNUM: M75163|189075|na
+TYPE: g
+PROT: AAA59906|553602
+ACCNUM: M75164|189072|na
+TYPE: g
+PROT: AAA59905|553601
+ACCNUM: U23052|747646|na
+TYPE: g
+PROT: AAA64584|727413
+ACCNUM: U23434|727456|na
+TYPE: g
+PROT: AAA64585|727457
+ACCNUM: U53473|1297331|na
+TYPE: g
+PROT: AAA98976|1297332
+ACCNUM: X14672|28227|na
+TYPE: g
+PROT: CAA32802|28228
+ACCNUM: BC015878|16198419|na
+TYPE: m
+PROT: AAH15878|16198420
+ACCNUM: D90040|219411|na
+TYPE: m
+PROT: BAA14094|219412
+ACCNUM: D90042|219415|na
+TYPE: m
+PROT: BAA14096|219416
+OFFICIAL_SYMBOL: NAT2
+OFFICIAL_GENE_NAME: N-acetyltransferase 2 (arylamine N-acetyltransferase)
+ALIAS_SYMBOL: AAC2
+PREFERRED_PRODUCT: arylamide acetylase 2
+SUMMARY: Summary: The intronless NAT2 gene encodes N-acetyltransferase 2 (arylamine N-acetyltransferase 2). This enzyme functions to both activate and deactivate arylamine and hydrazine drugs and carcinogens. Polymorphisms in this gene are reponsible for the N-acetylation polymorphism in which human populations segregate into rapid,intermediate, and slow acetylator phenotypes. Polymorphisms in NAT2 are also associated with higher incidences of cancer and drug toxicity.A second arylamine N-acetyltransferase gene (NAT1) is located near NAT2.
+CHR: 8
+STS: WI-7224|8|17088|na|seq_map|epcr
+STS: stSG40|8|44576|na|seq_map|epcr
+STS: SHGC-130680|8|137181|na|seq_map|epcr
+STS: GDB:187676|8|155563|na|seq_map|epcr
+STS: GDB:310612|8|156422|na|seq_map|epcr
+STS: GDB:310613|8|156423|na|seq_map|epcr
+STS: GDB:386004|8|157141|na|seq_map|epcr
+COMP: 10090|Nat2|8|8 31.00 cM|17961|8|NAT2|ncbi_mgd
+COMP: 10090|Nat2|8|8 31.00 cM|17961|8|NAT2|ucsc_mgd
+ALIAS_PROT: Arylamine N-acetyltransferase-2
+ALIAS_PROT: arylamide acetylase 2 (N-acetyltransferase 2, isoniazid inactivation)
+UNIGENE: Hs.2
+BUTTON: unigene.gif
+LINK: http://www.ncbi.nlm.nih.gov/UniGene/clust.cgi?ORG=Hs&CID=2
+OMIM: 243400
+ECNUM: 2.3.1.5
+MAP: 8p22|<a href="http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:125365">HUGO</a>|C|
+MAPLINK: default_human_gene|NAT2
+BUTTON: snp.gif
+LINK: http://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?locusId=10
+BUTTON: homol.gif
+LINK: http://www.ncbi.nlm.nih.gov/HomoloGene/homolquery.cgi?TEXT=10[loc]
+BUTTON: gdb.gif
+LINK: http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:125365
+BUTTON: ensembl.gif
+LINK: http://www.ensembl.org/Homo_sapiens/contigview?geneid=NM_000015
+BUTTON: ucsc.gif
+LINK: http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg8&position=NM_000015
+BUTTON: proteome.gif
+LINK: http://www.proteome.com/databases/HumanPD/reports/10.html
+DB_DESCR: GeneCards
+DB_LINK: http://bioinformatics.weizmann.ac.il/cards-bin/carddisp?NAT2
+BUTTON: mgc.gif
+LINK: http://mgc.nci.nih.gov/Genes/GeneInfo?ORG=Hs&CID=2
+DB_DESCR: Arylamine N-Acetyltransferase Nomenclature
+DB_LINK: http://www.louisville.edu/medschool/pharmacology/NAT.html
+PMID: 8460648,8102597,7915226,7773298,2734109,2340091,1968463,1676262,1381364,1306121
+SUMFUNC: Arylamine N-acetyltransferase 2; N- or O-acetylates arylamines and heterocyclic amines|Proteome
+GO: molecular function|arylamine N-acetyltransferase|E|GO:0004060|Proteome|2340091
+EXTANNOT: cellular role|Other metabolism|E|Proteome|2340091
+EXTANNOT: biochemical function|Transferase|E|Proteome|2340091
+>>11
+LOCUSID: 11
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+OFFICIAL_SYMBOL: AACP
+OFFICIAL_GENE_NAME: arylamide acetylase pseudogene
+ALIAS_SYMBOL: NATP
+BUTTON: gdb.gif
+LINK: http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:132838
+DB_DESCR: GeneCards
+DB_LINK: http://bioinformatics.weizmann.ac.il/cards-bin/carddisp?AACP
+PMID: 2340091
+>>12
+LOCUSID: 12
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+STATUS: REVIEWED
+NM: NM_001085|9665246|na
+NP: NP_001076|4501843
+CDD: SERine Proteinase INhibitors|SERPIN|950|na|3.744620e+02
+CDD: Serpins (serine protease inhibitors)|pfam00079|932|na|3.674510e+02
+PRODUCT: alpha-1-antichymotrypsin, precursor
+ASSEMBLY: AH002551,K01500
+ACCNUM: X00947|28331|na
+TYPE: g
+PROT: CAA25459|28332
+ACCNUM: X68733|439137|na
+TYPE: g
+PROT: CAA48671|1340142
+ACCNUM: AF089747|4165889|na
+TYPE: m
+PROT: AAD08810|4165890
+ACCNUM: BC003559|13097704|na
+TYPE: m
+PROT: AAH03559|13097705
+ACCNUM: J05176|177932|na
+TYPE: m
+PROT: AAA51560|177933
+ACCNUM: K01500|177808|na
+TYPE: m
+PROT: AAA51543|177809
+ACCNUM: M18906|177928|na
+TYPE: m
+PROT: AAA51559|177931
+OFFICIAL_SYMBOL: SERPINA3
+OFFICIAL_GENE_NAME: serine (or cysteine) proteinase inhibitor, clade A (alpha-1 antiproteinase, antitrypsin), member 3
+ALIAS_SYMBOL: ACT
+ALIAS_SYMBOL: AACT
+PREFERRED_PRODUCT: alpha-1-antichymotrypsin, precursor
+SUMMARY: Summary: The protein encoded by this gene is a plasma protease inhibitor and member of the serine protease inhibitor class.  Polymorphisms in this protein appear to be tissue specific and influence protease targeting.  Variation in this protein's sequence have been implicated in Alzheimer's disease, and deficiency of this protein has been associated with liver disease.  Mutations have been identified in patients with Parkinson disease and chronic obstructive pulmonary disease.
+CHR: 14
+STS: stSG1393|14|32177|na|seq_map|epcr
+STS: SGC32982|14|37467|na|na|epcr
+STS: D14S845|14|64155|D14S845|seq_map|epcr
+STS: SHGC-19718|14|66238|na|seq_map|epcr
+STS: stSG41027|14|74665|na|seq_map|epcr
+STS: stSG44830|14|86678|na|seq_map|epcr
+COMP: 10090|Pre2|12|12 52.00 cM|109636|14|SERPINA3|ucsc_mgd
+COMP: 10090|X69832|12|12 957.87 cR|20717|14|AV689358|ucsc_est
+COMP: 10090|AI194247|16|16 509.87 cR|16423|14|AW819120|ucsc_est
+ALIAS_PROT: actichymotrypsin
+ALIAS_PROT: alpha-1-antichymotrypsin
+UNIGENE: Hs.234726
+BUTTON: unigene.gif
+LINK: http://www.ncbi.nlm.nih.gov/UniGene/clust.cgi?ORG=Hs&CID=234726
+OMIM: 107280
+MAP: 14q32.1|<a href="http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:118955">HUGO</a>|C|
+MAPLINK: default_human_cyto|SERPINA3
+PHENOTYPE: Alpha-1-antichymotrypsin deficiency
+PHENOTYPE_ID: 107280
+PHENOTYPE: Cerebrovascular disease, occlusive
+PHENOTYPE_ID: 107280
+BUTTON: snp.gif
+LINK: http://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?locusId=12
+BUTTON: homol.gif
+LINK: http://www.ncbi.nlm.nih.gov/HomoloGene/homolquery.cgi?TEXT=12[loc]
+BUTTON: gdb.gif
+LINK: http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:118955
+BUTTON: ensembl.gif
+LINK: http://www.ensembl.org/Homo_sapiens/contigview?geneid=NM_001085
+BUTTON: ucsc.gif
+LINK: http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg8&position=NM_001085
+BUTTON: proteome.gif
+LINK: http://www.proteome.com/databases/HumanPD/reports/12.html
+DB_DESCR: GeneCards
+DB_LINK: http://bioinformatics.weizmann.ac.il/cards-bin/carddisp?SERPINA3
+BUTTON: mgc.gif
+LINK: http://mgc.nci.nih.gov/Genes/GeneInfo?ORG=Hs&CID=234726
+PMID: 9880565,8244391,6687683,6606438,6556193,6547997,3492865,3485824,3260956,3257719,2404007,1351206
+SUMFUNC: Alpha-1-antichymotrypsin; member of the serpin family of serine protease inhibitors|Proteome
+GO: molecular function|plasma protein|NR|GO:0005209|Proteome|na
+GO: biological process|acute-phase response|NR|GO:0006953|Proteome|na
+GO: molecular function|proteinase inhibitor|NR|GO:0004866|Proteome|na
+GO: molecular function|serine protease inhibitor|E|GO:0004867|Proteome|2404007
+EXTANNOT: biochemical function|Inhibitor or repressor|NR|Proteome|2404007
+>>13
+LOCUSID: 13
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+STATUS: REVIEWED
+NM: NM_001086|4557226|na
+NP: NP_001077|4557227
+CDD: Carboxylesterases|pfam00135|154|na|6.439850e+01
+PRODUCT: arylacetamide deacetylase
+ASSEMBLY: L32179
+CONTIG: NT_005849
+EVID: supported by alignment with both mRNA and ESTs (12)
+XM: XM_003002|12729778|na
+XP: XP_003002|11433103|na
+CDD: Carboxylesterases|pfam00135|137|1.291e-09|57.381
+ACCNUM: L32179|537513|na
+TYPE: m
+PROT: AAA35551|537514
+OFFICIAL_SYMBOL: AADAC
+OFFICIAL_GENE_NAME: arylacetamide deacetylase (esterase)
+ALIAS_SYMBOL: DAC
+PREFERRED_PRODUCT: arylacetamide deacetylase
+SUMMARY: Summary: Microsomal arylacetamide deacetylase competes against the activity of cytosolic arylamine N-acetyltransferase, which catalyzes one of the initial biotransformation pathways for arylamine and heterocyclic amine carcinogens
+CHR: 3
+STS: sts-L32179|3|13170|na|seq_map|epcr
+STS: SHGC-9733|-|18863|D3S4189|na|epcr
+STS: stSG13141|3|24707|na|seq_map|epcr
+STS: RH124029|-|136046|na|na|epcr
+COMP: 10090|Aadac|3|3  cM|67758|3|AADAC|ncbi_mgd
+COMP: 10090|AI265437|3|3 545.38 cR|99574|3|L32179|ncbi_est
+COMP: 10090|AI265437|3|3 5067.00 cR|67758|3|AA702448|natgen_paper
+UNIGENE: Hs.587
+BUTTON: unigene.gif
+LINK: http://www.ncbi.nlm.nih.gov/UniGene/clust.cgi?ORG=Hs&CID=587
+OMIM: 600338
+ECNUM: 3.1.1.-
+MAP: 3q21.3-q25.2|RefSeq|C|
+MAPLINK: default_human_gene|AADAC
+BUTTON: snp.gif
+LINK: http://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?locusId=13
+BUTTON: homol.gif
+LINK: http://www.ncbi.nlm.nih.gov/HomoloGene/homolquery.cgi?TEXT=13[loc]
+BUTTON: gdb.gif
+LINK: http://gdbwww.gdb.org/gdb-bin/genera/accno?GDB:392587
+BUTTON: ensembl.gif
+LINK: http://www.ensembl.org/Homo_sapiens/contigview?geneid=NM_001086
+BUTTON: ucsc.gif
+LINK: http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg8&position=NM_001086
+BUTTON: proteome.gif
+LINK: http://www.proteome.com/databases/HumanPD/reports/13.html
+DB_DESCR: GeneCards
+DB_LINK: http://bioinformatics.weizmann.ac.il/cards-bin/carddisp?AADAC
+DB_DESCR: KEGG pathway: Butanoate metabolism
+DB_LINK: http://www.genome.ad.jp/dbget-bin/get_pathway?org_name=hsa&mapno=00650
+DB_DESCR: KEGG pathway: 2,4-Dichlorobenzoate degradation
+DB_LINK: http://www.genome.ad.jp/dbget-bin/get_pathway?org_name=hsa&mapno=00623
+DB_DESCR: KEGG pathway: Pentose and glucuronate interconversions
+DB_LINK: http://www.genome.ad.jp/dbget-bin/get_pathway?org_name=hsa&mapno=00040
+PMID: 9299245,8063807
+SUMFUNC: Liver microsomal arylacetamide deacetylase; esterase involved in metabolically activating arylamine carcinogens|Proteome
+GO: molecular function|enzyme|P|GO:0003824|Proteome|8063807
+GO: cellular component|microsome|E|GO:0005792|Proteome|8063807
+EXTANNOT: cellular role|Other metabolism|P|Proteome|8063807
+EXTANNOT: subcellular localization|Microsomal fraction|NR|Proteome|8063807
+>>140729
+LOCUSID: 140729
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Rattus norvegicus
+ACCNUM: AF361346|17974525|Sprague-Dawley
+TYPE: m
+PROT: AAL50041|17974526
+PREFERRED_SYMBOL: Cacng8
+PREFERRED_GENE_NAME: voltage-dependent calcium channel gamma-8 subunit
+PMID: 11738816
+>>140730
+LOCUSID: 140730
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function unknown
+ORGANISM: Homo sapiens
+ACCNUM: AL118522|9581784|na
+TYPE: g
+PROT: CAC14069|13591551
+OFFICIAL_SYMBOL: C20orf190
+OFFICIAL_GENE_NAME: chromosome 20 open reading frame 190
+ALIAS_SYMBOL: NIM3
+ALIAS_SYMBOL: dJ781B1.3
+CHR: 20
+MAP: 20|RefSeq|C|
+MAPLINK: default_human_cyto|C20orf190
+>>140731
+LOCUSID: 140731
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function unknown
+ORGANISM: Homo sapiens
+ACCNUM: AL354776|10045391|na
+TYPE: g
+PROT: CAC17565|13161989
+OFFICIAL_SYMBOL: C20orf86
+OFFICIAL_GENE_NAME: chromosome 20 open reading frame 86
+ALIAS_SYMBOL: bA196N14.3
+CHR: 20
+MAP: 20|RefSeq|C|
+MAPLINK: default_human_cyto|C20orf86
+>>140732
+LOCUSID: 140732
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+ACCNUM: AL121756|6624940|na
+TYPE: g
+PROT: CAC18883|11877273
+PROT: CAC29360|12964591
+PROT: CAC29361|12964592
+OFFICIAL_SYMBOL: SPAG4L
+OFFICIAL_GENE_NAME: sperm associated antigen 4-like
+ALIAS_SYMBOL: dJ726C3.1
+CHR: 20
+MAP: 20q11.21|RefSeq|C|
+MAPLINK: default_human_cyto|SPAG4L
+>>140733
+LOCUSID: 140733
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function unknown
+ORGANISM: Homo sapiens
+ACCNUM: AL117333|7838257|na
+TYPE: g
+PROT: CAC36072|13559288
+PROT: CAC36073|13559289
+OFFICIAL_SYMBOL: C20orf133
+OFFICIAL_GENE_NAME: chromosome 20 open reading frame 133
+CHR: 20
+MAP: 20|RefSeq|C|
+MAPLINK: default_human_cyto|C20orf133
+>>140734
+LOCUSID: 140734
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Rattus norvegicus
+ACCNUM: AY034383|14280355|na
+TYPE: m
+PROT: AAK57536|14280356
+PREFERRED_SYMBOL: Dlc2
+PREFERRED_GENE_NAME: dynein light chain-2
+>>140735
+LOCUSID: 140735
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+ACCNUM: BC010744|14789616|na
+TYPE: m
+PROT: AAH10744|14789617
+PREFERRED_SYMBOL: Dlc2
+PREFERRED_GENE_NAME: dynein light chain 2
+ALIAS_SYMBOL: MGC17810
+BUTTON: ensembl.gif
+LINK: http://www.ensembl.org/Homo_sapiens/contigview?geneid=BC010744
+BUTTON: ucsc.gif
+LINK: http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg8&position=BC010744
+>>140737
+LOCUSID: 140737
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+ACCNUM: AW959427|8149111|na
+TYPE: m
+PREFERRED_SYMBOL: DNLC2B
+PREFERRED_GENE_NAME: dynein light chain 2B
+BUTTON: ensembl.gif
+LINK: http://www.ensembl.org/Homo_sapiens/contigview?geneid=AW959427
+BUTTON: ucsc.gif
+LINK: http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg8&position=AW959427
+PMID: 11750132
+>>140738
+LOCUSID: 140738
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+ACCNUM: AF361356|17974545|na
+TYPE: m
+PROT: AAL50051|17974546
+PREFERRED_SYMBOL: PR
+PREFERRED_GENE_NAME: voltage-dependent calcium channel gamma subunit-like protein
+CHR: 2
+STS: RH80535|2|89033|na|seq_map|epcr
+BUTTON: ensembl.gif
+LINK: http://www.ensembl.org/Homo_sapiens/contigview?geneid=AF361356
+BUTTON: ucsc.gif
+LINK: http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg8&position=AF361356
+PMID: 11738816
+>>140739
+LOCUSID: 140739
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+ACCNUM: AF310723|16588407|na
+TYPE: m
+PROT: AAL26792|16588408
+ACCNUM: AK002119|7023803|na
+TYPE: m
+ACCNUM: BC010549|14714800|na
+TYPE: m
+PROT: AAH10549|14714801
+PREFERRED_SYMBOL: NCE2
+PREFERRED_GENE_NAME: NEDD8-conjugating enzyme
+STS: WI-13471|2|21420|na|seq_map|epcr
+BUTTON: ensembl.gif
+LINK: http://www.ensembl.org/Homo_sapiens/contigview?geneid=AK002119
+BUTTON: ucsc.gif
+LINK: http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg8&position=AK002119
+>>140740
+LOCUSID: 140740
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Mus musculus
+ACCNUM: AI649014|4729848|C57BL
+TYPE: m
+OFFICIAL_SYMBOL: Sec63
+OFFICIAL_GENE_NAME: SEC63 (S. cerevisiae)
+ALIAS_SYMBOL: AI649014
+CHR: 10
+STS: 758982|10|180030|na|na|epcr
+COMP: 9606|AF100141|6|6q21|140740|10|BB584575|ncbi_est
+COMP: 9606|AF100141|6|6q21|140740|10|BB584575|ucsc_est
+ALIAS_PROT: expressed sequence AI649014
+UNIGENE: Mm.39716
+BUTTON: unigene.gif
+LINK: http://www.ncbi.nlm.nih.gov/UniGene/clust.cgi?ORG=Mm&CID=39716
+MAP: 10|<a href="http://www.informatics.jax.org/searches/accession_report.cgi?id=MGI:2155302">MGD</a>|C|
+MAPLINK: default_mouse|Sec63
+BUTTON: mgd.gif
+LINK: http://www.informatics.jax.org/searches/accession_report.cgi?id=MGI:2155302
+>>140741
+LOCUSID: 140741
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Mus musculus
+OFFICIAL_SYMBOL: Gpr6
+OFFICIAL_GENE_NAME: G protein-coupled receptor 6
+CHR: 10
+MAP: 10|<a href="http://www.informatics.jax.org/searches/accession_report.cgi?id=MGI:2155249">MGD</a>|C|
+MAPLINK: default_mouse|Gpr6
+BUTTON: mgd.gif
+LINK: http://www.informatics.jax.org/searches/accession_report.cgi?id=MGI:2155249
+>>140742
+LOCUSID: 140742
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Mus musculus
+ACCNUM: AA272776|1907586|C57BL/6J
+TYPE: m
+OFFICIAL_SYMBOL: Pa26-pending
+OFFICIAL_GENE_NAME: p53 regulated PA26 nuclear protein
+CHR: 10
+MAP: 10|<a href="http://www.informatics.jax.org/searches/accession_report.cgi?id=MGI:2155278">MGD</a>|C|
+MAPLINK: default_mouse|Pa26-pending
+BUTTON: mgd.gif
+LINK: http://www.informatics.jax.org/searches/accession_report.cgi?id=MGI:2155278
+>>140743
+LOCUSID: 140743
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Mus musculus
+ACCNUM: BC018219|17390495|na
+TYPE: m
+PROT: AAH18219|17390496
+OFFICIAL_SYMBOL: Rem2
+OFFICIAL_GENE_NAME: rad and gem related GTP binding protein
+STS: 933585|14|180656|na|na|epcr
+BUTTON: mgd.gif
+LINK: http://www.informatics.jax.org/searches/accession_report.cgi?id=MGI:2155260
+>>140744
+LOCUSID: 140744
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Danio rerio
+OFFICIAL_SYMBOL: ckb
+OFFICIAL_GENE_NAME: creatine kinase, brain
+CHR: LG 20
+MAP: LG 20|<a href="http://zfish.uoregon.edu/cgi-bin/ZFIN_jump?record=ZDB-GENE-020103-2">ZFIN</a>|G|
+BUTTON: zfin.gif
+LINK: http://zfish.uoregon.edu/cgi-bin/ZFIN_jump?record=ZDB-GENE-020103-2
+PMID: 11731259
+>>140745
+LOCUSID: 140745
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Danio rerio
+ACCNUM: AF244140|17933072|na
+TYPE: m
+PROT: AAL48193|17933073
+ACCNUM: AF430840|16903871|na
+TYPE: m
+PROT: AAL30666|16903872
+OFFICIAL_SYMBOL: tcf2
+OFFICIAL_GENE_NAME: transcription factor 2
+STS: fb77h02.y1|-|191393|na|na|epcr
+BUTTON: zfin.gif
+LINK: http://zfish.uoregon.edu/cgi-bin/ZFIN_jump?record=ZDB-GENE-020104-1
+PMID: 11731484
+>>140746
+LOCUSID: 140746
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Danio rerio
+ACCNUM: AF398433|15149347|na
+TYPE: m
+PROT: AAK85254|15149348
+ACCNUM: AI666973|4805329|na
+TYPE: m
+OFFICIAL_SYMBOL: iro7
+OFFICIAL_GENE_NAME: iroquois homeobox protein 7
+STS: fc24a10.y1|-|193182|na|na|epcr
+BUTTON: zfin.gif
+LINK: http://zfish.uoregon.edu/cgi-bin/ZFIN_jump?record=ZDB-GENE-020103-1
+PMID: 11731254
+>>140747
+LOCUSID: 140747
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Danio rerio
+ACCNUM: AY057095|17223090|na
+TYPE: m
+PROT: AAL18011|17223091
+OFFICIAL_SYMBOL: cxcr4a
+OFFICIAL_GENE_NAME: chemokine (C-X-C motif) receptor 4a
+CHR: LG 6
+MAP: LG 6|<a href="http://zfish.uoregon.edu/cgi-bin/ZFIN_jump?record=ZDB-GENE-020102-1">ZFIN</a>|G|
+BUTTON: zfin.gif
+LINK: http://zfish.uoregon.edu/cgi-bin/ZFIN_jump?record=ZDB-GENE-020102-1
+PMID: 11731248
+>>140748
+LOCUSID: 140748
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL049648|11602974|na
+TYPE: g
+OFFICIAL_SYMBOL: RPL17P1
+OFFICIAL_GENE_NAME: ribosomal protein L17, pseudogene 1
+ALIAS_SYMBOL: dJ1178H5.1
+CHR: 20
+MAP: 20p11.2|RefSeq|C|
+MAPLINK: default_human_pheno|RPL17P1
+>>140749
+LOCUSID: 140749
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL031663|9408724|na
+TYPE: g
+OFFICIAL_SYMBOL: RPL5P2
+OFFICIAL_GENE_NAME: ribosomal protein L5 pseudogene 2
+ALIAS_SYMBOL: dJ461P17.5
+CHR: 20
+MAP: 20q12|RefSeq|C|
+MAPLINK: default_human_pheno|RPL5P2
+>>140750
+LOCUSID: 140750
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL121586|11345543|na
+TYPE: g
+OFFICIAL_SYMBOL: RPL36P4
+OFFICIAL_GENE_NAME: ribosomal protein L36 pseudogene 4
+ALIAS_SYMBOL: dJ477O4.3
+CHR: 20
+MAP: 20q11.2|RefSeq|C|
+MAPLINK: default_human_pheno|RPL36P4
+>>140751
+LOCUSID: 140751
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL133230|8574103|na
+TYPE: g
+OFFICIAL_SYMBOL: RPL36P2
+OFFICIAL_GENE_NAME: ribosomal protein L36 pseudogene 2
+ALIAS_SYMBOL: dJ530I15.5
+CHR: 20
+MAP: 20q13.1|RefSeq|C|
+MAPLINK: default_human_pheno|RPL36P2
+>>140752
+LOCUSID: 140752
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL031664|4375975|na
+TYPE: g
+OFFICIAL_SYMBOL: RPS27AP2
+OFFICIAL_GENE_NAME: ribosomal protein S27a pseudogene 2
+ALIAS_SYMBOL: dJ531H16.4
+CHR: 20
+MAP: 20p11.2|RefSeq|C|
+MAPLINK: default_human_pheno|RPS27AP2
+>>140753
+LOCUSID: 140753
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL050349|8655549|na
+TYPE: g
+OFFICIAL_SYMBOL: RPL31P2
+OFFICIAL_GENE_NAME: ribosomal protein L31 pseudogene 2
+ALIAS_SYMBOL: dJ553F4.5
+CHR: 20
+MAP: 20q11.2|RefSeq|C|
+MAPLINK: default_human_pheno|RPL31P2
+>>140754
+LOCUSID: 140754
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL117333|7838257|na
+TYPE: g
+OFFICIAL_SYMBOL: RPS3P1
+OFFICIAL_GENE_NAME: ribosomal protein S3 pseudogene 1
+ALIAS_SYMBOL: dJ631M13.3
+CHR: 20
+MAP: 20p12|RefSeq|C|
+MAPLINK: default_human_pheno|RPS3P1
+>>140755
+LOCUSID: 140755
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL031668|11497492|na
+TYPE: g
+OFFICIAL_SYMBOL: RPS2P1
+OFFICIAL_GENE_NAME: ribosomal protein S2, pseudogene 1
+ALIAS_SYMBOL: dJ64K7.1
+CHR: 20
+MAP: 20q11.2|RefSeq|C|
+MAPLINK: default_human_pheno|RPS2P1
+>>140756
+LOCUSID: 140756
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Homo sapiens
+ACCNUM: AL133293|9662889|na
+TYPE: g
+OFFICIAL_SYMBOL: RPL7AL4
+OFFICIAL_GENE_NAME: ribosomal protein L7A-like 4
+ALIAS_SYMBOL: dJ823N20.2
+CHR: 20
+ALIAS_PROT: ribosomal protein L7a-like 4
+MAP: 20q11.2|RefSeq|C|
+MAPLINK: default_human_cyto|RPL7AL4
+>>140757
+LOCUSID: 140757
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL049539|6456855|na
+TYPE: g
+OFFICIAL_SYMBOL: RPL24P1
+OFFICIAL_GENE_NAME: ribosomal protein L24 pseudogene 1
+ALIAS_SYMBOL: dJ836N17.3
+CHR: 20
+MAP: 20q11|RefSeq|C|
+MAPLINK: default_human_pheno|RPL24P1
+>>140758
+LOCUSID: 140758
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL118510|6572394|na
+TYPE: g
+OFFICIAL_SYMBOL: RPS10P2
+OFFICIAL_GENE_NAME: ribosomal protein S10 pseudogene 2
+ALIAS_SYMBOL: dJ858M22.1
+CHR: 20
+MAP: 20p12|RefSeq|C|
+MAPLINK: default_human_pheno|RPS10P2
+>>140759
+LOCUSID: 140759
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL035460|7321166|na
+TYPE: g
+OFFICIAL_SYMBOL: RPL19P1
+OFFICIAL_GENE_NAME: ribosomal protein L19 pseudogene 1
+ALIAS_SYMBOL: dJ860F19.2
+CHR: 20
+MAP: 20p13|RefSeq|C|
+MAPLINK: default_human_pheno|RPL19P1
+>>140760
+LOCUSID: 140760
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL121759|9408123|na
+TYPE: g
+OFFICIAL_SYMBOL: RPL24P2
+OFFICIAL_GENE_NAME: ribosomal protein L24 pseudogene 2
+ALIAS_SYMBOL: dJ872K7.2
+CHR: 20
+MAP: 20p11.2|RefSeq|C|
+MAPLINK: default_human_pheno|RPL24P2
+>>140761
+LOCUSID: 140761
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: pseudogene
+ORGANISM: Homo sapiens
+ACCNUM: AL049868|9663379|na
+TYPE: g
+OFFICIAL_SYMBOL: RPS3P2
+OFFICIAL_GENE_NAME: ribosomal protein S3 pseudogene 2
+ALIAS_SYMBOL: dJ927M24.3
+CHR: 20
+MAP: 20q11.2|RefSeq|C|
+MAPLINK: default_human_pheno|RPS3P2
+>>140762
+LOCUSID: 140762
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: gene with protein product, function known or inferred
+ORGANISM: Mus musculus
+ACCNUM: C87926|na|na
+TYPE: u
+OFFICIAL_SYMBOL: C87926
+OFFICIAL_GENE_NAME: cDNA sequence, C87926
+CHR: 10
+STS: 304969|10|208517|na|na|epcr
+ALIAS_PROT: 79.ml.H11-L
+MAP: 10|<a href="http://www.informatics.jax.org/searches/accession_report.cgi?id=MGI:2155334">MGD</a>|C|
+MAPLINK: default_mouse|C87926
+BUTTON: mgd.gif
+LINK: http://www.informatics.jax.org/searches/accession_report.cgi?id=MGI:2155334
+>>140763
+LOCUSID: 140763
+LOCUS_CONFIRMED: yes
+LOCUS_TYPE: phenotype only
+ORGANISM: Homo sapiens
+PREFERRED_SYMBOL: CMT2F
+PREFERRED_GENE_NAME: Charcot-Marie-Tooth disease, axonal, F
+CHR: 7
+OMIM: 606595
+MAP: 7q11-q21|<a href="http://www.ncbi.nlm.nih.gov/entrez/dispomim.cgi?id=606595">OMIM</a>|C|
+MAPLINK: default_human_cyto|CMT2F
+>>
+

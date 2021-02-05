@@ -1,0 +1,38 @@
+# This parser is for Entrez Gene gene2go.gz
+%goHash = ();
+%baseHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    if($vals[1] ne "NA"){
+        if(exists $baseHash{$vals[1]}){
+	    $baseHash{$vals[1]} =  $baseHash{$vals[1]} . ";" . $vals[0]; 
+        }else{
+            $baseHash{$vals[1]} = $vals[0];
+    	}
+    }
+}
+close BASE;
+
+while( <DATA> ) {
+
+    @lines = split("\t|\n");
+    foreach $x (@lines) {
+        if(exists $baseHash{$lines[1]}){
+            if(exists $goHash{$lines[2]}){
+                $goHash{$lines[2]} = $goHash{$lines[2]} . ";" . 
+                                                $baseHash{$lines[1]};
+	    }else{
+	        $goHash{$lines[2]} = $baseHash{$lines[1]};
+	    }
+        }
+    }
+}
+
+for $x (keys %goHash ){
+    @temp = split/,/, $goHash{$x};
+    print OUT $x, "\t", $goHash{$x},"\t",($#temp +1),"\n";
+}
+close DATA;
+
+

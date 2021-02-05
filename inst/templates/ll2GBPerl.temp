@@ -1,0 +1,92 @@
+#PERLLOC#
+
+# A template perl script for parsing locusLink and UniGene data to map
+# LocusLink ids to GenBank Accession numbers using source files from
+# both LocusLink and UniGene.
+
+open(DATA, "<#UGFILE#") || die "Can not open #UGFILE#";
+open(OUT, ">#OUTFILE#") || die "Can not open #OUTFILE#";
+    
+%outHash = ();
+
+$/ = "//";
+
+while( <DATA> ) {
+    $locusid = "";
+    $gb = "";
+    @lines = split("\n");   
+
+    foreach $x (@lines) {
+        if( $x =~ /^LOCUSLINK/ ) {
+	    #@temp = split/\s+|;/, $x;
+            @temp = split/LOCUSLINK/, $x;
+	    ($locusid = $temp[1]) =~ s/\s+//g;
+	    next;
+	}
+
+	if( $x =~ /^SEQUENCE\s+ACC=([0-9a-zA-Z]*)[\.]?.*;\s+.*$/x  ) {
+                if($1 ne "none"){
+	    	    if($gb eq ""){
+                        $gb = $1; 
+                    }else{
+                        $gb = $gb . ";" . $1;   
+	            }
+                }
+	        next;
+   	}
+    }
+    if(	$locusid ne ""){
+        @temp = split/;/, $locusid;
+        foreach $x (@temp){
+            if (exists $outHash{$x}){
+	        $outHash{$x} = $outHash{$x} . ";" . $gb;
+            }else{
+                $outHash{$x} = $gb;
+            } 
+        }
+   }
+}
+
+close DATA; 
+open(DATA2, "<#LLFILE#") || die "Can not open #LLFILE#";
+
+while( <DATA> ) { 
+    @lines = split("\t|\n");  
+
+    if($lines[0] eq "#ORGCODE#"){
+        if($lines[5] ne "-"){
+            @temp = split/\./, $lines[5];
+            if(exists $outHash{$lines[1]}){
+                $outHash{$lines[1]} = $outHash{$lines[1]} . ";" . $temp[0];
+            }else{
+                $outHash{$lines[1]} = $temp[0];
+            }
+        }
+        if($lines[7] ne "-"){
+            @temp = split/\./, $lines[7];
+            if(exists $outHash{$lines[1]}){
+                $outHash{$lines[1]} = $outHash{$lines[1]} . ";" . $temp[0];
+            }else{
+                $outHash{$lines[1]} = $temp[0];
+            }
+        }   
+    }
+} 
+
+close DATA2;
+
+foreach $x (keys %outHash){
+    @temp = split/;/, $outHash{$x};
+    %seen = ();
+    $uniq = "";
+    foreach $item (@temp){
+        if($item ne "none"){
+            if($uniq ne ""){
+                $uniq = $uniq . ";" . $item unless($seen{$item})++;
+            }else{
+                $uniq = $item;
+            }
+        }
+    }
+    print OUT $x, "\t", $uniq, "\n";
+}

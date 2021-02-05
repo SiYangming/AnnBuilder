@@ -1,0 +1,25 @@
+# This parser is for parsing Entrez Gene gene2pubmed.gz file to get the 
+# mappings between Gene ids and PubMed ids 
+
+%pmidHash = ();
+while( <DATA> ) {
+    @lines = split("\t|\n");
+    if($lines[0] eq "#ORGCODE#"){
+        if(exists $pmidHash{$lines[1]}){
+            $pmidHash{$lines[1]} = $pmidHash{$lines[1]} . ";" . $lines[2];
+        }else{
+            $pmidHash{$lines[1]} = $lines[2];   
+	}		
+    }
+}
+
+close DATA;
+
+foreach $x (keys %pmidHash){
+    print OUT $x, "\t", $pmidHash{$x}, "\n";
+}
+
+
+
+
+

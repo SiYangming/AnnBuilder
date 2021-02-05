@@ -1,0 +1,38 @@
+
+%goHash = ();
+%baseHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    if($vals[2] ne "NA"){
+        if(exists $baseHash{$vals[2]}){
+	    $baseHash{$vals[2]} =  $baseHash{$vals[2]} . ";" . $vals[0]; 
+        }else{
+            $baseHash{$vals[2]} = $vals[0];
+    	}
+    }
+} 
+close BASE;
+
+while( <DATA> ) {
+
+    @lines = split("\t|\n");
+    foreach $x (@lines) {
+        if(exists $baseHash{$lines[1]}){
+            if(exists $goHash{$lines[2]}){
+                $goHash{$lines[2]} = $goHash{$lines[2]} . ";" . 
+                                                $baseHash{$lines[1]} . "@" . $lines[3];
+	    }else{
+	        $goHash{$lines[2]} = $baseHash{$lines[1]}. "@" . $lines[3];
+	    }
+        }
+    }
+}
+
+for $x (keys %goHash ){
+    @temp = split/;/, $goHash{$x};
+    print OUT $x, "\t", $goHash{$x},"\t",($#temp +1),"\n";
+}
+close DATA;  
+
+

@@ -1,0 +1,25 @@
+# This parser is for parsing Entrez Gene gene2unigene file to get the 
+# mappings between Gene ids and Unigene ids for LLMappings packages 
+ 
+%unigeneHash = ();
+
+while( <DATA> ) {
+    @lines = split("\t|\n");
+
+    if(exists $unigeneHash{$lines[0]}){
+        $unigeneHash{$lines[0]} = $unigeneHash{$lines[0]} . ";" . $lines[1];
+    }else{
+        $unigeneHash{$lines[0]} = $lines[1];		
+    }
+}
+
+close DATA;
+
+foreach $x (keys %unigeneHash){
+    print OUT $x, "\t", $unigeneHash{$x}, "\n";
+}
+
+
+
+
+

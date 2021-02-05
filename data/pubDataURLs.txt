@@ -1,0 +1,11 @@
+## XXX: wget is sensitive to the trailing slashes!
+name url
+EG ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/
+GEO http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi? 
+GO http://www.godatabase.org/dev/database/archive/latest/
+GP  ftp://hgdownload.cse.ucsc.edu/goldenPath/currentGenomes/
+HG ftp://ftp.ncbi.nih.gov/pub/HomoloGene/old/
+KEGG ftp://ftp.genome.ad.jp/pub/kegg/tarfiles/pathway.tar.gz
+LL ftp://ftp.ncbi.nih.gov/refseq/LocusLink/
+UG ftp://ftp.ncbi.nih.gov/repository/UniGene/
+YG ftp://genome-ftp.stanford.edu/pub/yeast/data_download/

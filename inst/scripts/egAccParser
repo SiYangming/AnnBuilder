@@ -1,0 +1,64 @@
+# This parser is for parsing Entrez Gene gene2accession.gz file to get the 
+# mappings between probe ids of a base file and Gene ids 
+
+%affyHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    @gbs = split /;/, @vals[1];
+    foreach $x (@gbs){
+        if (exists $affyHash{$x}){
+	    $affyHash{$x} = $affyHash{$x} . "," . $vals[0];
+        }else{   
+            $affyHash{$x} = $vals[0];
+        }
+    }
+}
+close BASE;
+
+%geneHash = ();
+
+while( <DATA> ) {
+
+    @lines = split("\t");
+
+    if($lines[5] ne "-"){
+        @temp = split/\./, $lines[5];
+        if(exists $affyHash{$temp[0]}){
+	    @affys = split/,/, $affyHash{$temp[0]};
+            foreach $x (@affys){
+                if(exists $geneHash{$x}){
+                    $geneHash{$x} = $geneHash{$x} . ";" . $lines[1];
+                }else{
+                    $geneHash{$x} = $lines[1];
+                }    
+	    }	
+            next;
+        }	
+    }
+    if($lines[7] ne "-"){
+        @temp = split/\./, $lines[7];
+         if(exists $affyHash{$temp[0]}){
+	    @affys = split/,/, $affyHash{$temp[0]};
+            foreach $x (@affys){
+                if(exists $geneHash{$x}){
+                    $geneHash{$x} = $geneHash{$x} . ";" . $lines[1];
+                }else{
+                    $geneHash{$x} = $lines[1];
+                }    
+	    }	
+            next;
+        }        
+    }  
+}
+
+close DATA;
+
+foreach $x (keys %geneHash){
+    print OUT $x, "\t", $geneHash{$x}, "\n";
+}
+
+
+
+
+

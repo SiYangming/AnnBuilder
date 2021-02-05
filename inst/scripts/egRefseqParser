@@ -1,0 +1,57 @@
+# This parser is for parsing Entrez Gene gene2refseq.gz file to get the 
+# mappings between gene ids and refseq ids 
+
+%affyHash = ();
+%refHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    @gbs = split /;/, @vals[2];
+    foreach $x (@gbs){
+        if (exists $affyHash{$x}){
+	    $affyHash{$x} = $affyHash{$x} . "," . $vals[0];
+        }else{   
+            $affyHash{$x} = $vals[0];
+        }
+    }
+}
+close BASE;
+
+while( <DATA> ) {
+    @lines = split("\t");
+    $ref = "";
+    if($lines[5] ne "-"){
+        @temp = split/\./, $lines[5];
+        $ref = $temp[0];     
+    }
+    if($lines[7] ne "-"){
+        @temp = split/\./, $lines[7];
+        if($ref ne ""){
+            $ref = $ref . ";" . $temp[0];
+        }else{
+            $ref = $temp[0]; 
+        }
+    }
+
+    if(exists $affyHash{$lines[1]}){
+	@affys = split/,/, $affyHash{$lines[1]};
+        foreach $x (@affys){
+            if(exists $refHash{$x}){
+                $refHash{$x} = $refHash{$x} . ";" . $ref;
+            }else{
+                $refHash{$x} = $ref;
+            }    
+	}		
+    }
+}
+
+close DATA;
+
+foreach $x (keys %refHash){
+    print OUT $x, "\t", $refHash{$x}, "\n";
+}
+
+
+
+
+

@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE go:go PUBLIC "-//Gene Ontology//Custom XML/RDF Version 2.0//EN" "http://www.geneontology.org/xml-dtd/08022001/go.dtd">
+
+<go:go xmlns:go="http://www.geneontology.org/dtds/go.dtd#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <go:version timestamp="Tue Dec  4 21:54:31 2001" />
+    <rdf:RDF>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0003673" n_associations="0">
+            <go:accession>GO:0003673</go:accession>
+            <go:name>Gene_Ontology</go:name>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0003674" n_associations="0">
+            <go:accession>GO:0003674</go:accession>
+            <go:name>molecular_function</go:name>
+            <go:definition>The action characteristic of a gene product.</go:definition>
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0003673" />
+            <go:dbxref>
+                <go:database_symbol>GO</go:database_symbol>
+                <go:reference>curators</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0015643" n_associations="0">
+            <go:accession>GO:0005209</go:accession>
+            <go:name>anti-toxin</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0003674" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0015644" n_associations="0">
+            <go:accession>GO:000006953</go:accession>
+            <go:name>lipoprotein anti-toxin</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0005209" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008435" n_associations="0">
+            <go:accession>GO:0001320</go:accession>
+            <go:name>anticoagulant</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0006953" />
+            <go:dbxref>
+                <go:database_symbol>InterPro</go:database_symbol>
+                <go:reference>IPR002392 Annexin type V</go:reference>
+            </go:dbxref>
+            <go:dbxref>
+                <go:database_symbol>InterPro</go:database_symbol>
+                <go:reference>IPR002390 Annexin type III</go:reference>
+            </go:dbxref>
+            <go:dbxref>
+                <go:database_symbol>InterPro</go:database_symbol>
+                <go:reference>IPR002389 Annexin type II</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0016172" n_associations="0">
+            <go:accession>GO:0004060</go:accession>
+            <go:name>antifreeze</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0001320" />
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0008320" />
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0005222" />
+            <go:dbxref>
+                <go:database_symbol>InterPro</go:database_symbol>
+                <go:reference>IPR000029 Type III antifreeze protein</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0006886" n_associations="0">
+            <go:accession>GO:0016173</go:accession>
+            <go:name>ice nucleation inhibitor</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0004060" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0016209" n_associations="0">
+            <go:accession>GO:0016209</go:accession>
+            <go:name>antioxidant</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0003674" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0004362" n_associations="0">
+            <go:accession>GO:0004866</go:accession>
+            <go:name>glutathione reductase (NADPH)</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0005209" />
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0016654" />
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0015933" />
+            <go:dbxref>
+                <go:database_symbol>ec</go:database_symbol>
+                <go:reference>1.6.4.2</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0015933" n_associations="0">
+            <go:accession>GO:0008320</go:accession>
+            <go:name>flavin-containing electron transporter</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0004866" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0016654" n_associations="0">
+            <go:accession>GO:0005222</go:accession>
+            <go:name>oxidoreductase, acting on NADH or NADPH, disulfide as acceptor</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0005209" />
+            <go:dbxref>
+                <go:database_symbol>ec</go:database_symbol>
+                <go:reference>1.6.4.-</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005575" n_associations="0">
+            <go:accession>GO:0004867</go:accession>
+            <go:name>cellular_component</go:name>
+            <go:definition>The part of a cell of which a gene product is a component; for purpose of GO includes the extracellular environment of cells; a gene product may be a component of one or more parts of a cell.</go:definition>
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005222" />
+            <go:dbxref>
+                <go:database_symbol>GO</go:database_symbol>
+                <go:reference>curators</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005623" n_associations="0">
+            <go:accession>GO:0005623</go:accession>
+            <go:name>cell</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0005575" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005627" n_associations="0">
+            <go:accession>GO:0005627</go:accession>
+            <go:name>ascus</go:name>
+            <go:definition>A sac-like fruiting body (ascomycete fungi); contains ascospores (typically eight in number).</go:definition>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0005623" />
+            <go:dbxref>
+                <go:database_symbol>isbn</go:database_symbol>
+                <go:reference>0198547684</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005633" n_associations="0">
+            <go:accession>GO:0005633</go:accession>
+            <go:name>ascus lipid droplet</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0005811" />
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005627" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005811" n_associations="0">
+            <go:accession>GO:0005811</go:accession>
+            <go:name>lipid particle</go:name>
+            <go:synonym>lipid droplet</go:synonym>
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005737" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005628" n_associations="0">
+            <go:accession>GO:0005628</go:accession>
+            <go:name>prospore membrane</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0016020" />
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005627" />
+        </go:term>
+	        <go:term rdf:about="http://www.geneontology.org/go#GO:0015629" n_associations="0">
+            <go:accession>GO:0015629</go:accession>
+            <go:name>actin cytoskeleton</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0005856" />
+            <go:dbxref>
+                <go:database_symbol>InterPro</go:database_symbol>
+                <go:reference>IPR004000 Actin and actin-like</go:reference>
+            </go:dbxref>
+            <go:dbxref>
+                <go:database_symbol>InterPro</go:database_symbol>
+                <go:reference>IPR002097 Profilin/allergen</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005938" n_associations="0">
+            <go:accession>GO:0005938</go:accession>
+            <go:name>cell cortex</go:name>
+            <go:definition>The region of a cell that lies just beneath the plasma membrane and often contains a network of actin filaments and associated proteins.</go:definition>
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005622" />
+            <go:dbxref>
+                <go:database_symbol>isbn</go:database_symbol>
+                <go:reference>0815316194</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0000144" n_associations="0">
+            <go:accession>GO:0000144</go:accession>
+            <go:name>septin ring (sensu Saccharomyces)</go:name>
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0000142" />
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0005940" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005940" n_associations="0">
+            <go:accession>GO:0005940</go:accession>
+            <go:name>septin ring</go:name>
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005938" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0000133" n_associations="0">
+            <go:accession>GO:0000133</go:accession>
+            <go:name>polarisome</go:name>
+            <go:definition>Protein complex that helps determine cell polarity, first described in yeast.</go:definition>
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005935" />
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005937" />
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005938" />
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005934" />
+            <go:dbxref>
+                <go:database_symbol>pmid</go:database_symbol>
+                <go:reference>9632790</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005934" n_associations="0">
+            <go:accession>GO:0005934</go:accession>
+            <go:name>bud tip</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0000134" />
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005933" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005937" n_associations="0">
+            <go:accession>GO:0005937</go:accession>
+            <go:name>shmoo tip</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0000134" />
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005936" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0000267" n_associations="0">
+            <go:accession>GO:0000267</go:accession>
+            <go:name>cell fraction</go:name>
+            <go:definition>A generic term for parts of cells prepared by disruptive biochemical techniques.</go:definition>
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0005623" />
+            <go:dbxref>
+                <go:database_symbol>FB</go:database_symbol>
+                <go:reference>ma</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005626" n_associations="0">
+            <go:accession>GO:0005626</go:accession>
+            <go:name>insoluble fraction</go:name>
+            <go:definition>That fraction of cells, prepared by disruptive biochemical methods, that is not soluble in water.</go:definition>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0000267" />
+            <go:dbxref>
+                <go:database_symbol>FB</go:database_symbol>
+                <go:reference>ma</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0005624" n_associations="0">
+            <go:accession>GO:0005624</go:accession>
+            <go:name>membrane fraction</go:name>
+            <go:definition>That fraction of cells, prepared by disruptive biochemical methods, that includes the plasma and other membranes.</go:definition>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0000267" />
+            <go:dbxref>
+                <go:database_symbol>FB</go:database_symbol>
+                <go:reference>ma</go:reference>
+            </go:dbxref>
+        </go:term>
+	        <go:term rdf:about="http://www.geneontology.org/go#GO:0008150" n_associations="0">
+            <go:accession>GO:0008150</go:accession>
+            <go:name>biological_process</go:name>
+            <go:definition>A phenomenon marked by changes that lead to a particular result, mediated by one or more gene products.</go:definition>
+            <go:part-of rdf:resource="http://www.geneontology.org/go#GO:0003673" />
+            <go:dbxref>
+                <go:database_symbol>GO</go:database_symbol>
+                <go:reference>curators</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007610" n_associations="0">
+            <go:accession>GO:0007610</go:accession>
+            <go:name>behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0008150" />
+            <go:dbxref>
+                <go:database_symbol>SP_KW</go:database_symbol>
+                <go:reference>Behavior</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008044" n_associations="0">
+            <go:accession>GO:0008044</go:accession>
+            <go:name>adult behavior (sensu Insecta)</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007610" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008343" n_associations="0">
+            <go:accession>GO:0008343</go:accession>
+            <go:name>adult feeding behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0008044" />
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007631" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007631" n_associations="0">
+            <go:accession>GO:0007631</go:accession>
+            <go:name>feeding behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007610" />
+            <go:dbxref>
+                <go:database_symbol>InterPro</go:database_symbol>
+                <go:reference>IPR001704 Prepro-orexin</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008341" n_associations="0">
+            <go:accession>GO:0008341</go:accession>
+            <go:name>response to cocaine</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0008044" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007635" n_associations="0">
+            <go:accession>GO:0007635</go:accession>
+            <go:name>chemosensory behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007610" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007636" n_associations="0">
+            <go:accession>GO:0007636</go:accession>
+            <go:name>chemosensory jump behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007635" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007637" n_associations="0">
+            <go:accession>GO:0007637</go:accession>
+            <go:name>proboscis extension reflex</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007635" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008342" n_associations="0">
+            <go:accession>GO:0008342</go:accession>
+            <go:name>larval feeding behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007631" />
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007627" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007627" n_associations="0">
+            <go:accession>GO:0007627</go:accession>
+            <go:name>larval behavior (sensu Insecta)</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007610" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007625" n_associations="0">
+            <go:accession>GO:0007625</go:accession>
+            <go:name>grooming behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007610" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007611" n_associations="0">
+            <go:accession>GO:0007611</go:accession>
+            <go:name>learning and memory</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007610" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007612" n_associations="0">
+            <go:accession>GO:0007612</go:accession>
+            <go:name>learning</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007611" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008306" n_associations="0">
+            <go:accession>GO:0008306</go:accession>
+            <go:name>associative learning</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007612" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008355" n_associations="0">
+            <go:accession>GO:0008355</go:accession>
+            <go:name>olfactory learning</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007612" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008542" n_associations="0">
+            <go:accession>GO:0008542</go:accession>
+            <go:name>visual learning</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007612" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007613" n_associations="0">
+            <go:accession>GO:0007613</go:accession>
+            <go:name>memory</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007611" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007615" n_associations="0">
+            <go:accession>GO:0007615</go:accession>
+            <go:name>anesthesia-resistant memory</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007613" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007616" n_associations="0">
+            <go:accession>GO:0007616</go:accession>
+            <go:name>long-term memory</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007613" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007614" n_associations="0">
+            <go:accession>GO:0007614</go:accession>
+            <go:name>short-term memory</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007613" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007626" n_associations="0">
+            <go:accession>GO:0007626</go:accession>
+            <go:name>locomotory behavior</go:name>
+            <go:definition>The abilities associated with normal movement, including both general motion and specifically coordinated patterns of activity.</go:definition>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007610" />
+            <go:dbxref>
+                <go:database_symbol>WB</go:database_symbol>
+                <go:reference>ems</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008344" n_associations="0">
+            <go:accession>GO:0008344</go:accession>
+            <go:name>adult locomotory behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007626" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007628" n_associations="0">
+            <go:accession>GO:0007628</go:accession>
+            <go:name>adult walking behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0008344" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007629" n_associations="0">
+            <go:accession>GO:0007629</go:accession>
+            <go:name>flight behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0008344" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007630" n_associations="0">
+            <go:accession>GO:0007630</go:accession>
+            <go:name>jump response</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0008344" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008345" n_associations="0">
+            <go:accession>GO:0008345</go:accession>
+            <go:name>larval locomotory behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007626" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0008346" n_associations="0">
+            <go:accession>GO:0008346</go:accession>
+            <go:name>larval walking behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0008345" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0040011" n_associations="0">
+            <go:accession>GO:0040011</go:accession>
+            <go:name>locomotion</go:name>
+            <go:definition>Performing basic movements of any kind, whether normal or not.</go:definition>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007626" />
+            <go:dbxref>
+                <go:database_symbol>WB</go:database_symbol>
+                <go:reference>ems</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0040012" n_associations="0">
+            <go:accession>GO:0040012</go:accession>
+            <go:name>regulation of locomotion</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0040011" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0040013" n_associations="0">
+            <go:accession>GO:0040013</go:accession>
+            <go:name>negative regulation of locomotion</go:name>
+            <go:definition>Controlling the locomotion of an organism so that it occurs at its normal intensity and frequency rather than at an abnormally large intensity or frequency.</go:definition>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0040012" />
+            <go:dbxref>
+                <go:database_symbol>WB</go:database_symbol>
+                <go:reference>ems</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0040017" n_associations="0">
+            <go:accession>GO:0040017</go:accession>
+            <go:name>positive regulation of locomotion</go:name>
+            <go:definition>Controlling the locomotion of an organism so that it occurs at normal intensity and frequency rather than at an abnormally low intensity or frequency.</go:definition>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0040012" />
+            <go:dbxref>
+                <go:database_symbol>WB</go:database_symbol>
+                <go:reference>ems</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007638" n_associations="0">
+            <go:accession>GO:0007638</go:accession>
+            <go:name>mechanosensory behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007610" />
+            <go:dbxref>
+                <go:database_symbol>SP_KW</go:database_symbol>
+                <go:reference>Dejerine-Sottas syndrome</go:reference>
+            </go:dbxref>
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0019098" n_associations="0">
+            <go:accession>GO:0019098</go:accession>
+            <go:name>reproductive behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0007610" />
+        </go:term>
+        <go:term rdf:about="http://www.geneontology.org/go#GO:0007617" n_associations="0">
+            <go:accession>GO:0007617</go:accession>
+            <go:name>mating behavior</go:name>
+            <go:isa rdf:resource="http://www.geneontology.org/go#GO:0019098" />
+        </go:term>
+    </rdf:RDF>
+</go:go>

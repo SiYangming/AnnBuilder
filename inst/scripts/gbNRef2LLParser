@@ -1,0 +1,62 @@
+# Maps probe ids to LocucLink ids through RefSeq ids using ll_tmpl.gz
+%affyHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    @gbs = split /;/, @vals[1]; 
+    foreach $x (@gbs){
+        ($stripted = $x) =~ s/\s+//;
+        if (exists $affyHash{$stripted}){
+	    $affyHash{$stripted} = $affyHash{$stripted} . "," . $vals[0]
+        }else{   
+            $affyHash{$stripted} = $vals[0];
+        }
+    }
+}
+close BASE; 
+ 
+$/ = ">>";
+
+while( <DATA> ) {
+    $locusid = "NA";
+    @lines = split("\n");
+
+    foreach $x (@lines) {
+	if( $x =~ /^LOCUSID/ ) {
+	    @temp = split/\s+/, $x;
+		$locusid = $temp[1];
+		next;
+	}
+
+        if( $x =~ /^NM:|^NP:|^NC:|^XM:|^XR:|^XP:|^NG/){
+            @temp = split/\s+/, $x;
+            @temp = split/\|/, $temp[1];
+            if(exists $affyHash{$temp[0]}){
+		@affys = split/,/, $affyHash{$temp[0]};
+		foreach $x (@affys){    
+	            print OUT $x, "\t", $locusid, "\n";
+		}
+	    }
+            next;
+	}
+
+	if( $x =~ /^ACCNUM/ ) {
+	    @temp = split/\|/, $x;
+            @temp = split/\s+/, $temp[0]; 
+	    if(exists $affyHash{$temp[1]}){
+		@affys = split/,/, $affyHash{$temp[1]};
+		foreach $x (@affys){    
+	            print OUT $x, "\t", $locusid, "\n";
+		}
+	    }
+	    next;
+	}
+    }
+}
+
+close DATA;
+
+
+
+
+

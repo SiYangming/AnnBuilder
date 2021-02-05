@@ -1,0 +1,193 @@
+
+%outhash = ();
+%llhash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    if($vals[1] eq "NA"){
+        $outhash{$vals[0]} = "NA". "\t". $vals[1]. "\t".
+                  "NA". "\t". "NA". "\t". "NA". "\t". "NA". "\t".
+                  "NA". "\t". "NA". "\t". "NA". "\t". "NA". "\t".
+                  "NA". "\t". "NA". "\t". "NA". "\t". "NA";
+    }else{        
+        if (exists $llhash{$vals[1]}){
+            $llhash{$vals[1]} = $llhash{$vals[1]} . ";" . $vals[0];
+        }else{
+            $llhash{$vals[1]} = $vals[0];
+        }
+    }
+#    $probehash{$vals[0]} = $vals[1];
+}
+close BASE; 
+
+$/ = ">>";
+%outFile;
+while( <DATA> ) {
+    $outFile{"Probe"} = "NA";
+    $outFile{"Locus"} = "NA";
+    $outFile{"Acc"} = "NA";
+    $outFile{"Symbol"} = "NA";
+    $outFile{"Name"} = "NA";
+    $outFile{"Unigene"} = "NA";
+    $outFile{"Chrom"} = "NA";
+    $outFile{"Cyto"} = "NA";
+    $outFile{"Pmid"} = "NA";
+    $outFile{"Grif"} = "NA";
+    $outFile{"Sumfun"} = "NA";
+    $outFile{"Go"} = "NA";
+    $outFile{"RefSeq"} = "NA";
+    $outFile{"Omim"} = "NA";
+
+    $keep = 0;
+
+    @lines = split("\n");
+
+    foreach $x (@lines) {
+
+	if( $x =~ /^LOCUSID:/ ) {
+	    @temp = split/\s+/, $x;
+	    if(exists $llhash{$temp[1]}){
+	        $outFile{"Probe"} = $llhash{$temp[1]};
+	        $outFile{"Locus"} = $temp[1];  
+	        $keep = 1;
+	    }
+	    next;
+	}
+	if($keep == 1){
+	    if( $x =~ /^OFFICIAL_SYMBOL:/ ) {
+		@temp = split/\s+/, $x;
+		$outFile{"Symbol"} = $temp[1];
+		next;
+	    }
+	    if( $x =~ /^PREFERRED_SYMBOL:/ ) {
+		@temp = split/\s+/, $x;
+		$outFile{"Symbol"} = $temp[1];
+		next;
+	    }
+	    if( $x =~ /^OFFICIAL_GENE_NAME:/ ) {
+		@temp = split/:/, $x;
+		$outFile{"Name"} = $temp[1];
+		next;
+	    }
+	    if( $x =~ /^PREFERRED_GENE_NAME:/ ) {
+		@temp = split/:/, $x;
+		$outFile{"Name"} = $temp[1];
+		next;
+	    }
+            if( $x =~/^ACCNUM:/){
+                @temp = split/\s+/, $x;
+                @temp = split/\|/, $temp[1];
+                if($outFile{"Acc"} ne "NA"){
+		    $outFile{"Acc"} = $outFile{"Acc"} .  
+					";" . $temp[1];  
+		}else{
+		    $outFile{"Acc"} = $temp[1]; 
+		}
+		next; 
+            }
+	    if( $x =~ /^CHR:/ ) {
+		@temp = split/\s+/, $x;
+		if($outFile{"Chrom"} ne "NA"){
+		    $outFile{"Chrom"} = $outFile{"Chrom"} .  
+					";" . $temp[1];  
+		}else{
+		    $outFile{"Chrom"} = $temp[1];
+		}
+                next;
+	    }
+	    if( $x =~ /^UNIGENE:/ ) {
+		@temp = split/\s+/, $x;
+		$outFile{"Unigene"} = $temp[1];
+                next;
+	    }
+	    if( $x =~ /^MAP:/ ){
+		@temp = split/\|/, $x;
+                @temp = split/\s+/, $temp[0];
+		if($outFile{"Cyto"} ne "NA"){
+		    $outFile{"Cyto"} = $outFile{"Cyto"} .  
+					";" . $temp[1];  
+		}else{
+		    $outFile{"Cyto"} = $temp[1]; 
+		}
+		next;
+	    }
+            if( $x =~ /^PMID:/ ) {
+		@temp = split/\s+/, $x;
+                $temp[1] =~ s/,/;/g;
+		$outFile{"Pmid"} = $temp[1];
+                next;
+	    }
+	    if( $x =~/^GRIF:/){
+		@temp = split/\|/, $x;
+                @temp = split/\s+/, $temp[0];
+		$outFile{"Grif"} = $temp[1];
+		next;
+	    }
+	    if( $x =~ /^SUMFUNC:/ ) {
+		@temp = split/:/, $x;
+                @temp = split/\|/, $temp[1];
+		$outFile{"Sumfun"} = $temp[0];
+                next;
+	    }
+	    if( $x =~ /^GO:/ ) {
+		@temp = split/\|/, $x;
+		if($outFile{"Go"} ne "NA"){
+		    $outFile{"Go"} = $outFile{"Go"} .  
+					";" . $temp[3] . "@" . $temp[2];  
+		}else{
+		    $outFile{"Go"} = $temp[3] . "@" . $temp[2]; 
+		}
+		next;
+	    }
+            if( $x =~ /^OMIM:/ ){
+                @temp = split/\s+/, $x;
+		if($outFile{"Omim"} ne "NA"){
+		    $outFile{"Omim"} = $outFile{"Omim"} .  
+					";" . $temp[1];  
+		}else{
+		    $outFile{"Omim"} = $temp[1]; 
+		}
+		next;
+	    }
+            if( $x =~ /^NM:|^NP:|^NC:|^XM:|^XR:|^XP:|^NG/){
+            	@temp = split/\s+|\|/, $x;
+                #@temp = split/\|/, $temp[1];
+                if($outFile{"RefSeq"} ne "NA"){
+		    $outFile{"RefSeq"} = $outFile{"RefSeq"} .  
+					";" . $temp[1];    
+	        }else{
+                    $outFile{"RefSeq"} = $temp[1];
+                }  
+                next;
+	    }
+	}
+    }
+    if($keep == 1){
+        &writeOut;
+    }
+}
+
+close DATA;
+
+sub writeOut {
+    @probes = split/;/, $outFile{"Probe"};
+    foreach $x (@probes){
+        print OUT $x, "\t", $outFile{"Acc"}, "\t", $outFile{"Locus"}, 
+	"\t", $outFile{"Unigene"}, "\t", $outFile{"Name"}, "\t",
+        $outFile{"Symbol"}, "\t", $outFile{"Chrom"}, "\t", 
+        $outFile{"Cyto"}, "\t", $outFile{"Pmid"}. "\t",
+        $outFile{"Grif"}, "\t", $outFile{"Sumfun"}, "\t",
+        $outFile{"Go"}, "\t", $outFile{"Omim"}, "\t",
+        $outFile{"RefSeq"}, "\n";
+    }
+}
+
+
+
+
+
+
+
+
+
+

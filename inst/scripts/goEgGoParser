@@ -1,0 +1,26 @@
+# This parser is for parsing Entrez Gene gene2go.gz file to get the 
+# mappings between gene ids and go ids 
+
+%goHash = ();
+while( <DATA> ) {
+    @lines = split("\t");
+    if($lines[1] ne ""){
+        if(exists $goHash{$lines[1]}){
+            $goHash{$lines[1]} = $goHash{$lines[1]} . ";" . $lines[2] .
+                                 "@" . $lines[3];
+        }else{
+            $goHash{$lines[1]} = $lines[2] . "@" . $lines[3]; 		
+        }
+    }
+}
+
+close DATA;
+
+foreach $x (keys %goHash){
+    print OUT $x, "\t", $goHash{$x}, "\n";
+}
+
+
+
+
+

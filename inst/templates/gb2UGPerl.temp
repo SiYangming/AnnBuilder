@@ -1,0 +1,95 @@
+#PERLLOC#
+
+# A perl template file for parsing the LocusLink and UniGene source
+# file to map GenBank Accession numbers to LocusLink ids.
+
+open(DATA, "<#UGFILE#") || die "Can not open #UGFILE#";
+open(OUT, ">#OUTFILE#") || die "Can not open #OUTFILE#";
+
+%outhash = ();
+
+$/ = "//";
+
+while( <DATA> ) {
+    $ug = "NA";
+    $gb = "NA";
+    @lines = split("\n");   
+
+    foreach $x (@lines) {
+        if( $x =~ /^ID/ ) {
+	    #@temp = split/\s+|;/, $x;
+            @temp = split/ID/, $x;
+	    ($ug = $temp[1]) =~ s/\s+//g;
+	    next;
+	}
+
+	if( $x =~ /^SEQUENCE\s+ACC=([0-9a-zA-Z]*)[\.]?.*;\s+.*$/x  ) {
+             if($ug ne "NA"){
+	         if (exists $outhash{$1}){
+	             $outhash{$1} = $outhash{$1} . ";" . $ug;
+                 }else{
+                     $outhash{$1} = $ug;
+                 }
+             }  
+	     next;
+   	}
+    }
+}
+
+close DATA;
+open(DATA2, "<#LLFILE#") || die "Can not open #LLFILE#";
+
+$/ = ">>";
+
+while( <DATA2> ) {
+    $ug = "NA";
+    $orgFound = "FALSE";
+
+    @lines = split("\n");
+    foreach $x (@lines) {
+        if( $x =~ /^UNIGENE/ ) {
+            @temp = split/\s+/, $x;
+                $ug = $temp[1];
+                next;
+        }
+
+        if( $x =~ /^ORGANISM/){
+            @temp = split/:\s+/, $x;
+            if($temp[1] eq "#ORGANISM#"){
+                $orgFound = "TRUE";
+            }
+            next;
+        }
+
+        if($orgFound eq "TRUE"){
+            if( $x =~ /^ACCNUM/ ) {
+                @temp = split/\|/, $x;
+                @temp = split/\s+/, $temp[0]; 
+                if (exists $outhash{$temp[1]}){
+	            $outhash{$temp[1]} = $outhash{$temp[1]} . ";" . $ug;
+                }else{
+                    $outhash{$temp[1]} = $ug;
+                }
+                next;
+            }
+        }
+    }
+}
+
+close DATA2;
+
+foreach $x (keys %outhash){
+    @temp = split/;/, $outhash{$x};
+    %seen = ();
+    $uniq = "NA";
+    foreach $item (@temp){
+        if($uniq ne "NA"){
+            $uniq = $uniq . ";". $item unless($seen{$item})++;
+        }else{
+            $uniq = $item; 
+        }
+    }
+    print OUT $x, "\t", $uniq, "\n";
+}
+
+

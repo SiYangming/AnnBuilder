@@ -1,0 +1,40 @@
+# A parser that parses a source data file from UniGene to get the
+# mappings between LocusLink ids and GenBank Accession numbers.
+
+
+$/ = "//";
+
+while( <DATA> ) {
+    $locusid = "NA";
+    $gb = "NA";
+    @lines = split("\n");   
+
+    foreach $x (@lines) {
+        if( $x =~ /^LOCUSLINK/ ) {
+	    #@temp = split/\s+|;/, $x;
+            @temp = split/LOCUSLINK/, $x;
+	    ($locusid = $temp[1]) =~ s/\s+//g;
+	    next;
+	}
+
+	if( $x =~ /^SEQUENCE\s+ACC=([0-9a-zA-Z]*)[\.]?.*;\s+.*$/x  ) {
+
+	    	if($gb ne "NA"){
+	            $gb = $gb . ";" . $1;
+                }else{
+                    $gb = $1;    
+	        }
+	        next;
+   	}
+    }
+    if(	$locusid ne "NA"){
+        @temp = split/;/, $locusid;
+        foreach $x (@temp){
+    	    print OUT $x, "\t", $gb, "\n";
+        }
+    }
+}
+
+close DATA;
+
+

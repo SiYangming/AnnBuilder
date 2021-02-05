@@ -1,0 +1,110 @@
+# This parser is for parsing Entrez Gene gene_info.gz file to get the 
+# mappings between probe ids and gene information 
+
+%affyHash = ();
+
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    @gbs = split /;/, @vals[2];
+    foreach $x (@gbs){
+        if (exists $affyHash{$x}){
+	    $affyHash{$x} = $affyHash{$x} . "," . $vals[0];
+        }else{   
+            $affyHash{$x} = $vals[0];
+        }
+    }
+}
+close BASE;
+
+%symbolHash = (); 
+%chromHash = ();
+%nameHash = ();
+%mapHash = ();
+while( <DATA> ) {
+    @lines = split("\t|\n");
+
+    if(exists $affyHash{$lines[1]}){
+	@affys = split/,/, $affyHash{$lines[1]};
+        foreach $x (@affys){
+            # Process symbol
+            if(exists $symbolHash{$x}){
+                if($lines[2] ne "-"){
+                    if($symbolHash{$x} ne "NA"){
+                        $symbolHash{$x} = $symbolHash{$x} . ";" . $lines[2];
+                    }else{
+                        $symbolHash{$x} = $lines[2];
+                    }
+                }
+            }else{
+                if($lines[2] ne "-"){
+                    $symbolHash{$x} = $lines[2];
+                }else{
+                    $symbolHash{$x} = "NA";
+                }
+            }
+           
+            # Process chromosome 
+            if(exists $chromHash{$x}){
+                if($lines[6] ne "-"){
+                    if($chromHash{$x} ne "NA"){
+                        $chromHash{$x} = $chromHash{$x} . ";" . $lines[6];
+                    }else{
+                        $chromHash{$x} = $lines[6];
+                    }
+                }
+            }else{
+                if($lines[6] ne "-"){
+                    $chromHash{$x} = $lines[6];
+                }else{
+                    $chromHash{$x} = "NA";
+                }
+            }
+
+            # Process gene name
+            if(exists $nameHash{$x}){
+                if($lines[11] ne "-"){
+                    if($nameHash{$x} ne "NA"){
+                        $nameHash{$x} = $nameHash{$x} . ";" . $lines[11];
+                    }else{
+                        $nameHash{$x} = $lines[11];
+                    }
+                }
+            }else{
+                if($lines[11] ne "-"){
+                    $nameHash{$x} = $lines[11];
+                }else{
+                    $nameHash{$x} = "NA";
+                }
+            } 
+
+            # Process cytoband name
+            if(exists $mapHash{$x}){
+                if($lines[7] ne "-"){
+                    if($mapHash{$x} ne "NA"){
+                        $mapHash{$x} = $mapHash{$x} . ";" . $lines[7];
+                    }else{
+                        $mapHash{$x} = $lines[7];
+                    }
+                }
+            }else{
+                if($lines[7] ne "-"){
+                    $mapHash{$x} = $lines[7];
+                }else{
+                    $mapHash{$x} = "NA";
+                }
+            }
+	}		
+    }
+}
+
+close DATA;
+
+foreach $x (keys %symbolHash){
+    print OUT $x, "\t", $symbolHash{$x}, "\t", $nameHash{$x}, "\t", $chromHash{$x}, "\t", $mapHash{$x}, "\n";
+}
+
+
+
+
+

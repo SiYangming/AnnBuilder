@@ -1,0 +1,106 @@
+#PERLLOC#
+
+# A template perl script for parsing locusLink and UniGene data to map
+# LocusLink ids to GenBank Accession numbers using source files from
+# both LocusLink and UniGene.
+
+open(DATA, "<#UGFILE#") || die "Can not open #UGFILE#";
+open(OUT, ">#OUTFILE#") || die "Can not open #OUTFILE#";
+    
+%outHash = ();
+
+$/ = "//";
+
+while( <DATA> ) {
+    $ug = "";
+    $gb = "";
+    @lines = split("\n");   
+
+    foreach $x (@lines) {
+        if( $x =~ /^ID/ ) {
+	    #@temp = split/\s+|;/, $x;
+            @temp = split/ID/, $x;
+	    ($ug = $temp[1]) =~ s/\s+//g;
+	    next;
+	}
+
+	if( $x =~ /^SEQUENCE\s+ACC=([0-9a-zA-Z]*)[\.]?.*;\s+.*$/x  ) {
+                if($1 ne "none"){
+	    	    if($gb eq ""){
+                        $gb = $1; 
+                    }else{
+                        $gb = $gb . ";" . $1;   
+	            }
+                }
+	        next;
+   	}
+    }
+    if(	$ug ne ""){
+        @temp = split/;/, $ug;
+        foreach $x (@temp){
+            if (exists $outHash{$x}){
+	        $outHash{$x} = $outHash{$x} . ";" . $gb;
+            }else{
+                $outHash{$x} = $gb;
+            } 
+        }
+   }
+}
+
+close DATA;
+open(DATA2, "<#LLFILE#") || die "Can not open #LLFILE#";
+
+$/ = ">>";
+
+while( <DATA2> ) {
+    $ug = "NA";
+    @lines = split("\n");
+    $orgFound = "FALSE";
+
+    foreach $x (@lines) {
+        if( $x =~ /^UNIGENE/ ) {
+            @temp = split/\s+/, $x;
+                $ug = $temp[1];
+                next;
+        }
+  
+        if( $x =~ /^ORGANISM/){
+            @temp = split/:\s+/, $x;
+            if($temp[1] eq "#ORGANISM#"){
+                $orgFound = "TRUE";
+            }
+            next; 
+        }
+
+        if($orgFound eq "TRUE"){
+            if( $x =~ /^ACCNUM/ ) {
+                @temp = split/\|/, $x;
+                @temp = split/\s+/, $temp[0]; 
+                if (exists $outHash{$ug}){
+	            $outHash{$ug} = $outHash{$ug} . ";" . $temp[1];
+                }else{
+                    $outHash{$ug} = $temp[1];
+                }
+                next;
+            }
+        }
+    }
+}
+
+close DATA2;
+
+foreach $x (keys %outHash){
+    @temp = split/;/, $outHash{$x};
+    %seen = ();
+    $uniq = "";
+    foreach $item (@temp){
+        if($item ne "none"){
+            if($uniq ne ""){
+                $uniq = $uniq . ";" . $item unless($seen{$item})++;
+            }else{
+                $uniq = $item;
+            }
+        }
+    }
+    print OUT $x, "\t", $uniq, "\n";
+}

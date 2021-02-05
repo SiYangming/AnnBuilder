@@ -1,0 +1,39 @@
+%affyHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    if (exists $affyHash{$vals[1]}){
+	$affyHash{$vals} = $affyHash{$vals[1]} . "," . $vals[0]
+    }else{   
+        $affyHash{$vals[1]} = $vals[0];
+    }
+}
+close BASE;
+
+$/ = ">>";
+
+while( <DATA> ) {
+    $locusid = "NA";
+    @lines = split("\n");
+
+    foreach $x (@lines) {
+	if( $x =~ /^LOCUSID/ ) {
+	    @temp = split/\s+/, $x;
+		$locusid = $temp[1];
+		next;
+	}
+	if( $x =~ /^UNIGENE/ ) {
+	    @temp = split/\s+/, $x;
+	    if(exists $affyHash{$temp[1]}){
+		@affys = split/,/, $affyHash{$temp[1]};
+		foreach $x (@affys){    
+	            print OUT $x, "\t", $locusid, "\n";
+		}
+	    }
+	    next;
+	}
+    }
+}
+
+close DATA;
+

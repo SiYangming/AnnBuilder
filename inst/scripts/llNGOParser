@@ -1,0 +1,42 @@
+
+$/ = ">>";
+while( <DATA> ) {
+
+    $go = "NA";
+    $locusid = "NA";
+
+    @lines = split("\n");
+
+    foreach $x (@lines) {
+
+	if( $x =~ /^LOCUSID:/ ) {
+	    @temp = split/\s+/, $x;	   
+	    $locusid = $temp[1];
+	    next;
+	}
+        if( $x =~ /^GO:/ ) {
+		@temp = split/\|/, $x;
+		if($go ne "NA"){
+		    $go = $go . ";" . $temp[3] . "@" . $temp[2];  
+		}else{
+		    $go = $temp[3] . "@" . $temp[2]; 
+		}
+		next;
+       }	
+    }
+    if($go ne "NA"){
+    	print OUT $locusid, "\t", $go, "\n";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

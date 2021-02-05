@@ -1,11 +1,15 @@
 Package: AnnBuilder
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
-Encoding: UTF-8
-LazyData: true
+Version: 1.5.31
+Date: 2005-05-16
+Title: Bioconductor annotation data package builder
+Author: J. Zhang <jzhang@jimmy.harvard.edu>
+Maintainer: J. Zhang <jzhang@jimmy.harvard.edu>
+Depends: R (>= 2.1.0), methods, Biobase, XML, annotate, utils
+Description: Processing annotation date from public data repositories and 
+  building annoation data packages or XML data documents using the source 
+  data.
+Keyword: annotation
+License: LGPL
+ZipData: no
+SaveImage: yes
+Packaged: Thu May 19 10:41:28 2005; sfalcon

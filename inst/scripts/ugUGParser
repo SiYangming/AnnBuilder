@@ -1,0 +1,43 @@
+%aHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    if(exists $aHash{$vals[1]}){
+	$aHash{$vals[1]} = $aHash{$vals[1]} . "," . $vals[0];
+    }else{
+        $aHash{$vals[1]} = $vals[0];
+    }
+}
+close BASE;
+
+$/ = "//";
+
+while( <DATA> ) {
+    $unigene = "NA";
+    @lines = split("\n");
+
+    foreach $x (@lines) {
+        if( $x =~ /^ID/ ) {
+	    @temp = split/\s+/, $x;
+	    if(exists $aHash{$temp[1]}){
+                $unigene = $temp[1];
+	    }
+	    next;
+	}
+	if( $x =~ /^LOCUSLINK/ ) {
+            if($unigene ne "NA"){
+	        @tmp = split/\s+/, $x;
+	        @affys = split/,/, $aHash{$unigene};
+		foreach $x (@affys){    
+	            print OUT $x, "\t", $tmp[1], "\n"; 
+	        }
+	    }
+            next;
+   	}
+    }
+}
+
+close DATA;
+
+
+

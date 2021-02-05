@@ -1,0 +1,44 @@
+# This parser is for parsing Entrez Gene gene2pubmed.gz file to get the 
+# mappings between probe ids and PubMed ids 
+
+%affyHash = ();
+%pmidHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    @gbs = split /;/, @vals[2];
+    foreach $x (@gbs){
+        if (exists $affyHash{$x}){
+	    $affyHash{$x} = $affyHash{$x} . "," . $vals[0];
+        }else{   
+            $affyHash{$x} = $vals[0];
+        }
+    }
+}
+close BASE;
+
+while( <DATA> ) {
+    @lines = split("\t|\n");
+
+    if(exists $affyHash{$lines[1]}){
+	@affys = split/,/, $affyHash{$lines[1]};
+        foreach $x (@affys){
+            if(exists $pmidHash{$x}){
+                $pmidHash{$x} = $pmidHash{$x} . ";" . $lines[2];
+            }else{
+                $pmidHash{$x} = $lines[2];
+            }    
+	}		
+    }
+}
+
+close DATA;
+
+foreach $x (keys %pmidHash){
+    print OUT $x, "\t", $pmidHash{$x}, "\n";
+}
+
+
+
+
+

@@ -1,0 +1,44 @@
+# This parser is for parsing Entrez Gene gene2go.gz file to get the 
+# mappings between gene ids and go ids 
+
+%affyHash = ();
+%goHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    @gbs = split /;/, @vals[2];
+    foreach $x (@gbs){
+        if (exists $affyHash{$x}){
+	    $affyHash{$x} = $affyHash{$x} . "," . $vals[0];
+        }else{   
+            $affyHash{$x} = $vals[0];
+        }
+    }
+}
+close BASE;
+
+while( <DATA> ) {
+    @lines = split("\t");
+
+    if(exists $affyHash{$lines[1]}){
+	@affys = split/,/, $affyHash{$lines[1]};
+        foreach $x (@affys){
+            if(exists $goHash{$x}){
+                $goHash{$x} = $goHash{$x} . ";" . $lines[2] . "@" . $lines[3];
+            }else{
+                $goHash{$x} = $lines[2] . "@" . $lines[3];
+            }    
+	}		
+    }
+}
+
+close DATA;
+
+foreach $x (keys %goHash){
+    print OUT $x, "\t", $goHash{$x}, "\n";
+}
+
+
+
+
+

@@ -1,0 +1,141 @@
+# This is part of the parser for Swiss-Prot data 
+
+print OUT  "AC", "\t", "NAME", "\t", "ORGANISM", "\t", "TYPE", "\t", "LENGTH",
+"\t", "PMID", "\t","ALTERNATIVE PRODUCTS", "\t", "CATALYTIC ACTIVITY",
+"\t", "CAUTION", "\t", "COFACTOR", "\t", "DEVELOPMENTAL STAGE", "\t",
+"DISEASE", "\t", "DOMAIN", "\t", "ENZYME REGULATION", "\t",
+"FUNCTION", "\t", "INDUCTION", "\t", "MASS SPECTROMETRY", "\t",
+"PHARMACEUTICAL", "\t", "POLYMORPHISM", "\t", "PTM", "\t",
+"SIMILARITY", "\t", "SUBCELLULAR LOCATION", "\t", "SUBUNIT", "\t",
+"TISSUE SEPCIFICITY", "\t", "MIM", "\n";
+
+$/ = "ID";
+%outFile;
+$topic = "NA";
+$new = 0;
+&setOut;
+
+$/ = "\n";
+
+while( <DATA> ) {
+    # Parse the ID line
+    if( $_ =~ /^ID\s+/ ) {
+	@temp = split/\s+/, $_;
+        @name = split/_/, $temp[1];
+        $outFile{"Name"} = $name[0];
+        $outFile{"Organism"} = $name[1];
+        $temp[3] =~ s/;//g;
+        $outFile{"Type"} = $temp[3];
+        $outFile{"Length"} = $temp[4]; 
+        $new = 1;	  
+	next;
+    }
+    if($new == 1){
+        # Parse the AC line
+        if( $_ =~ /^AC\s+(.*);$/x){
+            $outFile{"AC"} = $1;
+            next;
+        }
+        #Parse the RX line for reference
+	if( $_ =~ /^RX\s+.*;\s+PubMed=(.*);$/x ){
+            if($outFile{"Pmid"} ne "NA"){
+		$outFile{"Pmid"} = $outFile{"Pmid"} . ";" . $1;  
+	    }else{
+		$outFile{"Pmid"} = $1;
+            }
+	    next;
+	}
+        if ($_ =~ /\-\!\-\s+(\w+(?:\s+\w+){0,2}):\s*(.*)$/x ){
+            $topic = $1; 
+            $outFile{$topic} = $2;
+            next;
+        }
+        if($_ =~ /^CC\s+-+$/){
+            $topic = "NA";
+            next;
+        }
+        if($_ =~ /^CC\s+(.*)/){
+            if($topic ne "NA"){
+                $outFile{$topic} = $outFile{$topic} . " " . $1;
+                next;
+            }
+        }
+        if ($_ =~ /^DR\s+MIM;\s+(.*);\s+-\.$/x){
+            $outFile{"MIM"} = $1;
+            next;
+        }
+        if($_ =~ /^\/\/$/){
+            &writeOut;
+            &setOut;
+            $topic = "NA";
+            $new = 0; 
+        }
+    }
+}
+
+
+close DATA;
+
+sub writeOut {
+    print OUT $outFile{"AC"}, "\t",   
+    $outFile{"Name"}, "\t",
+    $outFile{"Organism"}, "\t",
+    $outFile{"Type"}, "\t",
+    $outFile{"Length"}, "\t", 
+    $outFile{"Pmid"}, "\t",
+    $outFile{"ALTERNATIVE PRODUCTS"}, "\t", 
+    $outFile{"CATALYTIC ACTIVITY"}, "\t",
+    $outFile{"CAUTION"}, "\t",
+    $outFile{"COFACTOR"}, "\t",
+    $outFile{"DEVELOPMENTAL STAGE"}, "\t",
+    $outFile{"DISEASE"}, "\t",
+    $outFile{"DOMAIN"}, "\t",
+    $outFile{"ENZYME REGULATION"}, "\t",
+    $outFile{"FUNCTION"}, "\t",
+    $outFile{"INDUCTION"}, "\t",
+    $outFile{"MASS SPECTROMETRY"}, "\t",
+    $outFile{"PHARMACEUTICAL"}, "\t",
+    $outFile{"POLYMORPHISM"}, "\t",
+    $outFile{"PTM"}, "\t",
+    $outFile{"SIMILARITY"}, "\t", 
+    $outFile{"SUBCELLULAR LOCATION"}, "\t", 
+    $outFile{"SUBUNIT"}, "\t",
+    $outFile{"TISSUE SEPCIFICITY"}, "\t",
+    $outFile{"MIM"}, "\n";
+}
+
+sub setOut{
+    $outFile{"AC"} = "NA";
+    $outFile{"Name"} = "NA";
+    $outFile{"Organism"} = "NA";
+    $outFile{"Type"} = "NA";
+    $outFile{"Length"} = "NA";
+    $outFile{"Pmid"} = "NA";
+    $outFile{"ALTERNATIVE PRODUCTS"} = "NA";
+    $outFile{"CATALYTIC ACTIVITY"} = "NA";
+    $outFile{"CAUTION"} = "NA";
+    $outFile{"COFACTOR"} = "NA";
+    $outFile{"DEVELOPMENTAL STAGE"} = "NA";
+    $outFile{"DISEASE"} = "NA";
+    $outFile{"DOMAIN"} = "NA";
+    $outFile{"ENZYME REGULATION"} = "NA";
+    $outFile{"FUNCTION"} = "NA";
+    $outFile{"INDUCTION"} = "NA";
+    $outFile{"MASS SPECTROMETRY"} = "NA";
+    $outFile{"PHARMACEUTICAL"} = "NA";
+    $outFile{"POLYMORPHISM"} = "NA";
+    $outFile{"PTM"} = "NA";
+    $outFile{"SIMILARITY"} = "NA";
+    $outFile{"SUBCELLULAR LOCATION"} = "NA";
+    $outFile{"SUBUNIT"} = "NA";
+    $outFile{"TISSUE SEPCIFICITY"} = "NA";
+    $outFile{"MIM"} = "NA";
+}
+
+
+
+
+
+
+
+

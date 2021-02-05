@@ -1,0 +1,58 @@
+
+$/ = ">>";
+while( <DATA> ) {
+
+    $keep = 0;
+    $go = "NA";
+    $pmid  = "NA";
+    $locusid = "NA";
+
+    @lines = split("\n");
+
+    foreach $x (@lines) {
+
+	if( $x =~ /^LOCUSID:/ ) {
+	    @temp = split/\s+/, $x;	   
+	    $locusid = $temp[1];
+	    next;
+	}
+       if( $x =~ /^ORGANISM:\s+(.*)$/x  ){
+       	    if($1 eq "#REPLACEME#"){
+                $keep = 1;
+       	    }
+       	    next;
+       }
+       if($keep == 1){
+            if( $x =~ /^PMID:/ ) {
+		@temp = split/\s+/, $x;
+                $temp[1] =~ s/,/;/g;
+                $pmid = $temp[1];
+                next;	
+	    }
+            if( $x =~ /^GO:/ ) {
+		@temp = split/\|/, $x;
+		if($go ne "NA"){
+		    $go = $go . ";" . $temp[3] . "@" . $temp[2];  
+		}else{
+		    $go = $temp[3] . "@" . $temp[2]; 
+		}
+		next;
+	    }
+        }
+    }
+    if($keep == 1){
+    	print OUT $locusid, "\t", $pmid, "\t", $go, "\n";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

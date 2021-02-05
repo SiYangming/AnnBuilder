@@ -1,0 +1,60 @@
+
+%aHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    @gbs = split /;/, $vals[1];
+    foreach $x (@gbs){
+        if(exists $aHash{$x}){
+	    $aHash{$x} = $aHash{$x} . "," . $vals[0];
+        }else{
+            $aHash{$x} = $vals[0];
+        }
+    }
+}
+close BASE; 
+
+$/ = "//";
+
+while( <DATA> ) {
+    $locusid = "NA";
+    @lines = split("\n");   
+
+    foreach $x (@lines) {
+        if( $x =~ /^LOCUSLINK/ ) {
+	    #@temp = split/\s+|;/, $x;
+            @temp = split/LOCUSLINK/, $x;
+	    ($locusid = $temp[1]) =~ s/\s+//g;
+	    next;
+	}
+
+	if( $x =~ /^STS\s+ACC=([0-9a-zA-Z]*)\s+.*$/x  ){
+	     if(exists $aHash{$1}){
+		@affys = split/,/, $aHash{$1};
+		foreach $x (@affys){
+		    print OUT $x, "\t", $locusid, "\n";
+		} 
+	    }
+	    next;
+   	}
+
+	if( $x =~ /^SEQUENCE\s+ACC=([0-9a-zA-Z]*)[\.]?.*;\s+.*$/x  ) {
+	    if(exists $aHash{$1}){
+		@affys = split/,/, $aHash{$1};
+		foreach $x (@affys){
+		    print OUT $x, "\t", $locusid, "\n";
+		} 
+	    }
+	    next;
+   	}
+    }
+}
+
+close DATA;
+
+
+
+
+
+
+
