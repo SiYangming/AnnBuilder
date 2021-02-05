@@ -38,14 +38,12 @@ No methods defined with class "LL" in the signature.
 }
 \references{\url{www.ncbi.nlm.nih.gov/LocusLink}}
 \author{Jianhua Zhang}
-\note{This class is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics funtionalities through R}
 
 \seealso{\code{\link{pubRepo-class}}}
 
 \examples{
 \dontrun{
-# Parse a truncated version of LL\_tmpl.gz from Bioconductor
+# Parse a truncated version of LL_tmpl.gz from Bioconductor
 path <- file.path(.path.package("AnnBuilder"), "scripts")
 temp <- matrix(c("32469_f_at", "D90278", "32469_at", "L00693", "33825_at",
 "X68733", "35730_at", "X03350", "38912_at", "D90042", "38936_at",

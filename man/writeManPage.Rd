@@ -33,9 +33,8 @@ writeDescription(pkgName, pkgPath, version, author, dataSrc, license)
 getDSrc(organism)
 getSrcNBuilt(dSrc, organism)
 getUrlNBuilt(src, organism)
-getDSrc{organism}
 writeAccessory(pkgName, pkgPath, organism, version, author = list(author =
-"who", maintainer = "who@email.net"), dataSrc, license)
+"who", maintainer = "My Name <who@email.net>"), dataSrc, license)
 writeFun(pkgPath, pkgName, organism = "human")
 writeZZZ(pkgPath, pkgName)
 getAllRdaName(pkgName, pkgPath)
@@ -101,8 +100,6 @@ getBuild4Yeast(src, manName)
 }
 \references{An Introduction to R - Writing R Extensions}
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide BioInformatics functionalities through R}
 
 \seealso{\code{\link{ABPkgBuilder}}} 
 

@@ -60,6 +60,7 @@ homoPkgBuilder <- function(suffix = "homology", pkgPath, version, author,
 procHomoData <- function(url = getSrcUrl("HG")){
     # scan() does not work for some reason
     homoData <- as.matrix(read.table(url, header = FALSE, sep = "|",
+			stringsAsFactors=FALSE,
                            quote = "", as.is = TRUE, strip.white = TRUE,
                            comment.char = ""))
     # remove leading LL from LL ids
@@ -71,65 +72,6 @@ procHomoData <- function(url = getSrcUrl("HG")){
     homoData <- matrix(gsub(" *", "", homoData),
                        ncol = ncol(homoData), byrow = FALSE)
     return(homoData)
-}
-
-mapOrgs <- function(toMap, what = c("code", "name")){
-    fun <- function(x){
-        if(what == "code"){
-            return(orgs[[x]])
-        }else{
-            return(names(orgs[orgs == x]))
-        }
-    }
-    what <- match.arg(what)
-    orgs <- getOrgNameNCode()
-    if(is.null(toMap) || is.na(toMap)){
-         return(NA)
-    }
-    if(length(toMap) == 1){
-        return(fun(toMap))
-    }else{
-        return(sapply(toMap, fun))
-    }
-}
-
-getOrgNameNCode <- function(){
-    return(list("3055" = "Chlamydomonas reinhardtii",
-             "3702" = "Arabidopsis thaliana",
-             "3847" = "Glycine max",
-             "3880" = "Medicago truncatula",
-             "4081" = "Lycopersicon esculentum",
-             "4513" = "Hordeum vulgare",
-             "4530" = "Oryza sativa",
-             "4565" = "Triticum aestivum",
-             "4577" = "Zea mays",
-             "4896" = "Schizosaccharomyces pombe",
-             "4932" = "Saccharomyces cerevisiae",
-             "5141" = "Neurospora crassa",
-             "5833" = "Plasmodium falciparum",
-             "6239" = "Caenorhabditis elegans",
-             "7165" = "Anopheles gambiae",
-             "7227" = "Drosophila melanogaster",
-             "7719" = "Ciona intestinalis",
-             "7955" = "Danio rerio",
-             "8022" = "Oncorhynchus mykiss",
-             "8090" = "Oryzias latipes",
-             "8355" = "Xenopus laevis",
-             "8364" = "Xenopus tropicalis",
-             "9031" = "Gallus gallus",
-             "9606" = "Homo sapiens",
-	     "9615" = "Canis familiaris",
-	     "9598" = "Pan troglodytes",
-             "9823" = "Sus scrofa",
-             "9913" = "Bos taurus",
-             "10090" = "Mus musculus",
-             "10116" = "Rattus norvegicus",
-             "28985" = "Kluyveromyces, lactis",
-             "29760" = "Vitis vinifera",
-             "33169" = "Eremothecium gossypii",
-             "44689" = "Dictyostelium discoideum",
-             "148305" = "Magnaporthe grisea"
-            ))
 }
 
 mapPS <- function(homoMappings, pkgName, pkgPath, tempList){
@@ -229,7 +171,7 @@ getHomoData <- function(entries, what = "old", objOK = FALSE){
         if(length(entries) < 7){
             stop("Incorrect argument length. Must be a vector of 7")
         }
-        if(!is.na(entries[7]) && any(entries[7] == c("B", "b"))){
+        if(!is.na(entries[7]) && any(entries[7] == c("B", "b", "m"))){
             if(objOK){
                 return(new("homoData",
                            homoOrg =
@@ -278,13 +220,16 @@ getHomoData <- function(entries, what = "old", objOK = FALSE){
         }
         entries <- gsub(" ", "", entries)
         if(objOK){
-            return(homoData(as.character(tolower(getShortSciName(mapOrgs(entries[3])))),
+            return(.newHomoData(as.character(tolower(getShortSciName(mapOrgs(entries[3])))),
                             #as.numeric(entries[2]),
-                            as.logical(entries[4]),
-                            as.numeric(entries[5]), as.numeric(entries[6]),
-                            as.numeric(entries[7]), as.numeric(entries[8]),
-                            as.numeric(entries[9]), as.numeric(entries[10]),
-                            as.numeric(entries[11])))
+                            homoBest = as.logical(entries[4]),
+                            homoNucChange = as.numeric(entries[5]),
+                            homoNucChangeJc = as.numeric(entries[6]),
+                            homoProtChange = as.numeric(entries[7]),
+                            homoKA = as.numeric(entries[8]),
+                            homoKS = as.numeric(entries[9]),
+                            homoKNR = as.numeric(entries[10]),
+                            homoKNC = as.numeric(entries[11])))
         }else{
             return(list(homoOrg =
                         as.character(tolower(getShortSciName(mapOrgs(entries[3])))),
@@ -338,7 +283,7 @@ getLL2IntID <- function(homoData, organism = ""){
     if(nrow(ll2ID) > length(unique(ll2ID[,1]))){
         ll2ID <- mergeRowByKey(ll2ID)
     }
-    colnames(ll2ID) <- c("LOCUSID", "HGID")
+    colnames(ll2ID) <- c("ENTREZID", "HGID")
 
     return(ll2ID)
 }
@@ -442,6 +387,7 @@ writeHomoData <- function(pkgName, pkgPath, homoFile){
     # }
 
     homodata <- read.table(homoFile, sep = "\t", header = FALSE,
+			stringsAsFactors=FALSE,
                            as.is = TRUE, strip.white = TRUE)
     # homodata has one way homology mappings. Add the mappings that
     # are reciprocal.
@@ -611,8 +557,10 @@ homoXMLParser <- function(fileName) {
 
 
 # Keep the new definition for now
-.newHomoData <- function(){
-setClass("homoData", representation(homoOrg = "character",
+.newHomoData <- function(homoOrg, homoLL, homoBest, homoNucChange,
+                         homoNucChangeJc, homoProtChange, homoKA,
+                         homoKS, homoKNR, homoKNC){
+  setClass("homoData", representation(homoOrg = "character",
                                     homoLL = "numeric",
                                     homoBest = "logical",
                                     homoNucChange = "numeric",
@@ -624,73 +572,73 @@ setClass("homoData", representation(homoOrg = "character",
                                     homoKNC = "numeric"))
 
 # Set the get methods
-if(!isGeneric("homoOrg")){
+
     setGeneric("homoOrg",
                function(object) standardGeneric("homoOrg"))
-}
+
 setMethod("homoOrg", "homoData",
           function(object) object@homoOrg)
 
-if(!isGeneric("homoLL")){
+
     setGeneric("homoLL",
                function(object) standardGeneric("homoLL"))
-}
+
 setMethod("homoLL", "homoData",
           function(object) object@homoLL)
 
-if(!isGeneric("homoBest")){
+
     setGeneric("homoBest",
                function(object) standardGeneric("homoBest"))
-}
+
 setMethod("homoBest", "homoData",
           function(object) object@homoBest)
 
-if(!isGeneric("homoNucChange")){
+
     setGeneric("homoNucChange",
                function(object) standardGeneric("homoNucChange"))
-}
+
 setMethod("homoNucChange", "homoData",
           function(object) object@homoNucChange)
 
-if(!isGeneric("homoNucChangeJc")){
+
     setGeneric("homoNucChangeJc",
                function(object) standardGeneric("homoNucChangeJc"))
-}
+
 setMethod("homoNucChangeJc", "homoData",
           function(object) object@homoNucChangeJc)
 
-if(!isGeneric("homoProtChange")){
+
     setGeneric("homoProtChange",
                function(object) standardGeneric("homoProtChange"))
-}
+
 setMethod("homoProtChange", "homoData",
           function(object) object@homoProtChange)
 
-if(!isGeneric("homoKA")){
+
     setGeneric("homoKA",
                function(object) standardGeneric("homoKA"))
-}
+
 setMethod("homoKA", "homoData",
           function(object) object@homoKA)
 
-if(!isGeneric("homoKS")){
+
     setGeneric("homoKS",
                function(object) standardGeneric("homoKS"))
-}
+
 setMethod("homoKS", "homoData",
           function(object) object@homoKS)
 
-if(!isGeneric("homoKNR")){
+
     setGeneric("homoKNR",
                function(object) standardGeneric("homoKNR"))
-}
+
 setMethod("homoKNR", "homoData",
           function(object) object@homoKNR)
 
-if(!isGeneric("homoKNC")){
+
     setGeneric("homoKNC",
                function(object) standardGeneric("homoKNC"))
-}
+
 setMethod("homoKNC", "homoData",
           function(object) object@homoKNC)
 
@@ -730,17 +678,17 @@ setMethod("show", "homoData",
                   cat(paste("\nhomoKNC:", homoKNC(object)))
               }
               cat("\n")
-})
+             
+              
+            })
 
-homoData <- function(organism, LL, best, nucChange, nucChangeJc,
-                     protChange, ka, ks, knr, knc){
-    return(new("homoData", homoOrg = mapOrgs(organism),
-                   homoLL = LL, homoBest = best,
-                   homoNucChange = nucChange, homoNucChangeJc = nucChangeJc,
-                   homoProtChange = protChange, homoKA = ka,
-                   homoKS = ks, homoKNR = knr, homoKNC = knc))
-}
 
+  return(new("homoData", homoOrg = homoOrg,
+                   homoLL = homoLL, homoBest = homoBest,
+                   homoNucChange = homoNucChange,
+                         homoNucChangeJc = homoNucChangeJc,
+                   homoProtChange = homoProtChange, homoKA = homoKA,
+                   homoKS = homoKS, homoKNR = homoKNR, homoKNC = homoKNC))
 }
 
 

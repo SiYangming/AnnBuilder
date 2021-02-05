@@ -7,7 +7,7 @@
 .getDatasets <- function(path) {
     rdas <- list.files(file.path(path, "data"),
                        pattern = "\\.*.rda")
-    rdas <- gsub("(^.*)\.rda", "\\1"
+    rdas <- gsub("(^.*)\\.rda", "\\1"
                  , rdas)
     return(rdas)
 }

@@ -1,16 +1,16 @@
 \name{#PKGNAME#GO2LL}
 \alias{#PKGNAME#GO2LL}
 \title{An annotation data that maps Gene Ontology identifiers to
-  LocusLink identifiers} 
+  Entrez Gene identifiers} 
 \description{
-  #PKGNAME#GO2LL maps Gene Ontology (GO) ids to LocusLink ids for genes
-  whose products have the functions corresponding to the GO ids
+  #PKGNAME#GO2LL maps Gene Ontology (GO) identifiers to Entrez Gene identifiers for genes
+  whose products have the functions corresponding to the GO identifiers
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  GO ids and values are LocusLink ids. Values are vectors of length 1 or
-  more depending on whether a GO id can be mapped to one or more
-  LocusLink ids. Names of values are evidence code that indicate the
+  GO identifiers and values are Entrez Gene identifiers. Values are vectors of length 1 or
+  more depending on whether a GO identifier can be mapped to one or more
+  Entrez Gene identifiers. Names of values are evidence code that indicate the
   type of evidences that support associations between genes and GO
   functions. 
 

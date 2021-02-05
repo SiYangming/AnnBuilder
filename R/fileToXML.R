@@ -20,6 +20,7 @@ fileToXML <- function (targetName, outName, inName, idColName, colNames,
         fileRead <- as.matrix(read.table(file = inName, header =
                                          header, sep = fileSep,
                                          as.is = TRUE, quote = "",
+					stringsAsFactors=FALSE,
                                          comment.char = ""))
     }else{
         fileRead <- as.matrix(inName)

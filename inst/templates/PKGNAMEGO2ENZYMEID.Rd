@@ -3,12 +3,12 @@
 \title{An annotation data file that maps Gene Ontology (GO) identifiers to
   Enzyme Commission numbers}
 \description{
-  #PKGNAME#GO2ENZYMEID maps GO ids to Enzyme Commission numbers
+  #PKGNAME#GO2ENZYMEID maps GO identifiers to Enzyme Commission numbers
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  GO ids and values are Enzyme Commission numbers. Values are vectors of
-  length 1. GO ids can not be mapped to any Enzyme Commission number are
+  GO identifiers and values are Enzyme Commission numbers. Values are vectors of
+  length 1. GO identifiers can not be mapped to any Enzyme Commission number are
   are assigned NAs.  
 
   Mappings are based on data provided by:

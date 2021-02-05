@@ -1,7 +1,7 @@
 SPPkgBuilder <- function(pkgPath, version, author, fromWeb = TRUE,
   url = "ftp://ftp.ebi.ac.uk/pub/databases/swissprot/release/sprot41.dat"){
 
-    dataSrc <- paste("Swiss-Prot (\url{", url, "})", sep = "")
+    dataSrc <- paste("Swiss-Prot (\\url{", url, "})", sep = "")
     # Just use LL to create a Swiss-Prot object
     sp <- LL(srcUrl = url, parser = file.path(.path.package("AnnBuilder"),
                            "data", "SPParser"))
@@ -11,6 +11,7 @@ SPPkgBuilder <- function(pkgPath, version, author, fromWeb = TRUE,
     spData[spData == "NA"] <- NA
     # Write AnnInfo to .GlobalEnv to make Annotation information available
     makeSrcInfo()
+    AnnInfo <- as.list(get("AnnInfo", env = .GlobalEnv))
     for(i in c("human", "mouse", "rat")){
         pkgName <- paste(i, "SP", sep = "")
         tempData <- spData[spData[, "ORGANISM"] == toupper(i),]

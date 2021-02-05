@@ -1,15 +1,15 @@
 \name{#PKGNAME#LL2UG}
 \alias{#PKGNAME#LL2UG}
-\title{An annotation data file that maps LocusLink identifiers to
+\title{An annotation data file that maps Entrez Gene identifiers to
   UniGene cluster identifiers}
 \description{
-  #PKGNAME#LL2UG maps LocusLink ids to UniGene ids
+  #PKGNAME#LL2UG maps Entrez Gene identifiers to UniGene identifiers
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  LocusLink ids and values are the corresponding UniGene ids. Values are
-  vectors of length 1 or more depending on whether a LocusLink id can be
-  mapped to one or more UniGene ids.
+  Entrez Gene identifiers and values are the corresponding UniGene identifiers. Values are
+  vectors of length 1 or more depending on whether a Entrez Gene identifier can be
+  mapped to one or more UniGene identifiers.
 
   Mappings were derived from data provided by:
 

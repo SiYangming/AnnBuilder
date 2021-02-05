@@ -7,7 +7,7 @@
   wget being available in PATH as it is called via \code{system}.
 }
 \usage{
-wget(url, levels, accepts)
+wget(url, levels, accepts, passive=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,6 +16,8 @@ wget(url, levels, accepts)
     \code{--level} option}
   \item{accepts}{ character vector.  Gets passed to wget as the value of
     the \code{--accept} option}
+  \item{passive}{logical.  If \code{TRUE}, pass the \code{-passive-ftp}
+    flag to \code{wget}}
 }
 \author{S. Falcon}
 \keyword{data}

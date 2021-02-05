@@ -3,17 +3,17 @@
 \title{Map between Manufacturer Identifiers and RefSeq Identifiers}
 \description{
    #PKGNAME#REFSEQ is an R environment that provides mappings between
-   manufacturer ids and RefSeq ids.
+   manufacturer identifiers and RefSeq identifiers.
 }
 \details{
-  Each manufacturer id is mapped to a named vector of RefSeq ids. The
-  name represents the manufacturer id and the vector contains all RefSeq
-  ids that can be mapped to that manufacturer id. The length of the
-  vector may be one or greater, depending on how many RefSeq ids a given
-  manufacturer id can be mapped to. An \code{NA} is reported for any
-  manufacturer id that cannot be mapped to a RefSeq id at this time.
+  Each manufacturer identifier is mapped to a named vector of RefSeq identifiers. The
+  name represents the manufacturer identifier and the vector contains all RefSeq
+  identifiers that can be mapped to that manufacturer identifier. The length of the
+  vector may be one or greater, depending on how many RefSeq identifiers a given
+  manufacturer identifier can be mapped to. An \code{NA} is reported for any
+  manufacturer identifier that cannot be mapped to a RefSeq identifier at this time.
 
-  RefSeq ids differ in format according to the type of record the ids
+  RefSeq identifiers differ in format according to the type of record the identifiers
   are for as shown below:
 
   NG\_XXXXX: RefSeq accessions for genomic region (nucleotide) records
@@ -34,7 +34,7 @@
   Where XXXXX is a sequence of integers.
 
   NCBI \url{http://www.ncbi.nlm.nih.gov/RefSeq/} allows users to query
-  the RefSeq database using RefSeq ids.
+  the RefSeq database using RefSeq identifiers.
 
   Mappings were based on data provided by:
 
@@ -49,7 +49,7 @@
 \examples{
     # Convert the environment to a list
     xx <- as.list(#PKGNAME#REFSEQ)
-    # Remove probe ids that do not map to any RefSeq
+    # Remove probe identifiers that do not map to any RefSeq
     xx <- xx[!is.na(xx)]
     if(length(xx) > 0){
     # The RefSeq for the first two elements of XX

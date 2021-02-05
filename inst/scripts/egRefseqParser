@@ -20,12 +20,13 @@ close BASE;
 while( <DATA> ) {
     @lines = split("\t");
     $ref = "";
-    if($lines[5] ne "-"){
-        @temp = split/\./, $lines[5];
+    if($lines[3] ne "-"){
+        @temp = split/\./, $lines[3];
         $ref = $temp[0];     
     }
-    if($lines[7] ne "-"){
-        @temp = split/\./, $lines[7];
+    if($lines[5] ne "-" && $lines[5] ne ""){
+## FIXME: if the split returns nothing we get uninitialized variable warning
+        @temp = split/\./, $lines[5];
         if($ref ne ""){
             $ref = $ref . ";" . $temp[0];
         }else{

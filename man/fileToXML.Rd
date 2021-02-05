@@ -70,8 +70,6 @@ multColNames, typeColNames,  multSep = ";", typeSep = ";", fileSep =
 }
 \references{\url{http://www.bioconductor.org/datafiles/dtds/annotate.dtd}}
 \author{Jianhua (John) Zhang}
-\note{This function is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinfomatics functionalities through R.}
 
 \seealso{\code{\link{ABPkgBuilder}}}
 

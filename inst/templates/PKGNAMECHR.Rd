@@ -3,12 +3,12 @@
 \title{Map Manufacturer IDs to Chromosomes}
 \description{
  #PKGNAME#CHR is an R environment that provides mappings between a
- manufacturer id and the chromosome that contains the gene of interest. 
+ manufacturer identifier and the chromosome that contains the gene of interest. 
 }
 \details{
-  Each manufacturer id maps to a vector of chromosomes. Due to
+  Each manufacturer identifier maps to a vector of chromosomes. Due to
   inconsistencies that may exist at the time the environment was built,
-  the vector may contain more than one chromosome (e.g., the id may map
+  the vector may contain more than one chromosome (e.g., the identifier may map
   to more than one chromosome). If the chromosomal location is unknown,
   the vector will contain an \code{NA}.
   
@@ -22,7 +22,7 @@
 \examples{
         # Convert to a list
         xx <- as.list(#PKGNAME#CHR)
-        # Remove probe ids that do not map to any CHRLOC
+        # Remove probe identifiers that do not map to any CHRLOC
         xx <- xx[!is.na(xx)]
         if(length(xx) > 0){
             # Get the chromosome number for the first five probes

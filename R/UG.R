@@ -1,7 +1,7 @@
 # Constructs an object of UG
 #
 
-UG <- function(srcUrl = getSrcUrl("UG", "human"),
+UG <- function(srcUrl = getSrcUrl("UG", "Homo sapiens"),
                parser = file.path(.path.package("AnnBuilder"), "scripts",
                                                     "gbUGParser"),
                baseFile = "", organism = "human", built, fromWeb = TRUE){

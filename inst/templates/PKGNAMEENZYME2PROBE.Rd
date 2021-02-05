@@ -3,11 +3,11 @@
 \title{Map Between Enzyme Commission Numbers and Manufacturer Identifiers}
 \description{
   #PKGNAME#ENZYME2PROBE is an R environment that maps Enzyme Commission
-  (EC) numbers to manufacturer ids.
+  (EC) numbers to manufacturer identifiers.
 }
 \details{
   Each EC number maps to a named vector containing all of the
-  manufacturer ids that correspond to the gene that produces that
+  manufacturer identifiers that correspond to the gene that produces that
   enzyme. The name of the vector corresponds to the EC number.
   
   Enzyme Commission numbers are assigned by the Nomenclature Committee
@@ -52,7 +52,7 @@
     # Convert to a list
     xx <- as.list(#PKGNAME#ENZYME2PROBE)
    if(length(xx) > 0){
-       # Gets the probe ids for the first five enzyme
+       # Gets the probe identifiers for the first five enzyme
        #commission numbers
        xx[1:5]
        # Get the first one

@@ -3,10 +3,10 @@
 \title{Map between Manufacturer Identifiers and Gene Symbols}
 \description{
   #PKGNAME#SYMBOL is an R environment that provides mappings between
-  manufacturer ids and gene abbreviations. 
+  manufacturer identifiers and gene abbreviations. 
 }
 \details{
-  Each manufacturer id is mapped to an abbreviation for the
+  Each manufacturer identifier is mapped to an abbreviation for the
   corresponding gene. An \code{NA} is reported if there is no known
   abbreviation for a given gene.
   

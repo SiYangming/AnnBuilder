@@ -18,7 +18,7 @@
   R.norvegicus (LOC362421) (based on data downloaded from HomoloGene on
   08/11/2004).  
  
-  The LocusLink ids (across organisms) for the sequence represented by a
+  The Entrez Gene identifiers (across organisms) for the sequence represented by a
   given HGID can be obtained using the environment homologyHGID2LL.  
   
   Mappings contained were based on data provided by HomoloGene.

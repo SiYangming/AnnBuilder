@@ -15,8 +15,6 @@
   - Gene Expression Omnibus, and "YG" - Yeast Genome.
 }
 \author{Jianhua Zhang}
-\note{The data file part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{pubRepo-class}}}
 \examples{

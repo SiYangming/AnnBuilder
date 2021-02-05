@@ -17,12 +17,18 @@ LL <- function(srcUrl = getSrcUrl("LL"),
 #
 
 fileMuncher <- function(outName, baseFile, dataFile, parser, isDir = FALSE){
-
     OS <- .Platform$OS.type
     perlName <- paste(tempfile("tempPerl"), "pl", sep=".")
 
     writePerl <- function(toWrite){
         write(toWrite, file = perlName, append = TRUE)
+    }
+
+    ## Convert \ => / for Windows
+    if (OS == "windows") {
+        outName <- chartr("\\", "/", outName)
+        baseFile <- chartr("\\", "/", baseFile)
+        dataFile <- chartr("\\", "/", dataFile)
     }
 
     if(!file.create(perlName))

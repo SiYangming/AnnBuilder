@@ -42,8 +42,6 @@ unzipFile(fileName, where = file.path(.path.package("AnnBuilder"),
   the file saved locally.
 }
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{pubRepo-class}}}
 \examples{

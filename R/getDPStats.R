@@ -18,7 +18,8 @@ getDPStats <- function(baseF, pkgName, pkgPath, saveList = TRUE,
         keyMissMatch <- NULL
         otherMapped <- keyMapped[["mapped"]]
     }else{
-        probeBased <- paste(pkgName, getPBased(), sep = "")
+	probeBasedEnv <- c(getPBased(), "ENTREZID")
+        probeBased <- paste(pkgName, probeBasedEnv, sep = "")
         mappedKeys <- keyMapped[["mapped"]]
         otherMapped <- mappedKeys[!is.element(names(mappedKeys), probeBased)]
         if(isFile){
@@ -126,22 +127,21 @@ getDate <- function(pkgName, pkgPath, fromDesc = TRUE){
 }
 
 getProbeNum <- function(pkgName, pkgPath, noNA = FALSE){
-
     toReturn <- NULL
     dataFolder <- file.path(pkgPath, pkgName, "data")
     rdaFiles <- getDirContent(dataFolder)
     nums <- sapply(rdaFiles, countMapping, noNA = FALSE)
     mapped <- sapply(rdaFiles, countMapping, noNA = TRUE)
-    names(nums) <- gsub("\\..*", "", basename(names(nums)))
-    names(mapped) <- gsub("\\..*", "", basename(names(nums)))
+    names(nums) <- gsub("\\.rda$", "", basename(names(nums)))
+    names(mapped) <- gsub("\\.rda$", "", basename(names(nums)))
 
     return(list(total = nums, mapped = mapped))
 }
 
 countMapping <- function(rdaName, noNA = FALSE){
     #print(paste("Processing", rdaName))
-    tempEnv <- new.env(hash = TRUE, parent = NULL)
-    rda <- gsub("\\.rda", "", basename(rdaName))
+    tempEnv <- new.env(hash = TRUE, parent = emptyenv())
+    rda <- gsub("\\.rda$", "", basename(rdaName))
     load(rdaName, tempEnv)
 
     tempData <- tempEnv[[rda]]
@@ -162,7 +162,7 @@ countMapping <- function(rdaName, noNA = FALSE){
 }
 
 matchProbes <- function(baseF, pkgName, pkgPath, toMatch, isFile = TRUE){
-    tempEnv <- new.env(hash = TRUE, parent = NULL)
+    tempEnv <- new.env(hash = TRUE, parent = emptyenv())
     toReturn <- NULL
 
     if(isFile){
@@ -191,7 +191,7 @@ matchProbes <- function(baseF, pkgName, pkgPath, toMatch, isFile = TRUE){
 
 getPBased <- function(){
 
-    info <- unlist(as.list(AnnInfo))
+    info <- unlist(as.list(get("AnnInfo", env = .GlobalEnv)))
     pBased <- info[grep("pbased", names(info))]
 
     return(gsub(".pbased", "", names(pBased[pBased == "Y"])))

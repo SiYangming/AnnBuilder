@@ -4,13 +4,13 @@
   data concerning the interactions between molecules}
 \description{
   #PKGNAME##DSOURCE#INTERACTION maps cMAP (NCICB Pathway Interaction Database)
-  molecule ids to data about the interactions of the molecule
-  represented by the ids and other molecules   
+  molecule identifiers to data about the interactions of the molecule
+  represented by the identifiers and other molecules   
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  molecule ids and values are lists of vectors and sublists. Each
-  molecule id is mapped to a list that has a source, process,
+  molecule identifiers and values are lists of vectors and sublists. Each
+  molecule identifier is mapped to a list that has a source, process,
   reversible, condition, and component element.
 
   The source element is a character string indicating whether the
@@ -31,8 +31,8 @@
   from the GO Biological Process vocabulary.
   
   The component element contains sublists of vectors. Each key molecule
-  id has a sequence of component represented by elements of the
-  sublist. Each sublist has an id (molecule id of the interacting
+  identifier has a sequence of component represented by elements of the
+  sublist. Each sublist has an identifier (molecule identifier of the interacting
   molecule), edge (indicating the way two molecule interact. Potential
   values include "input", "agent", "inhibitor", and "output"), role (the
   function of the key molecule. Potential values include any term from

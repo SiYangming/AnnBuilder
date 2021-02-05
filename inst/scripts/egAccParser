@@ -4,6 +4,7 @@
 %affyHash = ();
 while( <BASE> ) {
     chomp;
+    s/\r//;
     @vals = split /\t/;
     @gbs = split /;/, @vals[1];
     foreach $x (@gbs){
@@ -22,8 +23,8 @@ while( <DATA> ) {
 
     @lines = split("\t");
 
-    if($lines[5] ne "-"){
-        @temp = split/\./, $lines[5];
+    if($lines[3] ne "-"){
+        @temp = split/\./, $lines[3];
         if(exists $affyHash{$temp[0]}){
 	    @affys = split/,/, $affyHash{$temp[0]};
             foreach $x (@affys){
@@ -36,8 +37,9 @@ while( <DATA> ) {
             next;
         }	
     }
-    if($lines[7] ne "-"){
-        @temp = split/\./, $lines[7];
+    if($lines[5] ne "-"){
+## FIXME: if the split returns nothing we get uninitialized variable warning
+        @temp = split/\./, $lines[5];
          if(exists $affyHash{$temp[0]}){
 	    @affys = split/,/, $affyHash{$temp[0]};
             foreach $x (@affys){

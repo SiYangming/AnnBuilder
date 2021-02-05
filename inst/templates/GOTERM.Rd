@@ -2,10 +2,10 @@
 \alias{GOTERM}
 \title{Annotation of GO Identifiers to GO Terms}
 \description{
-  This data set gives mappings between GO ids and their respective terms.
+  This data set gives mappings between GO identifiers and their respective terms.
 }
 \details{
-  Each GO id is mapped to a \code{GOTerms} object that has 6 slots:
+  Each GO identifier is mapped to a \code{GOTerms} object that has 6 slots:
   \item{GOID}{GO Identifier}
   \item{Term}{The term for that GO id}
   \item{Synonym}{Synonymous terms}
@@ -17,7 +17,7 @@
   All the obsolete GO terms are under the nodes "obsolete molecular
   function" (GO:0008369), "obsolete cellular component" (GO id
   GO:0008370), and "obsolete biological process" (GO:0008371). Each of
-  these GO ids has a group of GO ids as their direct children with GO
+  these GO identifiers has a group of GO identifiers as their direct children with GO
   terms that were defined by GO but are
   deprecated in the current build. These deprecated GO terms were
   appended by "(obsolete)" when the data package was built. 
@@ -43,7 +43,7 @@
         Synonym(xx[[1]])
         Secondary(xx[[1]])
         Definition(xx[[1]])
-        Category(xx[[1]])
+        Ontology(xx[[1]])
     }
 }
 \keyword{datasets}

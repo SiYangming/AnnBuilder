@@ -9,7 +9,7 @@
   This is an environment object containing key and value pairs. Keys are
   chromosome numbers and values are the locations of cytobands on
   correponding chromosoms. The mapped values are lists of named
-  vectors. The names of lists are cytoband ids (e. g. qA2, ...). Each
+  vectors. The names of lists are cytoband identifiers (e. g. qA2, ...). Each
   list contains a vector of two elements of integers for the starting
   and ending locations of the band on the chromosome defined by the key
   the lists mapped to. Names of the vectors indicate whether the value

@@ -1,15 +1,15 @@
 \name{#PKGNAME#ACCNUM2LL}
 \alias{#PKGNAME#ACCNUM2LL}
 \title{An annotation data file that maps GenBank Accession numbers to
-  LocusLink identifiers}
+  Entrez Gene identifiers}
 \description{
-  #PKGNAME#ACCNUM2LL maps GenBank Accession numbers to LocusLink ids
+  #PKGNAME#ACCNUM2LL maps GenBank Accession numbers to Entrez Gene identifiers
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  GenBank Accession numbers and values are the corresponding LocusLink
-  ids. Values are vectors of length 1 or more depending on whether a
-  GenBank Accession number can be mapped to one or more LocusLink ids.
+  GenBank Accession numbers and values are the corresponding Entrez Gene
+  identifiers. Values are vectors of length 1 or more depending on whether a
+  GenBank Accession number can be mapped to one or more Entrez Gene identifiers.
 
   Mappings were derived from data provided by:
 

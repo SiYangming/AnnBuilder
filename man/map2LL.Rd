@@ -74,8 +74,6 @@ getExten("acc"), sep = ""), organism = "human")
 }
 \references{\url{http://www.ncbi.nlm.nih.gov/LocusLink/}}
 \author{Jianhua Zhang}
-\note{This function is part of Bioconductor project at Dana-Farber
-  Cancer Institute to provide bioinfomatics functionalities through R}
 
 \examples{
 \dontrun{

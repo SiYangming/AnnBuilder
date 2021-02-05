@@ -2,7 +2,6 @@ cMapPathBuilder <- function(cartaName, keggName, pkgName = "cMAP",
                             pkgPath,  version = "1.1.0",
                             author = list(author = "anonymous",
                             maintainer = "anonymous@email.com"), lazyLoad = TRUE){
-
     biocarta <- cMAPParser(cartaName)
     kegg <- cMAPParser(keggName)
 
@@ -24,7 +23,7 @@ cMapPathBuilder <- function(cartaName, keggName, pkgName = "cMAP",
         repList[["DSOURCE"]] <- i
         for(j in c("MOLECULE", "INTERACTION", "PATHWAY")){
             rdName <- file.path(pkgPath, pkgName, "man",
-                            paste(pkgName, j, i, ".Rd", sep = ""))
+                            paste(pkgName, i, j, ".Rd", sep = ""))
             copied <- try(copySubstitute(file.path(
                           .path.package("AnnBuilder"), "templates",
                           paste("PKGNAME", j, ".Rd",  sep = "")),
@@ -48,7 +47,6 @@ cMapPathBuilder <- function(cartaName, keggName, pkgName = "cMAP",
                         paste(pkgName, "QC.Rd", sep = "")),
                         list(PKGNAME = pkgName), "#")
     writeDatalist(pkgName, pkgPath)
-    #makeLLDB(file.path(pkgPath, pkgName), compress=TRUE)
     if(lazyLoad){
       makeLLDB(file.path(pkgPath, pkgName), compress=TRUE)
     }

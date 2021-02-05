@@ -5,15 +5,15 @@
 #
 
 MeSHParser <- function(mesh){
-    treeEnv <- new.env(hash = TRUE, parent = NULL)
-    scopeEnv <- new.env(hash = TRUE, parent = NULL)
-    qualifyEnv <- new.env(hash = TRUE, parent = NULL)
-    conceptEnv <- new.env(hash = TRUE, parent = NULL)
-    termEnv <- new.env(hash = TRUE, parent = NULL)
-    dHeadingEnv <- new.env(hash = TRUE, parent = NULL)
-    cHeadingEnv <- new.env(hash = TRUE, parent = NULL)
-    tHeadingEnv <- new.env(hash = TRUE, parent = NULL)
-    qHeadingEnv <- new.env(hash = TRUE, parent = NULL)
+    treeEnv <- new.env(hash = TRUE, parent = emptyenv())
+    scopeEnv <- new.env(hash = TRUE, parent = emptyenv())
+    qualifyEnv <- new.env(hash = TRUE, parent = emptyenv())
+    conceptEnv <- new.env(hash = TRUE, parent = emptyenv())
+    termEnv <- new.env(hash = TRUE, parent = emptyenv())
+    dHeadingEnv <- new.env(hash = TRUE, parent = emptyenv())
+    cHeadingEnv <- new.env(hash = TRUE, parent = emptyenv())
+    tHeadingEnv <- new.env(hash = TRUE, parent = emptyenv())
+    qHeadingEnv <- new.env(hash = TRUE, parent = emptyenv())
 
     dHeading <- NULL
     cHeading <- NULL

@@ -37,17 +37,17 @@
   require("annotate", character.only = TRUE) || stop("annotate unavailable")
   # Convert the environment object to a list
   xx <- as.list(GOCCPARENTS)
-  # Remove GO ids that do not have any parent
+  # Remove GO IDs that do not have any parent
   xx <- xx[!is.na(xx)]
   if(length(xx) > 0){
      goids <- xx[[1]]
-     # Find out the GO terms for the first parent goid
+     # Find out the GO terms for the first parent go ID
      GOID(GOTERM[[goids[1]]])
      Term(GOTERM[[goids[1]]])
      Synonym(GOTERM[[goids[1]]])
      Secondary(GOTERM[[goids[1]]])
      Definition(GOTERM[[goids[1]]])
-     Category(GOTERM[[goids[1]]])
+     Ontology(GOTERM[[goids[1]]])
   }
 }
 \keyword{datasets}

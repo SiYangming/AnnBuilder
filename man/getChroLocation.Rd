@@ -12,7 +12,7 @@
 \usage{
 getChroLocation(srcUrl, exten = gpLinkNGene(), sep = "\t", fromWeb =
 TRUE, raw = FALSE)
-getGPData(srcUrl, sep = "\t", ncol = 8, keep = c(3,7))
+getGPData(srcUrl, sep = "\t")
 gpLinkNGene(test = FALSE, fromWeb = TRUE)
 getCytoList(data)
 getCytoLoc(organism, srcUrl = paste(getSrcUrl("gp",organism), "/",
@@ -25,10 +25,6 @@ getCytoLoc(organism, srcUrl = paste(getSrcUrl("gp",organism), "/",
     to be used for the extraction}
   \item{sep}{\code{sep} a character string for the separator used by the
     source file}
-  \item{ncol}{\code{ncol} an integer for the total number of columns a
-    source data set has}
-  \item{keep}{\code{keep} a numeric vector for the columns (defined by
-    column number) to be kept}
   \item{test}{\code{test} a boolean to indicate whether the process is
     in a testing mode}
   \item{fromWeb}{\code{fromWeb} a boolean to indicate whether the source
@@ -60,8 +56,6 @@ getCytoLoc(organism, srcUrl = paste(getSrcUrl("gp",organism), "/",
 }
 \references{\url{http://www.genome.ucsc.edu}}
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{GP}}}
 \examples{

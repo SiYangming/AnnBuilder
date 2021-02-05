@@ -1,8 +1,10 @@
+
 ABPkgBuilder <- function(baseName, srcUrls,
                          baseMapType=c("gb", "ug", "ll", "image", "refseq", "gbNRef"),
                          otherSrc=NULL,
                          pkgName, pkgPath, organism, version,
-                         author, fromWeb = TRUE, lazyLoad = TRUE) {
+                         author, fromWeb = TRUE, lazyLoad = TRUE
+                         ) {
     ## Build annotation data packages.
     ##
     ## pkgName - the name of the data package to be built (e.g. hgu95a)
@@ -26,8 +28,11 @@ ABPkgBuilder <- function(baseName, srcUrls,
     ##          mappings between probe ids of baseName and LocusLink ids
     ##          based on all the sources. The strings should not contain
     ##          any number.
+    #####################
+    ## makeXML is removed.
     ## makeXML - a boolean to indicate whether an XML version will also be
     ##         generated.
+    #####################
     ## srcUrls - a vector of names character strings for the urls where
     ##         source data files will be retained. Valid sources are LocusLink,
     ##         UniGene, Golden Path, Gene Ontology, and KEGG. The names for the
@@ -44,15 +49,33 @@ ABPkgBuilder <- function(baseName, srcUrls,
     ##
     ## Copyright 2003, J. Zhang, all rights reserved.
     ##
-    require("GO", quietly=TRUE) || stop("GO is needed to build data package")
+
+    if(any(c(missing(baseName), missing(pkgName), missing(pkgPath),
+             missing(organism), missing(version), missing(author),
+             is.null(baseName), is.null(pkgName), is.null(pkgPath),
+             is.null(organism), is.null(version), is.null(author)))){
+      stop(paste("Parameters baseName, pkgName, pkgPath, organism, ",
+                 "version, or author can not be missing or NULL",
+                 sep = ""))
+    }
+    require("GO.db", quietly=TRUE) || stop("GO is needed to build data package")
 
     baseMapType <- match.arg(baseMapType)
+    ## using oriUrls to fix the "gopher5" problem when using local mirror
     if(missing(srcUrls)){
-         srcUrls <- getSrcUrl("all", organism = organism)
-     }
-     makeSrcInfo()
+        srcUrls <- getSrcUrl("all", organism = organism)
+        oriUrls <- unlist(getOption("AnnBuilderPublicDataUrls"))
+    }else{
+        oriUrls <- srcUrls
+    }
+    makeSrcInfo()
 
-     srcObjs <- getSrcObjs(srcUrls, baseName, organism, baseMapType)
+    srcObjs <- getSrcObjs(srcUrls, baseName, organism, baseMapType)
+    oriObjs <- srcObjs
+    for(comp in names(srcObjs)){
+        srcUrl(oriObjs[[comp]]) <- oriUrls[[toupper(comp)]]
+    }
+    
      if(!is.null(otherSrc) && !is.na(otherSrc))
      {
      	unified <- getUniMappings(baseName, srcObjs[["eg"]],
@@ -90,8 +113,13 @@ ABPkgBuilder <- function(baseName, srcUrls,
          writeReverseMap(annotation[, c("PROBE", revNames)],
                          pkgName, pkgPath)
      }
-     if(!all(is.na(annotation[, "GO"]))){
-         goCategories <- unlist(eapply(GOTERM, function(x) x@Ontology))
+     if("GO" %in% colnames(annotation)){
+     if(!all(is.na(annotation[, "GO"]))) {
+         
+         ##NEED GOTERM to be an actual environment for this to work.
+         goTerm=l2e(as.list(GOTERM))
+
+         goCategories <- unlist(eapply(goTerm, function(x) x@Ontology))
          goList <- getList4GO(goCategories,
                               sapply(annotation[, "GO"], twoStepSplit))
          names(goList) <- annotation[, "PROBE"]
@@ -109,18 +137,19 @@ ABPkgBuilder <- function(baseName, srcUrls,
          ## Create an empty SUMFUNC environment
          sumfunc <- as.list(rep(NA, length(annotation[, "PROBE"])))
          names(sumfunc) <- annotation[, "PROBE"]
-         sumFuncEnv <- new.env(hash=TRUE, parent=NULL)
+         sumFuncEnv <- new.env(hash=TRUE, parent=emptyenv())
          sumFuncEnv <- l2e(sumfunc, sumFuncEnv)
          lockEnvironment(sumFuncEnv, bindings=TRUE)
          envName <- paste(pkgName, "SUMFUNC", sep="")
          assign(envName, sumFuncEnv)
          fName <- file.path(pkgPath, pkgName, "data",
                             paste(envName, ".rda", sep=""))
-         save(list=envName, file=fName, compress=TRUE)
-         
+         save(list=envName, file=fName, compress=TRUE)         
      }
+ }
      
-     repList <- getRepList("all", resumeSrcUrl(srcObjs, organism))
+    ##repList <- getRepList("all", resumeSrcUrl(srcObjs, organism))
+    repList <- getRepList("all", resumeSrcUrl(oriObjs, organism))
      repList[["PKGNAME"]] <- pkgName
      options(show.error.messages = FALSE)
      chrLengths <- try(getChrLengths(organism))
@@ -185,6 +214,8 @@ getRepList <- function(what, srcObjs){
                                    srcObjs[["kegg"]]), DATE = date())),
            UG = return(list(LLSOURCE = getRepSourceNBuilt("UniGene:",
                              srcObjs[["ug"]]), DATE = date())),
+           PFAM=return(list(LLSOURCE=getRepSourceNBuilt("PFAM:",
+                              srcObjs[["pfam"]]), DATE = date())),
            stop(paste("Unknown argument", what)))
 }
 
@@ -200,13 +231,8 @@ getRepSourceNBuilt <- function(name, object){
 
 # Map GO ids to probe ids that are directly associated with the GO ids
 mapGO2Probe <- function(eg, baseMapType){
-     if(baseMapType == "ll"){
-            parser(eg) <- file.path(.path.package("AnnBuilder"),
-                                    "scripts", "GO2ProbeParser4LL")
-        }else{
-            parser(eg) <- file.path(.path.package("AnnBuilder"),
+        parser(eg) <- file.path(.path.package("AnnBuilder"),
                                     "scripts", "GO2ProbeParser")
-        }
         options(show.error.messages = FALSE)
         go2Probe <- try(parseData(eg, eg@go, ncol = 3))
         options(show.error.messages = TRUE)
@@ -249,7 +275,7 @@ writeReverseMap <- function(annData, pkgName, pkgPath){
 writeAnnData2Pkg <- function(annData, pkgName, pkgPath){
     #for (i in getUniColNames()) {
     #    env <- new.env(hash = TRUE, parent = NULL)
-    #    if (i == "LOCUSID") {
+    #    if (i == "ENTREZID") {
     #        multiassign(annData[, "PROBE"], as.integer(annData[,
     #            i]), env)
     #    }
@@ -290,9 +316,16 @@ writeAnnData2Pkg <- function(annData, pkgName, pkgPath){
     # Write data to the package for one to one mappings
     for(i in colNames){
         switch(i,
-               LOCUSID = fun <- function(x) as.integer(x),
+               ENTREZID = fun <- function(x) as.integer(x),
                CHRLOC = fun <- function(x) twoStepSplit(x,
                                               asNumeric = TRUE),
+               PFAM = fun <- function(x) twoStepSplit(x),
+               PROSITE = fun <- function(x) twoStepSplit(x),
+               MAP = fun <- function(x) {
+                         ans <- splitEntry(x)
+                         gsub("^ +| +$", "", ans)
+                     },
+		GENENAME = fun <- function(x) x,
                fun <- function(x) splitEntry(x))
         saveMat(annData[, c("PROBE", i)], fun = fun,
                 pkgName = pkgName, pkgPath = pkgPath, envName = i)
@@ -300,10 +333,15 @@ writeAnnData2Pkg <- function(annData, pkgName, pkgPath){
 }
 
 getAnnData <- function(srcObjs){
-    annotation <- read.delim(baseFile(srcObjs[["eg"]]), sep = "\t",
-                             header = FALSE, as.is = TRUE)
-    annotation <- annotation[, 1:3]
-    colnames(annotation) <- c("PROBE", "ACCNUM", "LOCUSID")
+    annotation <- read.delim(baseFile(srcObjs[["eg"]]), sep = "\t", 
+				colClasses="character",
+                             header = FALSE, as.is = TRUE, comment.char = "")
+    if(ncol(annotation)==2){
+        colnames(annotation) <- c("PROBE", "ENTREZID")
+    }else{
+        annotation <- annotation[, 1:3]
+        colnames(annotation) <- c("PROBE", "ACCNUM", "ENTREZID")
+    }
     options(show.error.messages = FALSE)
     # Parse gene2go.gz
     parser(srcObjs[["eg"]]) <- getBaseParsers("eggo") 
@@ -335,6 +373,17 @@ getAnnData <- function(srcObjs){
     geneinfo <- try(parseData(srcObjs[["eg"]], srcObjs[["eg"]]@info, 
                                 ncol = 5, mergeKey = FALSE))
     colnames(geneinfo) <- c("PROBE", "SYMBOL", "GENENAME", "CHR", "MAP")
+     # work on case "X|Y"
+    geneinfo[,4] <- gsub("|", ";", geneinfo[,4], fixed=T)
+     # work on cases:
+     # 1q43|1q23.1 according to Sierra (Genomics 79; 177; 2002) [AFS]
+     # Xpter-p22.32;Yp11.3
+     # 11p15.1|11
+     # X;Y|XY 75.0 cM
+    lindex <- grep("|", geneinfo[,5], fixed=T)
+    geneinfo[lindex, 5] <- gsub(";", ",", geneinfo[lindex, 5], fixed=T)
+    geneinfo[lindex, 5] <- gsub("|", ";", geneinfo[lindex, 5], fixed=T)
+
     options(show.error.messages = TRUE)
     if(inherits(annotation, "try-error")){
         stop(paste("Parsing Entrez Gene gene_info.gz failed because of:\n\n",
@@ -389,7 +438,7 @@ getAnnData <- function(srcObjs){
             warning(paste("Failed to parse Golden Path data because of:\n\n",
                        strand))
         }else{
-            annotation <- merge(annotation, strand, by = "LOCUSID",
+            annotation <- merge(annotation, strand, by = "ENTREZID",
                                 all.x = TRUE)
         }
     }
@@ -405,19 +454,35 @@ getAnnData <- function(srcObjs){
             if(dim(pathNEnzyme$llpathname)[[1]] > 0)
             {
                annotation <- merge(annotation, pathNEnzyme$llpathname,
-                                by = "LOCUSID", all.x = TRUE)
+                                by = "ENTREZID", all.x = TRUE)
+	    } else {
+               PATH <- rep(NA, length(annotation[, "PROBE"]))
+		annotation <- data.frame(annotation, PATH)
+	    }
+
+            if(dim(pathNEnzyme$llec)[[1]] > 0)
+	    {
                annotation <- merge(annotation, pathNEnzyme$llec,
-                                by = "LOCUSID", all.x = TRUE)
+                                by = "ENTREZID", all.x = TRUE)
             }
             else
             {
-               PATH <- rep(NA, length(annotation[, "PROBE"]))
 	       ENZYME <- rep(NA, length(annotation[, "PROBE"]))
                GO <- rep(NA, length(annotation[, "PROBE"]))
-               annotation <- data.frame(annotation, PATH, ENZYME, GO)
+               annotation <- data.frame(annotation, ENZYME, GO)
             }
         }
     }
+
+    if(!is.null(srcObjs[["ipi"]])) {
+        ipi <- try(parseData(srcObjs[["ipi"]]))
+        if(inherits(ipi, "try-error")){
+            warning("Failed to include IPI data")
+        }else{
+            annotation <- merge(annotation, ipi, by = "ENTREZID", all.x = TRUE)
+        }        
+    }
+    
     annotation <- as.matrix(annotation)
     # Convert "" to NA
     annotation[annotation == ""] <- NA
@@ -440,7 +505,6 @@ getAnnData <- function(srcObjs){
 }
   
 unifyMappings <- function(base, eg, ug, otherSrc){
-
     trusted <- NULL
     # Get the unified mappings betwee probe ids and locusLink ids
     # based on multiple sources.
@@ -486,7 +550,11 @@ unifyMappings <- function(base, eg, ug, otherSrc){
     # Skip if the target of annotation is not a Affymetrix chip with
     # existing mapping data file in the data directory of AnnBuilder.
     if(!is.null(otherSrc) && length(otherSrc) > 0){
-        names(otherSrc) <- paste("OTHER", names(otherSrc))
+        if(is.null(names(otherSrc))) {
+            names(otherSrc) <- paste("OTHER", c(1:length(otherSrc)))
+        }else{
+            names(otherSrc) <- paste("OTHER", names(otherSrc))
+        }
         for(i in names(otherSrc)){
             options(show.error.messages = FALSE)
             temp <- try(matrix(scan(otherSrc[i], what = "character",
@@ -511,11 +579,11 @@ unifyMappings <- function(base, eg, ug, otherSrc){
 }
 
 getUniMappings <- function(baseName, eg, ug, otherSrc, baseMapType){
-
     base <- getBaseFile(baseName)
-
     if(baseMapType == "refseq"){
-        unified <- unifyMappings(base, eg, NULL, otherSrc)
+	eg_refseq <- eg
+	eg_refseq@accession <- eg_refseq@refseq
+        unified <- unifyMappings(base, eg_refseq, NULL, otherSrc)
     }else if(baseMapType != "ll"){
         #ug <- UG(srcUrl = srcUrl(ug),
         #         parser = parser(ug), baseFile = baseName(ug),
@@ -526,9 +594,20 @@ getUniMappings <- function(baseName, eg, ug, otherSrc, baseMapType){
             unified <- unifyMappings(base, eg, ug, otherSrc)
         }
     }else{
-        unified <- baseName
+        unified <- addACCColumn(baseName)
     }
     return(unified)
+}
+
+## Create a new file by adding a scond column with NAs to make sure 
+## that LL ids are in the third column
+addACCColumn <- function(baseName){
+  temp <- read.delim(baseName, head = FALSE, sep = "\t", as.is = TRUE)
+  temp <- cbind(temp[, 1], "NA", temp[, 2])
+  tempFile <- tempfile()
+  write.table(temp, tempFile, sep = "\t", col.names = FALSE, row.names = FALSE,
+              quote = FALSE)
+  return(tempFile)
 }
 
 #mapImage2Ref <- function(baseName, ll, ug, organism){
@@ -580,23 +659,26 @@ getSrcObjs <- function(srcUrls, baseName, organism,
 
     srcObjs <- list()
     for(i in names(srcUrls)){
-       switch(toupper(i),
-              EG = srcObjs[["eg"]] <- EG(loadFromUrl(paste(srcUrls[i],
-                              getEGAccName(), sep = "/")),
-                              parser = baseParser["EG"], baseFile = baseName,
-                              fromWeb = FALSE),
-              UG =  srcObjs[["ug"]] <- UG(loadFromUrl(srcUrls[i]),
-                              parser = baseParser["UG"], baseFile = baseName,
-                              organism = organism, fromWeb = FALSE),
-              KEGG = srcObjs[["kegg"]] <- KEGG(srcUrl = srcUrls[i],
-                            organism = organism, built = getSrcBuilt("kegg"),
-                            fromWeb = TRUE),
-              GO =  srcObjs[["go"]] <- GO(srcUrl = srcUrls[i],
-                          built = getSrcBuilt("go"), fromWeb = TRUE),
-              GP = srcObjs[["gp"]] <- GP(srcUrl = srcUrls[i],
-                          organism = organism,
-                          built = getSrcBuilt("gp", organism = organism),
-                          fromWeb = TRUE))
+        switch(toupper(i),
+               EG = srcObjs[["eg"]] <- EG(loadFromUrl(paste(srcUrls[i],
+                 getEGAccName(), sep = "/")),
+                 parser = baseParser["EG"], baseFile = baseName,
+                 fromWeb = FALSE),
+               UG =  srcObjs[["ug"]] <- UG(loadFromUrl(srcUrls[i]),
+                 parser = baseParser["UG"], baseFile = baseName,
+                 organism = organism, fromWeb = FALSE),
+               KEGG = srcObjs[["kegg"]] <- KEGG(srcUrl = srcUrls[i],
+                 organism = organism, built = getSrcBuilt("kegg"),
+                 fromWeb = TRUE, kegggenomeUrl=srcUrls[["KEGGGENOME"]]),
+               GO =  srcObjs[["go"]] <- AnnBuilder:::GO(srcUrl = srcUrls[i],
+                 built = getSrcBuilt("go"), fromWeb = TRUE),
+               GP = srcObjs[["gp"]] <- GP(srcUrl = srcUrls[i],
+                 organism = organism,
+                 built = getSrcBuilt("gp", organism = organism),
+                 fromWeb = TRUE),
+               IPI = srcObjs[["ipi"]] <- if(length(toupper(organism2species(organism)))!=0) IPI(srcUrl = srcUrls[i], organism = organism) else NULL
+               )
+        
     }
 
     return(srcObjs)
@@ -660,7 +742,8 @@ createEmptyDPkg <- function(pkgName, pkgPath,
         dir.create(file.path(pkgPath, pkgName, i))
     }
 }
-# Split multiple entry for a given mapping
+
+## Split multiple entry for a given mapping
 splitEntry <- function(dataRow, sep = ";", asNumeric = FALSE){
     if(is.na(dataRow) || is.null(dataRow) || dataRow == ""){
         return(NA)
@@ -672,7 +755,8 @@ splitEntry <- function(dataRow, sep = ";", asNumeric = FALSE){
         }
     }
 }
-# Split multiple entry with two separaters (e. g. 12345@18;67891@18)
+
+## Split multiple entry with two separaters (e. g. 12345@18;67891@18)
 twoStepSplit <- function(dataRow, entrySep = ";", eleSep = "@",
     asNumeric = FALSE){
     splitEle <- function(entry){
@@ -692,7 +776,9 @@ twoStepSplit <- function(dataRow, entrySep = ";", eleSep = "@",
     temp <- unique(unlist(strsplit(dataRow, entrySep), use.names = FALSE))
     # Force "NA" to be NA
     temp[temp == "NA"] <- NA
-    return(unlist(lapply(temp, splitEle), use.names = TRUE))
+    result <- unlist(lapply(temp, splitEle), use.names = TRUE)
+    result[result == "NA"] <- NA
+    return(result)
 }
 
 # This function takes two data columns from a data file (e. g. two
@@ -707,7 +793,7 @@ twoStepSplit <- function(dataRow, entrySep = ";", eleSep = "@",
 cols2Env <- function(cols, colNames, keyColName = colNames[1], sep = ";"){
 
     # Environment to return
-    dataEnv <- new.env(hash = TRUE, parent = NULL)
+    dataEnv <- new.env(hash = TRUE, parent = emptyenv())
 
     # Force a matrix
     cols <- as.matrix(cols)
@@ -812,7 +898,7 @@ getMultiColNames <- function(){
 }
 
 getUniColNames <- function(){
-    return(c("ACCNUM", "LOCUSID", "GENENAME", "SYMBOL", "MAP",
+    return(c("ACCNUM", "ENTREZID", "GENENAME", "SYMBOL", "MAP",
              "GRIF", "SUMFUNC"))
 }
 
@@ -835,7 +921,7 @@ getList4GO <- function(goNCat, goNEvi){
                             vectNames = c("GOID", "Evidence", "Ontology")))
         }
     }
-    temp <- sapply(goNEvi, procOne)
+    temp <- lapply(goNEvi, procOne)
     # Names from sapply can be very long
     names(temp) <- 1:length(temp)
     return(temp)
@@ -875,14 +961,13 @@ findChrLength <- function(organism, srcUrl = getSrcUrl("GP", organism)){
         if(nrow(locs) == 0){
             temp <- NA
         }else if (nrow(locs) == 1){
-            temp <- as.numberic(locs[, 2])
+            temp <- as.numeric(locs[, 2])
         }else {
             temp <- max(as.numeric(locs[, 2]))
         }
         chrLengths[as.character(chroNum)] <<- temp
     }
-    locatData <- getGPData(paste(srcUrl, "refGene.txt.gz", sep = ""),
-                           ncol = 10, keep = c(2,4))
+    locatData <- getGPData(paste(srcUrl, "refGene.txt.gz", sep = ""))
     # Remove "chr" from chromosome numbers
     locatData[,1] <- gsub("^chr", "\\", locatData[, 1])
     chromosomes <- unique(locatData[,1])
@@ -965,7 +1050,7 @@ nameGOByCat <- function(GOWithEvi, goCat){
         if(length(goids) > 0){
             return(paste(goids, sep = "", collapse = "@"))
         }else{
-            return(GOWithEnv)
+            return(GOWithEvi)
         }
     }else{
         return(paste(goids[,1], goids[,2], sep = "@", collapse = ";"))
@@ -973,7 +1058,7 @@ nameGOByCat <- function(GOWithEvi, goCat){
 }
 
 saveList <- function(dList, pkgName, pkgPath, envName){
-    env <- new.env(hash = TRUE, parent = NULL)
+    env <- new.env(hash = TRUE, parent = emptyenv())
     if(length(dList) != 0){
         l2e(dList, env)
         #multiassign(names(dList), dList, env)
@@ -985,16 +1070,18 @@ saveList <- function(dList, pkgName, pkgPath, envName){
 }
 
 saveMat <- function(data, pkgName, pkgPath, envName, keyCol = 1,
-                         valCol = 2, fun = function(x) x){
-    env <- new.env(hash = TRUE, parent = NULL)
+                         valCol = 2, fun = function(x) gsub("^ +| +$", "", x)){
+    env <- new.env(hash = TRUE, parent = emptyenv())
     if(is.null(nrow(data))){
         if(length(data) != 0){
-            assign(data[keyCol], fun(data[valCol]), env)
+            # remove leading or trailing space that may be introducted by
+            # matrix operations
+            assign(gsub("^ +| +$", "", data[keyCol]), fun(data[valCol]), env)
         }
     }else{
         if(length(data) != 0){
-            multiassign(data[,keyCol], lapply(as.vector(data[, valCol]),
-                                              fun), env)
+            multiassign(gsub("^ +| +$", "", data[,keyCol]),
+                     lapply(as.vector(data[, valCol]), fun), env)
         }
     }
     lockEnvironment(env, bindings = TRUE)
@@ -1041,7 +1128,7 @@ addGoAllProbeData <- function(go2ProbeEnv, goOffspringEnv, allProbesEnv) {
 
 createGo2AllProbesEnv <- function(go2ProbeEnv) {
     ## assumes GO package is loaded
-    allProbesEnv <- new.env(hash=TRUE, parent=NULL)
+    allProbesEnv <- new.env(hash=TRUE, parent=emptyenv())
     addGoAllProbeData(go2ProbeEnv, GOCCOFFSPRING, allProbesEnv)
     addGoAllProbeData(go2ProbeEnv, GOMFOFFSPRING, allProbesEnv)
     addGoAllProbeData(go2ProbeEnv, GOBPOFFSPRING, allProbesEnv)

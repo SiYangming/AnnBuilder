@@ -11,7 +11,7 @@
 \section{Objects from the Class}{
 Objects can be created by calls of the form \code{new("EG", ...)}.
     A constructor (\code{\link{EG}} is available and should be used to
-    instantiate objects of EG} 
+    instantiate objects of EG). 
 }
 \section{Slots}{
   \describe{

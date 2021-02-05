@@ -45,6 +45,8 @@ yeastAnn <- function(base = "", yGenoUrl,
             temp[,"chrloc"] <- formatChrLoc(temp[,"chr"], temp[,"chrloc"],
                                             temp[,"chrori"])
             temp[, "alias"] <- gsub("\\|", ";", temp[, "alias"])
+            ##temp[, "alias"] <- sapply(temp[, "alias"], function(x) ifelse(x=="", NA, x), USE.NAMES=FALSE)
+            ##temp[, "genename"] <- sapply(temp[, "genename"], function(x) ifelse(x=="", NA, x), USE.NAMES=FALSE)
             temp <- temp[, setdiff(colNames[[i]], "chrori")]
         }else{
             colnames(temp) <- colNames[[i]]
@@ -58,13 +60,35 @@ yeastAnn <- function(base = "", yGenoUrl,
 #        temp1 <- (temp1[!duplicated(temp1[,by]) |
 #                                         !duplicated(temp1[,"probe"]),])
     }
-    # Return data with ORF removed
-    return(temp1[, -match(by, colnames(temp1))])
+
+    ##improve the genename / alias
+    temp <- readData(ygeno, "gene_registry/registry.genenames.tab", c(1,2,7), "\t")
+    colnames(temp) <- c("genename2", "alias2", "sgdid")
+    temp[, "alias2"] <- gsub("\\|", ";", as.vector(temp[, "alias2"]))
+    temp1 <- merge(temp1, mergeRowByKey(temp), by = by, all.x = TRUE)
+    ## an ugly patch for genename (Oct, 2006)
+    temp1[, "genename"] <- as.character(temp1[, "genename"])
+    temp1[, "genename2"] <- as.character(temp1[, "genename2"])
+    naGeneNameIndex <- which(temp1[,"genename"]=="")
+    temp1[naGeneNameIndex, "genename"] <- temp1[naGeneNameIndex,"genename2"]
+
+    temp1[, "alias"] <- apply(temp1[, c("alias", "alias2")], 1,
+                              function(x){
+                                  xx <- union(unlist(strsplit(x[1], ";")), unlist(strsplit(x[2], ";")))
+                                  if(all(is.na(xx))){
+                                      return(NA)
+                                  }else{
+                                      xx <- xx[!is.na(xx)]
+                                      return(paste(xx, sep="", collapse=";"))
+                                  }
+                              })
+    ## Return data with ORF removed
+    return(temp1[, -match(c(by, "genename2", "alias2"), colnames(temp1))])
 }
 # Gets mappings between ORF to sgdid
 getProbe2SGD <- function(probe2ORF = "", yGenoUrl,
                      fileName = "literature_curation/orf_geneontology.tab",
-                     toKeep = c(1, 7), colNames = c("orf","sgdid"),
+                     toKeep = c(1, 7), colNames = c("orf", "sgdid"),
                      sep = "\t", by = "orf"){
     yGeno <- YG(srcUrl = yGenoUrl)
     temp <- readData(yGeno, fileName, toKeep, sep)
@@ -74,6 +98,7 @@ getProbe2SGD <- function(probe2ORF = "", yGenoUrl,
         return(temp)
     }else{
         probes <- read.table(probe2ORF, sep = "\t", header = FALSE,
+		stringsAsFactors=FALSE,
             strip.white = TRUE)
         colnames(probes) <- c("probe", by)
         merged <- merge(probes, temp, by = by, all.x = TRUE)
@@ -96,9 +121,9 @@ procYeastGeno <- function(baseURL, fileName, toKeep, colNames, seps = "\t"){
     # Parse each file and merge based on source specified ids
     merged <- NULL
     # Creat a yeastGeno object
-    ygeno <- yeastGeno(srcUrl = baseUrl)
-    for(i in 1:length(fileNames)){
-        temp <- readData(ygeno, fileNames[i], toKeep[[i]], seps[i])
+    ygeno <- YG(srcUrl = baseURL)
+    for(i in 1:length(fileName)){
+        temp <- readData(ygeno, fileName[i], toKeep[[i]], seps[i])
         # The first row is for column name. Remove it
         temp <- temp[-1,]
         colnames(temp) <- colNames[[i]]

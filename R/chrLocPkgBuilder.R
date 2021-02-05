@@ -24,7 +24,7 @@ chrLocPkgBuilder <- function(pkgName = "humanCHRLOC", pkgPath, version,
     # Write the mappings between LL and chromosome number
     ll2Chr <- mergeRowByKey(chrLoc[, 1:2])
     saveMat(ll2Chr[, 1:2], fun = splitEntry, pkgName = pkgName,
-                pkgPath = pkgPath, envName = "LOCUSID2CHR")
+                pkgPath = pkgPath, envName = "ENTREZID2CHR")
 
     for(i in getChrNum(unique(chrLoc[,2]))){
         chr4Org <- chrLoc[chrLoc[,2] == i,]
@@ -47,7 +47,7 @@ chrLocPkgBuilder <- function(pkgName = "humanCHRLOC", pkgPath, version,
         #save(list = paste(pkgName, i, "START", sep = ""),
         #     file =  file.path(pkgPath, pkgName, "data",
         #     paste(pkgName, i, "START.rda", sep = "")))
-        saveMat(chr4Org[, 1:3], fun = fun, pkgName = pkgName,
+        saveMat(chr4Org[, c(1,3)], fun = fun, pkgName = pkgName,
                 pkgPath = pkgPath,
                 envName = paste(i, "END", sep = ""))
     }
@@ -72,9 +72,9 @@ chrLocPkgBuilder <- function(pkgName = "humanCHRLOC", pkgPath, version,
                                  paste(pkgName,"CYTOLOC.Rd",
                                                 sep = "")), repList,   "#")
     copySubstitute(file.path(.path.package("AnnBuilder"),
-                                 "templates", "PKGNAMELOCUSID2CHR.Rd"),
+                                 "templates", "PKGNAMEENTREZID2CHR.Rd"),
                        file.path(pkgPath, pkgName, "man",
-                                 paste(pkgName,"LOCUSID2CHR.Rd",
+                                 paste(pkgName,"ENTREZID2CHR.Rd",
                                                 sep = "")), repList, "#")
     writeDescription(pkgName, pkgPath, version, author)
     #copyTemplates(repList, pattern, pkgName, pkgPath)

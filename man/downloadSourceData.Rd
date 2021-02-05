@@ -8,7 +8,11 @@
   data packaages.
 }
 \usage{
-downloadSourceData()
+downloadSourceData(passive=FALSE)
+}
+\arguments{
+  \item{passive}{logical.  If \code{TRUE}, pass the \code{-passive-ftp}
+    flag to \code{wget}}
 }
 %- maybe also 'usage' for other objects documented here.
 \details{
@@ -16,6 +20,8 @@ downloadSourceData()
   The KEGG pathway data is a special case.  We download the current
   tarball of the pathway data, but it needs to be unpacked in
   \code{kegg/pathways}.
+
+  On unix-like systems, the KEGG data will be unpacked automagically.
 }
 \author{S. Falcon}
 \keyword{data}

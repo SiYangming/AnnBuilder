@@ -14,6 +14,7 @@ getSrcBuilt <- function(src = "LL", organism = "Homo sapiens"){
            "HG" = return(getHGBuilt()),
            "REFSEQ" = return(getRefSeqBuilt(organism)),
            "EG" = return(getEGBuilt()),
+           "PFAM" = return(getPFAMBuilt()),
            return("Build information unavailable"))
 }
 
@@ -41,8 +42,8 @@ getLLBuilt <- function(
     }
 }
 
-getUGBuilt <- function(organism,
-                       url = "ftp://ftp.ncbi.nih.gov/repository/UniGene"){
+getUGBuilt <- function(organism){
+  url <- .srcUrls("UG")
 
     #switch(toupper(organism),
     #       "HUMAN" = infoUrl <- paste(url, "/Hs.info", sep = ""),
@@ -50,8 +51,8 @@ getUGBuilt <- function(organism,
     #       "RAT" = infoUrl <- paste(url, "/Rn.info", sep = ""),
     #       stop(paste("Organism", organism, "is not supported.")))
 
-    infoUrl <- paste(url, "/", getUGShortName(organism),
-                 ".info", sep = "")
+    infoUrl <- paste(url, "/", gsub(" ", "_", organism), "/",
+                     getUGShortName(organism), ".info", sep = "")
 
     got <- readURL(infoUrl)
     built <- gsub(".*(Build #[0-9]*).*", "\\1",
@@ -66,26 +67,30 @@ getUGBuilt <- function(organism,
 
 getUCSCBuilt <- function(organism){
     url <- getSrcUrl(src = "GP", organism = organism)
-    switch(toupper(organism),
-           "MUS MUSCULUS" =  built <- gsub(".*goldenPath/mm(.*)/database.*",
-                           "\\1", url),
-           "HOMO SAPIENS" = built <-
-                          gsub(".*goldenPath/(.*)/database.*", "\\1", url),
-           "RATTUS NORVEGICUS" = built <-
-                          gsub(".*goldenPath/rn(.*)/database.*", "\\1", url),
-           "DANIO RERIO" = built <-
-                     gsub("goldenPath/danRer(.*)/database.*", "\\1" , url),
-           return("N/A"))
-           #stop(paste("Organism", organism, "is not supported")))
 
-    switch(toupper(organism),
-           "HOMO SAPIENS" = built <- gsub(".*goldenPath/(.*)/database.*",
-                           "\\1", url),
-           "MUS MUSCULUS" = key <- "goldenPath/mm.*Annotation database",
-           "RATTUS NORVEGICUS" = key <- "goldenPath/rn.*Annotation database",
-           "DANIO RERIO" = key <- "goldenPath/danRer.*Annotation database",
-           key <- NA)
+    ## This part is removed by Ting-Yuan because the "built" is included in the url
+    ##switch(toupper(organism),
+    ##       "MUS MUSCULUS" =  built <- gsub(".*goldenPath/mm(.*)/database.*",
+    ##                       "\\1", url),
+    ##       "HOMO SAPIENS" = built <-
+    ##                      gsub(".*goldenPath/(.*)/database.*", "\\1", url),
+    ##       "RATTUS NORVEGICUS" = built <-
+    ##                      gsub(".*goldenPath/rn(.*)/database.*", "\\1", url),
+    ##       "DANIO RERIO" = built <-
+    ##                 gsub("goldenPath/danRer(.*)/database.*", "\\1" , url),
+    ##       return("N/A"))
+    ##       #stop(paste("Organism", organism, "is not supported")))
+    ##
+    ##switch(toupper(organism),
+    ##       "HOMO SAPIENS" = built <- gsub(".*goldenPath/(.*)/database.*",
+    ##                       "\\1", url),
+    ##       "MUS MUSCULUS" = key <- "goldenPath/mm.*Annotation database",
+    ##       "RATTUS NORVEGICUS" = key <- "goldenPath/rn.*Annotation database",
+    ##       "DANIO RERIO" = key <- "goldenPath/danRer.*Annotation database",
+    ##       key <- NA)
 
+    built <- "No build info available."
+    
     if(is.na(built) || is.null(built) || built == ""){
         warning("Built for UCSC is not valid!")
         return("N/A")
@@ -95,12 +100,24 @@ getUCSCBuilt <- function(organism){
 }
 
 getGOBuilt <- function(){
-    goUrl <- getSrcUrl("GO")
-    datePart <- gsub("^.*go_([0-9]+)-.*$", "\\1", goUrl)
-    datePart
+  dateStrings <- try(readLines(dirname(getSrcUrl("GO"))), TRUE)
+  buildInfo <- try(unlist(strsplit(dateStrings[grep("-termdb.rdf-xml.gz",
+                                           dateStrings)], "</a>")), TRUE)
+  build <- try(gsub(" *([0-9a-zA-Z-]+) .*", "\\1",
+                    buildInfo[length(buildInfo)]), TRUE)
+  if(any(c(class(dateStrings), class(buildInfo), class(build))
+         == "try-error")){
+    return("Build Information not available")
+  }else{
+    return(build)
+  }
+    #goUrl <- getSrcUrl("GO")
+    #datePart <- gsub("^.*go_([0-9]+)-.*$", "\\1", goUrl)
+    #datePart
 }
 
-getKEGGBuilt <- function(url = "http://www.genome.ad.jp/kegg/kegg2.html"){
+getKEGGBuilt <- function(
+               url = "http://www.genome.jp/kegg/docs/relnote.html"){
     options(show.error.messages = FALSE)
     got <- try(readURL(url))
     options(show.error.messages = TRUE)
@@ -108,9 +125,9 @@ getKEGGBuilt <- function(url = "http://www.genome.ad.jp/kegg/kegg2.html"){
         warning(paste("Can't read", url))
         return("N/A")
     }
-    aLine <- got[grep("<i>KEGG Release", got)]
+    aLine <- got[grep("^Release", got)][1]
     built <- gsub(".*(Release [0-9.]* \\(.*\\)) .*", "\\1", aLine)
-    if(is.na(built) || is.null(built) || built == ""){
+    if(is.na(built) || is.null(built) || built == "" || length(built)==0 ){
         warning("Built for KEGG is not valid!")
         return("N/A")
     }else{
@@ -154,13 +171,6 @@ getRefBuilt4HS <- function(){
     return(text[grep("NCBI Build Number:.*", text)])
 }
 
-
-
-
-
-
-
-
-
-
-
+getPFAMBuilt <- function(){
+    return("PFAM built data not available")
+}

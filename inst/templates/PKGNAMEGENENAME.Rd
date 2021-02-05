@@ -6,8 +6,8 @@
   identifiers to the corresponding gene name.
 }
 \details{
-  Each manufacturer id maps to a named vector containing the gene
-  name. The vector name corresponds to the manufacturer id. If the gene
+  Each manufacturer identifier maps to a named vector containing the gene
+  name. The vector name corresponds to the manufacturer identifier. If the gene
   name is unknown, the vector will contain an \code{NA}.
   
   Gene names currently include both the official (validated by a
@@ -28,7 +28,7 @@
      # Remove probes that do not map to any GENENAME
      xx <- xx[!is.na(xx)]
      if(length(xx) > 0){
-         # Gets the gene names for the first five probe ids
+         # Gets the gene names for the first five probe identifiers
          xx[1:5]
          # Get the first one
          xx[[1]]

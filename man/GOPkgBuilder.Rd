@@ -5,6 +5,13 @@
 \alias{getRepList}
 \title{Functions to build a data package using GO data}
 \description{
+  
+  WARNING: DO NOT use this function. Use Bioconductor packages such as
+  biomaRt to obtain GO mappings more recent than those available in the
+  current Bioconductor release.
+
+  \url{http://www.bioconductor.org/}
+ 
   These functions creates data, documentation, and other supporting
   files that consist an annotation data package using data from GO. 
 }
@@ -61,8 +68,6 @@ getRepList(what, srcObjs)
 }
 \references{\url{http://www.godatabase.org}}
 \author{Jianhua Zhang}
-\note{This function is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{ABPkgBuilder}}, \code{\link{KEGGPkgBuilder}}}
 \examples{

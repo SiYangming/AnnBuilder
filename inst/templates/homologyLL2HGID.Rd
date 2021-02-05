@@ -3,21 +3,21 @@
 \alias{#PKGNAME#ACC2HGID}
 \alias{#PKGNAME#HGID2LL}
 \alias{#PKGNAME#HGID2ACC} 
-\title{Mappings between public database ids and NCBI's Internal
+\title{Mappings between public database identifiers and NCBI's Internal
   HomoloGeneIDs for #ORGANISM#}  
 \description{
-  R environments that provides mappings between public database ids and internal
+  R environments that provides mappings between public database identifiers and internal
   HomoloGeneIDs (HGID) used by NCBI to represent sequences for
-  #ORGANISM#. Public database ids include LocusLink ids (LL) and GenBank
+  #ORGANISM#. Public database identifiers include Entrez Gene identifiers (LL) and GenBank
   Accesion/RefSeq numbers (ACC).     
 }
 \details{
   Each R environment provides mapping between either HomoloGeneIds and
-  database ids, or the converse. The mapping direction is indicated by
+  database identifiers. or the converse. The mapping direction is indicated by
   the name of the environment. For instance, #PKGNAME#ACC2HGID provides
   mappings between GenBank accession numbers and HomoloGeneIds.
 
-  For each environment, a given id will map to a named vector of ids,
+  For each environment, a given identifier will map to a named vector of identifiers.
   the names of which are the NCBI code for that organism.
  
   Mappings contained were based on data provided by HomoloGene.

@@ -10,7 +10,7 @@
 \section{Objects from the Class}{
 Objects can be created by calls of the form \code{new("GO", ...)}.
     A constructor (\code{\link{GO}} is available and should be used to
-    instantiate objects of GO} 
+    instantiate objects of GO).
 }
 \section{Slots}{
   \describe{
@@ -39,8 +39,6 @@ Class \code{"pubRepo"}, directly.
 }
 \references{\url{http://www.godatabase.org}}
 \author{Jianhua Zhang}
-\note{This class is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{pubRepo-class}}}
 \keyword{classes}

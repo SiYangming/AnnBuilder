@@ -3,13 +3,13 @@
 \title{An annotation data file that maps Open Reading Frame (ORF)
   identifiers to textural descriptions of the corresponding genes}
 \description{
-  #PKGNAME#DESCRIPTION maps yeast ORF ids to descriptive information
-  about genes corresponding to the ORF ids 
+  #PKGNAME#DESCRIPTION maps yeast ORF identifiers to descriptive information
+  about genes corresponding to the ORF identifiers 
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  ORF ids and values are the corresponding descriptions of genes. Values
-  are vectors of length 1. Probe ids that can not be mapped to
+  ORF identifiers and values are the corresponding descriptions of genes. Values
+  are vectors of length 1. Probe identifiers that can not be mapped to
   descriptive information are assigned a value NA.
   
   Annotation based on data provided by:

@@ -49,8 +49,6 @@ Class \code{"pubRepo"}, directly.
 }
 \references{\url{www.ncbi.nlm.nih.gov/UniGene}}
 \author{Jianhua Zhang}
-\note{This class is part of Bioconductor project at Dana-Farber Cancer
-  Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{pubRepo-class}}}
 

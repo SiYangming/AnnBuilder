@@ -4,13 +4,13 @@
   Man (MIM) identifiers}
 \description{
   #PKGNAME#OMIM is an R environment that provides mappings between
-  manufacturer ids and OMIM ids.
+  manufacturer identifiers and OMIM identifiers.
 }
 \details{
-  Each manufacturer id is mapped to a vector of OMIM ids. The vector
-  length may be one or longer, depending on how many OMIM ids the
-  manufacturer id maps to. An \code{NA} is reported for any manufacturer
-  id that cannot be mapped to an OMIM id at this time.
+  Each manufacturer identifier is mapped to a vector of OMIM identifiers. The vector
+  length may be one or longer, depending on how many OMIM identifiers the
+  manufacturer identifier maps to. An \code{NA} is reported for any manufacturer
+  identifier that cannot be mapped to an OMIM identifier at this time.
   
   OMIM is based upon the book Mendelian Inheritance in Man
   (V. A. McKusick) and focuses primarily on inherited or heritable
@@ -31,7 +31,7 @@
 \examples{
     # Convert the environment to a list
     xx <- as.list(#PKGNAME#OMIM)
-    # Remove probe ids that do not map to any MIM number
+    # Remove probe identifiers that do not map to any MIM number
     xx <- xx[!is.na(xx)]
     if(length(xx) > 0){
         # The MIM numbers for the first two elements of XX

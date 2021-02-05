@@ -85,8 +85,6 @@ getEGUrl()
   \url{ftp://ftp.ncbi.nih.gov/refseq/LocusLink/},
   \url{http://www.yeastgenome.org}}
 \author{Jianhau Zhang}
-\note{The functions are part of the Buiconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{getSrcBuilt}}}
 

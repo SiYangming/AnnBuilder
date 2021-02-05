@@ -34,8 +34,6 @@ getAllSrc()
   hand names of data sources
 }
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{ABPkgBuilder}}, \code{\link{GOPkgBuilder}},
   \code{\link{KEGGPkgBuilder}}} 

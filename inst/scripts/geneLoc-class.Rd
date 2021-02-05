@@ -53,8 +53,6 @@ Objects can be created by calls of the form \code{new("geneLoc", probeId
 }
 \references{\url{http://www.genome.ucsc.edu}}
 \author{Jianhua Zhang}
-\note{This class is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics fucntionalities through R}
 
 \seealso{
   \code{\link{exonPkgBuilder}}

@@ -44,8 +44,6 @@ yeastPkgBuilder(pkgName, pkgPath, base="", version, author,
 }
 \references{\url{http://www.yeastgenome.org}}
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 \examples{
 # Not provided. 
 }

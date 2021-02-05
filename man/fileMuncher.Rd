@@ -54,8 +54,6 @@ mergeRowByKey(mergeMe, keyCol = 1, sep = ";")
 }
 
 \author{Jianhua Zhang}
-\note{This function is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{resolveMaps}}}
 
@@ -67,7 +65,7 @@ temp <- matrix(c("32469_f_at", "D90278", "32469_at", "L00693", "33825_at",
 "M16652"), ncol = 2, byrow = TRUE)
 write.table(temp, "tempBase", sep = "\t", quote = FALSE,
 row.names = FALSE, col.names = FALSE)
-# Parse a truncated version of LL\_tmpl.gz from Bioconductor
+# Parse a truncated version of LL_tmpl.gz from Bioconductor
 srcFile <-
 loadFromUrl("http://www.bioconductor.org/datafiles/wwwsources/Tll_tmpl.gz")  
 fileMuncher(outName = "temp", baseFile = "tempBase", dataFile = srcFile,

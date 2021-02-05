@@ -50,8 +50,6 @@ getChroms4Org(organism)
 }
 \references{}
 \author{Jianhua Zhang}
-\note{This function is part of the Bioconductor project at Dana-Farber
-  Cancer Institue to provide bioinfomatics functionalities through R}
 \seealso{\code{\link{map2LL}}}
 \examples{
 # Please note that the example will take a while to finish

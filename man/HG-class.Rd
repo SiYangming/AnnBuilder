@@ -11,7 +11,7 @@
 \section{Objects from the Class}{
   Objects can be created by calls of the form \code{new("GO", ...)}.
     A constructor (\code{\link{HG}} is available and should be used to
-    instantiate objects of HG
+    instantiate objects of HG).
 }
 \section{Slots}{
   \describe{
@@ -38,7 +38,7 @@ Class \code{"pubRepo"}, directly.
       reads the homoloGene data}
   }
 }
-\references{\url{http://www.ncbi.nlm. nih.gov/query?db = homology}}}
+\references{\url{http://www.ncbi.nlm. nih.gov/query?db = homology}}
 \author{Jianhua Zhang}
 
 \seealso{\code{\link{pubRepo-class}}

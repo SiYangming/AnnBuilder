@@ -29,6 +29,7 @@ getYeastData <- function(url, extenName, cols2Keep, sep){
     # Try read table first
     data <- try(read.table(conn, header = FALSE, sep = sep, quote = "",
                            skip = skip, comment.char = comment,
+			stringsAsFactors=FALSE,
                            strip.white  = TRUE))
     options(show.error.messages = TRUE)
     close(conn)

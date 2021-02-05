@@ -1,15 +1,15 @@
 \name{#PKGNAME#LL2PMID}
 \alias{#PKGNAME#LL2PMID}
-\title{A data file that maps LocusLink identifiers to PubMed identifiers}
+\title{A data file that maps Entrez Gene identifiers to PubMed identifiers}
 \description{
-  #PKGNAME#LL2PMID maps LocusLink ids to PubMed ids representing
-  publications that cited the genes corresponding to the LocusLink ids
+  #PKGNAME#LL2PMID maps Entrez Gene identifiers to PubMed identifiers representing
+  publications that cited the genes corresponding to the Entrez Gene identifiers
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  LocusLink ids and values are the corresponding PubMed id. Values are
-  vectors of length 1 or more depending on whether a LocusLink id can be
-  mapped to one or more PubMed ids.
+  Entrez Gene identifiers and values are the corresponding PubMed identifier. Values are
+  vectors of length 1 or more depending on whether a Entrez Gene identifier can be
+  mapped to one or more PubMed identifiers.
 
   Mappings were derived from data provided by:
 

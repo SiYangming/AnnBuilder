@@ -1,0 +1,3 @@
+pfam#FROMNAME#2#TONAME# <- function(#FOR#=NULL){
+	getPfam(pfamCon=getPfamDb(), FROM="#FROM#", TO="#TO#", TABLE="#TABLE#", FOR=#FOR#)
+}

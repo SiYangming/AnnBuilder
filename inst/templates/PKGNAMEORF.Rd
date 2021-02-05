@@ -3,13 +3,13 @@
 \title{Map Manufacturer Identifiers to Open Reading Frame (ORF) Identifiers} 
 \description{
   #PKGNAME#ORF is an R environment that provides mappings between
-  manufacturer and ORF ids.
+  manufacturer and ORF identifiers.
 }
 \details{
-  Each manufacturer id is mapped to a vector of ORF ids. The length of
-  the vector may be one or longer, depending on how many ORF ids the
-  manufacturer id can be mapped to. An \code{NA} is reported for any
-  manufacturer id that cannot be mapped to an ORF id at this time.
+  Each manufacturer identifier is mapped to a vector of ORF identifiers. The length of
+  the vector may be one or longer, depending on how many ORF identifiers the
+  manufacturer identifier can be mapped to. An \code{NA} is reported for any
+  manufacturer identifier that cannot be mapped to an ORF identifier at this time.
   
   Annotation based on data provided by:
 

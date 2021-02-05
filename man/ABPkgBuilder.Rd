@@ -34,8 +34,7 @@
 ABPkgBuilder(baseName, srcUrls, baseMapType = c("gb", "ug", "ll", "image",
 "refseq", "gbNRef"), otherSrc = NULL, pkgName, pkgPath, organism,
 version, author, fromWeb = TRUE, lazyLoad = TRUE)
-getBaseParsers(baseMapType = c("gb", "ug", "image", "ll", "refseq",
-"gbNRef", "ll2gb", "gb2ll", "eggo", "eginfo", "egrefseq", "egpubmed", "egunigene", "egmim")))
+getBaseParsers(baseMapType = c("gb", "ug", "image", "ll", "refseq", "gbNRef", "ll2gb", "gb2ll", "eggo", "eginfo", "egrefseq", "egpubmed", "egunigene", "egmim"))
 createEmptyDPkg(pkgName, pkgPath, folders, force = TRUE)
 getDirContent(dirName, exclude = NULL)
 getMultiColNames()
@@ -44,7 +43,7 @@ getTypeColNames()
 splitEntry(dataRow, sep = ";", asNumeric = FALSE)
 twoStepSplit(dataRow, entrySep = ";", eleSep = "@", asNumeric = FALSE)
 saveMat(data, pkgName, pkgPath, envName, keyCol = 1,
-                         valCol = 2, fun = function(x) x)
+                         valCol = 2, fun = function(x) gsub("^ +| +$", "", x))
 saveList(dList, pkgName, pkgPath, envName)
 nameGOByCat(GOWithEvi, goCat)
 getChrLengths(organism)
@@ -91,7 +90,7 @@ getEGAccName()
   \item{version}{\code{version} a character string for the version number}
   \item{author}{\code{author} a list of character strings with an author
     element for the name of the author and maintainer element for the
-    email address of the author}
+    email address of the author.}
   \item{force}{\code{force} a boolean that is set to TRUE if the package
     to be created will replace an existing package with the same name}
   \item{dirName}{\code{dirName} a character string for the name of a
@@ -199,8 +198,6 @@ getEGAccName()
 }
 \references{ABPrimer and AnnBuilder vignettes}
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{GOPkgBuilder}},\code{\link{KEGGPkgBuilder}}}
 \examples{
@@ -240,8 +237,8 @@ if(interactive()){
 ABPkgBuilder(baseName = file.path(myDir, "geneNMap"),
 srcUrls = mySrcUrls, baseMapType = "gb", otherSrc = otherMapping,
 pkgName = "myPkg", pkgPath = myDir, organism = "Homo sapiens", version =
-"1.1.0", makeXML = TRUE, author = c(author = "myname", maintainer =
-"myname@myemail.com")) 
+"1.1.0", makeXML = TRUE, author = c(author = "My Name", maintainer =
+"My Name <myname@myemail.com>")) 
 # Output files
 list.files(myDir)
 # Content of the data package

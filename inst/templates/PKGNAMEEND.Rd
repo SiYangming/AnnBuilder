@@ -3,20 +3,20 @@
 \title{An annotation data file for transciption ending location of genes
 on chromosome #CHROM#}
 \description{
-  #PKGNAME##CHROM#END mapps LocusLink ids to the transciption ending
+  #PKGNAME##CHROM#END maps Entrez Gene identifiers to the transciption ending
   location of genes on chromosome number #CHROM# corresponding to the
-  LocusLink ids 
+  Entrez Gene identifiers 
 }
 \details{
    This is an environment object containing key and value pairs. Keys
-   are LocusLink ids and values are the transciption ending location for
+   are Entrez Gene identifiers and values are the transciption ending location for
    genes. The ending positions for genes on both the sense and antisense
    strand are number of base pairs measured from the p (5' end of the
    sense strand) to q (3' end of the sense strand) arms. Values for the
    antisense strand have a leading "-" sign (e. g. -1234567).
 
-   Values for keys are named vectors of length 1 derived from the
-   largest end value found for the LocusLink id. Names of chromosome
+   Values for keys are named vectors derived from the
+   largest end value found for the Entrez Gene identifier. Names of chromosome
    location values can be "Confident" when the gene can be confidently
    placed on a chromosome and "Unconfident" otherwise (denoted by
    "\_random" in UCSC data).

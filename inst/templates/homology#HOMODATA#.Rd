@@ -27,7 +27,7 @@
   the scientific name of the organism and name the numeric code used by
   NCBI for the organism.
   
-  homoLL - an integer for LocusLink id.
+  homoLL - an integer for Entrez Gene identifier.
 
   homoHGID - an integer for internal HomologGeneID.
 
@@ -72,7 +72,7 @@
     if(length(xx) > 0){
         # Gets the homology data for the first key of homology#HOMODATA#
         homodata <- xx[[1]]
-        # Gets the organism name, LocusLink id, internal HomoloGene id,
+        # Gets the organism name, Entrez Gene identifier, internal HomoloGene identifier,
         # GenBank accession number, type of similarity, percent
         # similarity, and URL for percent similarity for the first
         # homoData object in the list obtained previously

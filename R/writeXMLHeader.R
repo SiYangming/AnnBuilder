@@ -33,7 +33,7 @@ writeXMLHeader <- function (outName, fileCol, name, version,
                            "\" built = \"", getSrcBuilt(i), "\"/>", sep = "")
         writeLine(statement)
     }
-
+    AnnInfo <- get("AnnInfo")
 #    load(file.path(.path.package("AnnBuilder"), "data", "AnnInfo.rda"))
     statement <- paste("<AnnBuilder:Entryid value = \"",
                        get(fileCol[1], AnnInfo)$short, "\"/>", sep = "")

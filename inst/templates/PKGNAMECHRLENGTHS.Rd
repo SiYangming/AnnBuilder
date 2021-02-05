@@ -12,9 +12,6 @@
    Total lengths of chromosomes were derived by calculating the
    number of base pairs on the sequence string for each chromosome.
 
-   Annotations were derived base on data privided by:
-
-   #GPSOURCE#
 }
 \examples{
     tt <- #PKGNAME#CHRLENGTHS

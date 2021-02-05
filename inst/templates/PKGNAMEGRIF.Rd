@@ -3,12 +3,12 @@
 \title{Map between Manufacturer Identifiers and GeneRIF}
 \description{
  #PKGNAME#GRIF is an R environment that provides mappings between
- manufacturer ids and GeneRIF ids.
+ manufacturer identifiers and GeneRIF identifiers.
 }
 \details{
-  Each manufacturer id is mapped to a named vector containing GeneRIF
-  ids. The name associated with each vector corresponds to the
-  manufacturer id.
+  Each manufacturer identifier is mapped to a named vector containing GeneRIF
+  identifiers. The name associated with each vector corresponds to the
+  manufacturer identifier.
 
   GeneRIF is a manual method for scientists to annotate genes described
   in Entrez Gene with a phrase describing the function and a published
@@ -26,10 +26,10 @@
 \examples{
     # Convert the environment to a list
     xx <- as.list(#PKGNAME#GRIF)
-    # Remove probe ids that do not map to any PubMed id
+    # Remove probe identifiers that do not map to any PubMed id
     xx <- xx[!is.na(xx)]
     if(length(xx) > 0){
-        # The unique PubMed ids for the first two elements of XX
+        # The unique PubMed identifiers for the first two elements of XX
         xx[1:2]
         # Get the first one
         xx[[1]]

@@ -18,19 +18,19 @@ GOPkgBuilder <- function(pkgName, pkgPath, filename, version, author,
     cat("DONE\n")
     
     egDat = getEG(godata[["OBSOLETE"]])
-    gl = getGOLOCUSID(egDat)
-    saveEnv(gl, pkgName = pkgName, pkgPath = pkgPath, envName = "LOCUSID")
+    gl = getGOENTREZID(egDat)
+    saveEnv(gl, pkgName = pkgName, pkgPath = pkgPath, envName = "ENTREZID")
 
     gl2g = createGoLocusId2Go(egDat, godata[["TERM"]])
-    saveEnv(gl2g, pkgName = pkgName, pkgPath = pkgPath, envName = "LOCUSID2GO")
+    saveEnv(gl2g, pkgName = pkgName, pkgPath = pkgPath, envName = "ENTREZID2GO")
 
-    offSpringEnv = new.env(parent=NULL)
+    offSpringEnv = new.env(parent=emptyenv())
     l2e(as.list(godata[["BPOFFSPRING"]]), offSpringEnv)
     l2e(as.list(godata[["MFOFFSPRING"]]), offSpringEnv)
     l2e(as.list(godata[["CCOFFSPRING"]]), offSpringEnv)
     
-    saveEnv(getGOALLLOCUSID(gl, offSpringEnv), pkgName=pkgName,
-            pkgPath=pkgPath, envName="ALLLOCUSID")
+    saveEnv(getGOALLENTREZID(gl, offSpringEnv), pkgName=pkgName,
+            pkgPath=pkgPath, envName="ALLENTREZID")
     
     writeDescription(pkgName, pkgPath, version, author)
     writeZZZ(pkgPath, pkgName)
@@ -51,7 +51,7 @@ getEG <- function(goObsolete)
     sourceURLs <- getOption("AnnBuilderSourceUrls")
     src <- loadFromUrl(file.path(sourceURLs[["EG"]], "gene2go.gz"))
     input = read.table(src, na.strings="-", sep="\t", quote="",
-      comment.char="#", colClass=rep("character", NUM_COLS), header=FALSE)
+      comment.char="#", colClass=rep("character", NUM_COLS), header=FALSE, stringsAsFactors=FALSE)
     ## include 7 species human, mouse, rat, drosophila, zebrafish, Saccharomyces
     ## cerevisiae and Caenorhabditis elegans
     wantedSpecies <- c("9606", "10090", "10116", "6239", "4932",
@@ -67,12 +67,12 @@ getEG <- function(goObsolete)
     return(dat)
 }
 
-getGOLOCUSID <- function(dat)
+getGOENTREZID <- function(dat)
 {
     vec = dat[,1]
     names(vec) = dat[,3]
     mylist = split(vec,dat[,2])
-    myEnv = new.env(parent=NULL)
+    myEnv = new.env(parent=emptyenv())
     l2e(mylist, myEnv)
     return(myEnv)
 }
@@ -105,11 +105,11 @@ createGoLocusId2Go <- function(gene2goDf, goTermEnv)
         goIds <- df$goId
         names(goIds) <- df$evi
         egIdSplit <- split(goIds, df$egId)
-        env <- new.env(hash=TRUE, parent=NULL)
+        env <- new.env(hash=TRUE, parent=emptyenv())
         l2e(egIdSplit, env)
     }
     splitData <- lapply(splitData, nameAndSplitToEnv)
-    eg2goEnv <- new.env(hash=TRUE, parent=NULL)
+    eg2goEnv <- new.env(hash=TRUE, parent=emptyenv())
 
     makeListStruct <- function(x, ont) {
         result <- list()
@@ -129,13 +129,13 @@ createGoLocusId2Go <- function(gene2goDf, goTermEnv)
 }
 
 
-getGOALLLOCUSID <- function(dat, offspringEnv)
+getGOALLENTREZID <- function(dat, offspringEnv)
 {
     ## need to merge offspring
     ## take goVec from offspring
-    ## mget on GOLOCUSID
+    ## mget on GOENTREZID
     
-    myEnv = new.env(parent=NULL)
+    myEnv = new.env(parent=emptyenv())
     goVec <- unlist(names(as.list(offspringEnv)))
     print(paste("length",length(goVec),sep=" ")) 
     for (i in 1:length(goVec))
@@ -164,7 +164,7 @@ getGOALLLOCUSID <- function(dat, offspringEnv)
 
 
 saveEnv <- function(envir, pkgName, pkgPath, envName) {
-    env <- new.env(hash = TRUE, parent = NULL)
+    env <- new.env(hash = TRUE, parent = emptyenv())
     copyEnv(envir, env)
     lockEnvironment(env, bindings = TRUE)
     assign(paste(pkgName, envName, sep = ""), env)
@@ -188,9 +188,15 @@ createEmptyDPkg <- function(pkgName, pkgPath,
     }
 }
 
+cleanRepList <- function(repList){
+    cleanList = gsub(pattern= "_", replacement = "\\\\_", repList)
+    names(cleanList) = gsub(pattern= "_", replacement = "\\\\_", names(repList))
+    return(as.list(cleanList))
+}
 
 writeDocs <- function(baseName, pkgName, pkgPath, version, author,
-                      repList, pattern, isFile = TRUE) {
+                      repList, pattern, isFile = TRUE
+                      ) {
     ## Write man pages and other files
     writeDescription(pkgName, pkgPath, version, author)
     copyTemplates(repList, pattern, pkgName, pkgPath)
@@ -199,15 +205,20 @@ writeDocs <- function(baseName, pkgName, pkgPath, version, author,
                              "GENERAL.Rd"), file.path(pkgPath, pkgName,
                                                       "man", paste(pkgName, ".Rd", sep = "")),
                    list(PKGNAME = pkgName, SOURCENBUILT =
-                        paste("\n\t", repList, sep = "",
+                        paste("\n\t", cleanRepList(repList), sep = "",
                               collapse = "\n")), "#")
     writeZZZ(pkgPath, pkgName)
-    writeFun(pkgPath, pkgName)
     getDPStats(baseName, pkgName, pkgPath, isFile)
+    writeFun(pkgPath, pkgName)
     copySubstitute(file.path(.path.package("AnnBuilder"),
                              "templates", "PKGNAMEQC.Rd"),
                    file.path(pkgPath, pkgName, "man",
                              paste(pkgName, "QC.Rd", sep = "")),
+                   list(PKGNAME = pkgName), "#")
+    copySubstitute(file.path(.path.package("AnnBuilder"),
+                             "templates", "PKGNAMEQCDATA.Rd"),
+                   file.path(pkgPath, pkgName, "man",
+                             paste(pkgName, "QCDATA.Rd", sep = "")),
                    list(PKGNAME = pkgName), "#")
 }
 

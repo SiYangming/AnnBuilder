@@ -4,17 +4,14 @@
 \alias{getLL2IntID}
 \alias{getIntIDMapping}
 \alias{mapIntID}
-\alias{mapOrgs}
 \alias{writeRdaNMan}
 \alias{mapPS}
 \alias{getHomoPS}
 \alias{getHomoDList}
 \alias{getHomoData}
 \alias{getHomoData}
-\alias{getOrgNameNCode}
 \alias{saveOrgNameNCode}
 \alias{HomoData2List}
-\alias{orgNameNCode}
 \title{Functions to build a homology data package using data from NCBI}
 \description{
   This function builds a data package that maps internal HomoloGene ids
@@ -28,11 +25,9 @@ homoPkgBuilder(suffix = "homology", pkgPath, version, author, url =
 getSrcUrl("HG"))
 procHomoData(url = getSrcUrl("HG"))
 getLL2IntID(homoData, organism = "")
-mapOrgs(toMap, what = c("code","name"))
 mapPS(homoMappings, pkgName, pkgPath, tempList)
 getHomoDList(data, what = "old")
 getHomoData(entries, what = "old", objOK = FALSE)
-getOrgNameNCode()
 saveOrgNameNCode(pkgName, pkgPath, tepList)
 HomoData2List(data, what = "old")
 }
@@ -59,11 +54,10 @@ HomoData2List(data, what = "old")
     contains data for an organism of concern}
   \item{organism}{\code{organism} a character string for the name of the
     organism of interest}
-  \item{toMap}{\code{vect} a vector of character strings}
   \item{entries}{\code{entries} a vector of character strings}
   \item{data}{\code{data} a data matrix}
-  \item{what}{\code{what} a character string that can either be "code"
-    or "name" for function mapOrgs or "old" or "xml" for functions
+  \item{what}{\code{what} a character string that can either be 
+    "old" or "xml" for functions
     getHomoDList, getHomoData, and HomoData2List}
   \item{tepList}{\code{tepList} a list containing key and value pairs
     that are going to be used to replace the corresponding matching
@@ -85,7 +79,6 @@ HomoData2List(data, what = "old")
   mapIntID captures the reverse mapping between reciprocal homologous
   genes.
 
-  mapOrgs converts organism codes to scientific names.
 
   writeRdaNMan creates an rda file and the corresponding man page for a
   data environment.
@@ -103,12 +96,9 @@ HomoData2List(data, what = "old")
 
   getHomoPS returns a homoPS object with slots filled with data passed.
 
-  mapOrgs returns a vector of character strings.
 }
 \references{\url{ftp://ftp.ncbi.nih.gov/pub/HomoloGene/README}}
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities using R}
 
 \seealso{\code{\link{ABPkgBuilder}}}
 \keyword{manip}

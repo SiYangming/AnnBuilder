@@ -11,7 +11,7 @@
   by \code{\link{KEGG-class}}.
 }
 \usage{
-getKEGGIDNName(object, exten = "/map\_title.tab")
+getKEGGIDNName(object, exten = "/../map_title.tab")
 getKEGGOrgName(name)
 getLLPathMap(srcUrl, idNName, organism, fromWeb = TRUE)
 mapll2EC(id, srcUrl, organism, fromWeb, sep = "\t")
@@ -76,8 +76,6 @@ parseEC(llNEC)
 }
 \references{\url{www.genome.ad.jp/kegg/}}
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{KEGG-class}}}
 \examples{

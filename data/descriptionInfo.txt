@@ -1,0 +1,322 @@
+biocPkgName	organism	species	manufacturer	chipName	manufacturerUrl	biocViews
+agahomology	Anopheles gambiae	African malaria mosquito				AnnotationData
+agcdf	Arabidopsis thaliana	Arabidopsis	Affymetrix	CDF package for Arabidopsis Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=atgenome1	AnnotationData
+ag	Arabidopsis thaliana	Arabidopsis	Affymetrix	Arabidopsis Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=atgenome1	AnnotationData
+agprobe	Arabidopsis thaliana	Arabidopsis	Affymetrix	Arabidopsis Genome Array Probe Sequences	http://www.affymetrix.com/support/technical/byproduct.affx?product=atgenome1	AnnotationData
+ath1121501cdf	Arabidopsis thaliana	Arabidopsis	Affymetrix	Arabidopsis ATH1 Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=arab	AnnotationData
+ath1121501	Arabidopsis thaliana	Arabidopsis	Affymetrix	Arabidopsis ATH1 Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=arab	AnnotationData
+ath1121501probe	Arabidopsis thaliana	Arabidopsis	Affymetrix	Arabidopsis ATH1 Genome Array Probe Sequences	http://www.affymetrix.com/support/technical/byproduct.affx?product=arab	AnnotationData
+athhomology	Arabidopsis thaliana	Arabidopsis				AnnotationData
+barley1cdf	Hordeum vulgare	Barley 	Affymetrix	Barley Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=barley1	AnnotationData
+barley1probe	Hordeum vulgare	Barley 	Affymetrix	Barley Genome Array Probe Sequences	http://www.affymetrix.com/support/technical/byproduct.affx?product=barley1	AnnotationData
+bovinecdf	Bos taurus	Cow	Affymetrix	Bovine Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=bovine	AnnotationData
+bovineprobe	Bos taurus	Cow	Affymetrix	Bovine Genome Array Probe Sequences	http://www.affymetrix.com/support/technical/byproduct.affx?product=bovine	AnnotationData
+bsubtiliscdf	Bacillus subtilis	Bacillus subtilis	Affymetrix	B. subtilis Genome Array (Antisense)	http://www.affymetrix.com/support/technical/byproduct.affx?product=bsubtilis	AnnotationData
+bsubtilisprobe	Bacillus subtilis	Bacillus subtilis	Affymetrix	B. subtilis Genome Array (Antisense) Probe Sequences	http://www.affymetrix.com/support/technical/byproduct.affx?product=bsubtilis	AnnotationData
+btahomology	Bos taurus	Cattle				AnnotationData
+caninecdf	Canis familiaris	Canine	Affymetrix	Canine Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=canine	AnnotationData
+canineprobe	Canis familiaris	Canine	Affymetrix	Canine Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=canine	AnnotationData
+canine2cdf	Canis familiaris	Canine	Affymetrix	Canine Genome 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=canine-20	AnnotationData
+canine2probe	Canis familiaris	Canine	Affymetrix	Canine Genome 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=canine-20	AnnotationData
+celeganscdf	Caenorhabditis elegans	C. elegans	Affymetrix	C. elegans Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=celegans	AnnotationData
+celegansprobe	Caenorhabditis elegans	C. elegans	Affymetrix	C. elegans Genome Array Probe Sequences	http://www.affymetrix.com/support/technical/byproduct.affx?product=celegans	AnnotationData
+celhomology	Caenorhabditis elegans	C. elegans				AnnotationData
+cfahomology	Canis familiaris	Dog				AnnotationData
+chickencdf	Gallus gallus	Chicken	Affymetrix	Chicken Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=chicken	AnnotationData
+chickenprobe	Gallus gallus	Chicken	Affymetrix	Chicken Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=chicken	AnnotationData
+cinhomology	Ciona intestinalis					AnnotationData
+cMAP						FunctionalAnnotation
+cyp450cdf			Roche	AmpliChip CYP450	http://www.roche-diagnostics.com/products_services/amplichip_cyp450.html	AnnotationData
+dmehomology	Drosophila melanogaster	Fly				AnnotationData
+drehomology	Danio rerio	Zebrafish				AnnotationData
+drosgenome1cdf	Drosophila melanogaster	Fly	Affymetrix	Drosophila Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=fly	AnnotationData
+drosgenome1	Drosophila melanogaster	Fly	Affymetrix	Drosophila Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=fly	AnnotationData
+drosgenome1probe	Drosophila melanogaster	Fly	Affymetrix	Drosophila Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=fly	AnnotationData
+drosophila2cdf	Drosophila melanogaster	Fly	Affymetrix	Drosophila Genome 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=fly-20	AnnotationData
+drosophila2	Drosophila melanogaster	Fly	Affymetrix	Drosophila Genome 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=fly-20	AnnotationData
+drosophila2probe	Drosophila melanogaster	Fly	Affymetrix	Drosophila Genome 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=fly-20	AnnotationData
+ecoli2cdf	Escherichia coli	E.coli 	Affymetrix	E.coli Genome 2.0 Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=ecoli-20	AnnotationData
+ecoli2probe	Escherichia coli	E.coli 	Affymetrix	E.coli Genome 2.0 Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=ecoli-20	AnnotationData
+ecoliasv2cdf	Escherichia coli	E.coli 	Affymetrix	E. coli Antisense Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=ecoliantisense	AnnotationData
+ecoliasv2probe	Escherichia coli	E.coli 	Affymetrix	E. coli Antisense Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=ecoliantisense	AnnotationData
+ecolicdf	Escherichia coli	E.coli 	Affymetrix	E.coli Genome Array (Sense)	http://www.affymetrix.com/support/technical/byproduct.affx?product=ecolisense	AnnotationData
+ecoliprobe	Escherichia coli	E.coli 	Affymetrix	E.coli Genome Array (Sense)	http://www.affymetrix.com/support/technical/byproduct.affx?product=ecolisense	AnnotationData
+egohomology	Eremothecium gossypii					AnnotationData
+ggahomology	Gallus gallus	Chicken				AnnotationData
+gmahomology	Glycine max	Soybean				AnnotationData
+GO						FunctionalAnnotation
+gp53cdf						AnnotationData
+adme16cod	Rattus norvegicus	Rat	GE	CodeLink ADME Rat 16-Assay Bioarray	http://www1.amershambiosciences.com/aptrix/upp01077.nsf/Content/codelink_adme_rat_bioarray	AnnotationData
+h10kcod	Homo sapiens	Human	GE	CodeLink UniSet Human I Bioarray (~10 000 human genes)	http://www1.amershambiosciences.com/aptrix/upp01077.nsf/Content/codelink_human_bioarrays#10K	AnnotationData
+h20kcod	Homo sapiens	Human	GE	CodeLink UniSet Human 20k I Bioarray	http://www1.amershambiosciences.com/aptrix/upp01077.nsf/Content/codelink_human_bioarrays	AnnotationData
+hi16cod	Homo sapiens	Human	GE	CodeLink Human Inflammation 16 Bioarray	http://www.gehealthcare.com/usen/microarrays/docs/genelists/GeneList_300076.txt	AnnotationData
+hwgcod	Homo sapiens	Human	GE	CodeLink Human Whole Genome Bioarray (~55 000 human genes)	http://www1.amershambiosciences.com/aptrix/upp01077.nsf/Content/codelink_human_bioarrays#Whole	AnnotationData
+m10kcod	Mus musculus	Mouse	GE	CodeLink UniSet Mouse I Bioarray (~10 000 mouse gene targets)	http://www1.amershambiosciences.com/aptrix/upp01077.nsf/Content/codelink_uniset_mouse1_bioarray#10K	AnnotationData
+m20kcod	Mus musculus	Mouse	GE	CodeLink UniSet Mouse 20k I Bioarray	http://www1.amershambiosciences.com/aptrix/upp01077.nsf/Content/codelink_uniset_mouse1_bioarray	AnnotationData
+mi16cod	Mus musculus	Mouse	GE	CodeLink Mouse Inflammation 16 Bioarray	http://www.gehealthcare.com	AnnotationData		
+mwgcod	Mus musculus	Mouse	GE	CodeLink Mouse Whole Genome Bioarray (~36 000 mouse gene targets)	http://www1.amershambiosciences.com/aptrix/upp01077.nsf/Content/codelink_uniset_mouse1_bioarray	AnnotationData
+r10kcod	Rattus norvegicus	Rat	GE	CodeLink UniSet Rat I Bioarray (~10 000 rat gene targets)	http://www1.amershambiosciences.com/aptrix/upp01077.nsf/Content/codelink_uniset_rat1_bioarray#2	AnnotationData
+ri16cod	Rattus norvegicus	Rat	GE	CodeLink Rat Inflammation 16 Bioarray	http://www.gehealthcare.com/usen/microarrays/docs/genelists/GeneList_300077.txt	AnnotationData
+rwgcod	Rattus norvegicus	Rat	GE	CodeLink Rat Whole Genome Bioarray (~34 000 rat gene targets)	http://www1.amershambiosciences.com/aptrix/upp01077.nsf/Content/codelink_uniset_rat1_bioarray	AnnotationData
+hs25kresogen	Homo sapiens	Human	RNG_MRC	Human Pangenomic 25k Set	http://www.microarray.fr	AnnotationData
+mm24kresogen	Mus musculus	Mouse	RNG_MRC	Mouse Pangenomic 24k Set	http://www.microarray.fr	AnnotationData
+hcg110cdf	Homo sapiens	Human 	Affymetrix	Human Cancer G110 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hcg110	AnnotationData
+hcg110	Homo sapiens	Human 	Affymetrix	Human Cancer G110 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hcg110	AnnotationData
+hcg110probe	Homo sapiens	Human 	Affymetrix	Human Cancer G110 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hcg110	AnnotationData
+hgfocuscdf	Homo sapiens	Human 	Affymetrix	Human Genome Focus Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=focus	AnnotationData
+hgfocus	Homo sapiens	Human 	Affymetrix	Human Genome Focus Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=focus	AnnotationData
+hgfocusprobe	Homo sapiens	Human 	Affymetrix	Human Genome Focus Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=focus	AnnotationData
+hgu133a2cdf	Homo sapiens	Human 	Affymetrix	Human Genome U133A 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu133-20	AnnotationData
+hgu133a2	Homo sapiens	Human 	Affymetrix	Human Genome U133A 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu133-20	AnnotationData
+hgu133a2probe	Homo sapiens	Human 	Affymetrix	Human Genome U133A 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu133-20	AnnotationData
+hgu133acdf	Homo sapiens	Human 	Affymetrix	Human Genome U133 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu133	AnnotationData
+hgu133a	Homo sapiens	Human 	Affymetrix	Human Genome U133 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu133	AnnotationData
+hgu133aprobe	Homo sapiens	Human 	Affymetrix	Human Genome U133 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu133	AnnotationData
+hgu133atagcdf	Homo sapiens	Human 				AnnotationData
+hgu133bcdf	Homo sapiens	Human 	Affymetrix	Human Genome U133 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu133	AnnotationData
+hgu133b	Homo sapiens	Human 	Affymetrix	Human Genome U133 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu133	AnnotationData
+hgu133bprobe	Homo sapiens	Human 	Affymetrix	Human Genome U133 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu133	AnnotationData
+hgu133plus2cdf	Homo sapiens	Human 	Affymetrix	Human Genome U133 Plus 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hg-u133-plus	AnnotationData
+hgu133plus2	Homo sapiens	Human 	Affymetrix	Human Genome U133 Plus 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hg-u133-plus	AnnotationData
+hgu133plus2probe	Homo sapiens	Human 	Affymetrix	Human Genome U133 Plus 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hg-u133-plus	AnnotationData
+hgu95acdf	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95a	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95aprobe	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95av2cdf	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95av2	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95av2probe	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95bcdf	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95b	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95bprobe	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95ccdf	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95c	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95cprobe	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95dcdf	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95d	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95dprobe	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95ecdf	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95e	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hgu95eprobe	Homo sapiens	Human 	Affymetrix	Human Genome U95 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu95	AnnotationData
+hguatlas13k	Homo sapiens	Human 	Clontech	BD Atlas Long Oligos Human 13K	http://orders.clontech.com/clontech/atlas/genelists/index.shtml	AnnotationData
+hgubeta7	Homo sapiens	Human 				AnnotationData
+hguDKFZ31	Homo sapiens	Human 				AnnotationData 
+hgug4100a	Homo sapiens	Human 	Agilent	Human 1 cDNA Microarray Kit	http://www.chem.agilent.com/scripts/literaturepdf.asp?iWHID=31317	AnnotationData
+hgug4101a	Homo sapiens	Human 	Agilent	Human 2 cDNA Microarry Kit	http://www.chem.agilent.com/scripts/literaturepdf.asp?iWHID=31316	AnnotationData
+hgug4110b	Homo sapiens	Human 	Agilent	Human 1A (V2)	http://www.chem.agilent.com/scripts/generic.asp?lpage=5175&indcol=N&prodcol=Y	AnnotationData
+hgug4111a	Homo sapiens	Human 	Agilent	Human 1B	http://www.chem.agilent.com/scripts/generic.asp?lpage=5175&indcol=N&prodcol=Y	AnnotationData
+hgug4112a	Homo sapiens	Human 	Agilent	"Human Genome,  Whole"	http://www.chem.agilent.com/scripts/generic.asp?lpage=5175&indcol=N&prodcol=Y	AnnotationData
+hgug4410a	Homo sapiens	Human 	Agilent	Human Genome CGH 44A	http://www.chem.agilent.com/scripts/generic.asp?lpage=5175&indcol=N&prodcol=Y	AnnotationData
+hgug4410b	Homo sapiens	Human 	Agilent	Human Genome CGH 44B	http://www.chem.agilent.com/scripts/generic.asp?lpage=5175&indcol=N&prodcol=Y	AnnotationData
+hguqiagenv3	Homo sapiens	Human 	Qiagen	Qiagen V3.0 oligo set		AnnotationData
+hivprtplus2cdf	Homo sapiens	Human 	Affymetrix			AnnotationData
+hsahomology	Homo sapiens	Human 				AnnotationData
+hu35ksubacdf	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksuba	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksubaprobe	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksubbcdf	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksubb	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksubbprobe	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksubccdf	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksubc	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksubcprobe	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksubdcdf	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksubd	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu35ksubdprobe	Homo sapiens	Human 	Affymetrix	Human Genome HU35K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=hu35k	AnnotationData
+hu6800cdf	Homo sapiens	Human 	Affymetrix	HuGeneFL Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hugenefl	AnnotationData
+hu6800	Homo sapiens	Human 	Affymetrix	HuGeneFL Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hugenefl	AnnotationData
+hu6800probe	Homo sapiens	Human 	Affymetrix	HuGeneFL Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=hugenefl	AnnotationData
+hu6800subacdf	Homo sapiens	Human 	Affymetrix			AnnotationData
+hu6800subbcdf	Homo sapiens	Human 	Affymetrix			AnnotationData
+hu6800subccdf	Homo sapiens	Human 	Affymetrix			AnnotationData
+hu6800subdcdf	Homo sapiens	Human 	Affymetrix			AnnotationData
+humanCHRLOC	Homo sapiens	Human 				FunctionalAnnotation
+humanLLMappings	Homo sapiens	Human 				AnnotationData
+hvuhomology	Hordeum vulgare					AnnotationData
+KEGG						FunctionalAnnotation
+maizecdf	Zea mays	Maize 	Affymetrix	Maize Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=maize	AnnotationData
+maizeprobe	Zea mays	Maize 	Affymetrix	Maize Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=maize	AnnotationData
+mgu74acdf	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+medicago	Medicago truncatula	Medicago 	Affymetrix	Medicago Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=medicago	AnnotationData
+						
+						
+mgu74a	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2		AnnotationData
+mgu74aprobe	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+						
+mgu74av2cdf	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74av2	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74av2probe	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74bcdf	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74b	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74bprobe	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74bv2cdf	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74bv2	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74bv2probe	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74ccdf	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74c	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74cprobe	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74cv2cdf	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74cv2	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2	http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74	AnnotationData
+mgu74cv2probe	Mus musculus	Mouse 	Affymetrix	Murine Genome U74v2		AnnotationData
+mguatlas5k	Mus musculus	Mouse 	Clontech	BD Atlas Long Oligos Mouse 5K	http://orders.clontech.com/clontech/atlas/genelists/index.shtml	AnnotationData
+mgug4104a	Mus musculus	Mouse 	Agilent			AnnotationData
+mgug4120a	Mus musculus	Mouse 	Agilent			AnnotationData
+mgug4121a	Mus musculus	Mouse 	Agilent	Mouse	http://www.chem.agilent.com/scripts/generic.asp?lpage=5175&indcol=N&prodcol=Y	AnnotationData
+mgug4122a	Mus musculus	Mouse 	Agilent	"Mouse Genome,  Whole"	http://www.chem.agilent.com/scripts/generic.asp?lpage=5175&indcol=N&prodcol=Y	AnnotationData
+mgug4414a	Mus musculus	Mouse 	Agilent	Mouse Genome CGH 44A	http://www.chem.agilent.com/scripts/generic.asp?lpage=5175&indcol=N&prodcol=Y	AnnotationData
+mmuhomology	Mus musculus	Mouse 				AnnotationData
+moe430acdf	Mus musculus	Mouse 	Affymetrix	Mouse Expression Set 430	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430	AnnotationData
+moe430a	Mus musculus	Mouse 	Affymetrix	Mouse Expression Set 430	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430	AnnotationData
+moe430aprobe	Mus musculus	Mouse 	Affymetrix	Mouse Expression Set 430	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430	AnnotationData
+moe430bcdf	Mus musculus	Mouse 	Affymetrix	Mouse Expression Set 430	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430	AnnotationData
+moe430b	Mus musculus	Mouse 	Affymetrix	Mouse Expression Set 430	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430	AnnotationData
+moe430bprobe	Mus musculus	Mouse 	Affymetrix	Mouse Expression Set 430	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430	AnnotationData
+mouse4302cdf	Mus musculus	Mouse 	Affymetrix	Mouse Genome 430 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430-20	AnnotationData
+mouse4302	Mus musculus	Mouse 	Affymetrix	Mouse Genome 430 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430-20	AnnotationData
+mouse4302probe	Mus musculus	Mouse 	Affymetrix	Mouse Genome 430 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430-20	AnnotationData
+mouse430a2cdf	Mus musculus	Mouse 	Affymetrix	Mouse Genome 430A 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430A-20	AnnotationData
+mouse430a2	Mus musculus	Mouse 	Affymetrix	Mouse Genome 430A 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430A-20	AnnotationData
+mouse430a2probe	Mus musculus	Mouse 	Affymetrix	Mouse Genome 430A 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430A-20	AnnotationData
+mouseCHRLOC	Mus musculus	Mouse 				FunctionalAnnotation
+mouseLLMappings	Mus musculus	Mouse 				AnnotationData
+mu11ksuba	Mus musculus	Mouse 	Affymetrix	Murine 11K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu11k	AnnotationData
+mu11ksubacdf	Mus musculus	Mouse 	Affymetrix	Murine 11K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu11k	AnnotationData
+mu11ksubaprobe	Mus musculus	Mouse 	Affymetrix	Murine 11K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu11k	AnnotationData
+mu11ksubb	Mus musculus	Mouse 	Affymetrix	Murine 11K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu11k	AnnotationData
+mu11ksubbcdf	Mus musculus	Mouse 	Affymetrix	Murine 11K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu11k	AnnotationData
+mu11ksubbprobe	Mus musculus	Mouse 	Affymetrix	Murine 11K Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu11k	AnnotationData
+mu19ksuba	Mus musculus	Mouse 	Affymetrix	Murine Genome 19k Set 	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu19k	AnnotationData
+mu19ksubacdf	Mus musculus	Mouse 	Affymetrix	Murine Genome 19k Set 	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu19k	AnnotationData
+mu19ksubb	Mus musculus	Mouse 	Affymetrix	Murine Genome 19k Set 	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu19k	AnnotationData
+mu19ksubbcdf	Mus musculus	Mouse 	Affymetrix	Murine Genome 19k Set 	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu19k	AnnotationData
+mu19ksubc	Mus musculus	Mouse 	Affymetrix	Murine Genome 19k Set 	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu19k	AnnotationData
+mu19ksubccdf	Mus musculus	Mouse 	Affymetrix	Murine Genome 19k Set 	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu19k	AnnotationData
+mu6500subacdf	Mus musculus	Mouse 	Affymetrix	Murine Genome 6500 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu6500	AnnotationData
+mu6500subbcdf	Mus musculus	Mouse 	Affymetrix	Murine Genome 6500 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu6500	AnnotationData
+mu6500subccdf	Mus musculus	Mouse 	Affymetrix	Murine Genome 6500 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu6500	AnnotationData
+mu6500subdcdf	Mus musculus	Mouse 	Affymetrix	Murine Genome 6500 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=mu6500	AnnotationData
+omyhomology	Oncorhynchus mykiss	Rainbow trout				AnnotationData
+osahomology	Oryza sativa	Rice				AnnotationData
+paeg1acdf	Pseudomonas aeruginosa	P. aeruginosa	Affymetrix	P. aeruginosa Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=paeruginosa	AnnotationData
+paeg1aprobe	Pseudomonas aeruginosa	P. aeruginosa	Affymetrix	P. aeruginosa Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=paeruginosa	AnnotationData
+pfahomology	Plasmodium falciparum	Malaria parasite P. falciparum				AnnotationData
+plasmodiumanophelescdf	Plasmodium falciparum/Anopheles gambiae	Plasmodium/Anopheles	Affymetrix	Plasmodium/Anopheles Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=plasmodium	AnnotationData
+plasmodiumanophelesprobe	Plasmodium falciparum/Anopheles gambiae	Plasmodium/Anopheles	Affymetrix	Plasmodium/Anopheles Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=plasmodium	AnnotationData
+porcinecdf	Sus scrofa	Porcine 	Affymetrix	Porcine Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=porcine	AnnotationData
+porcineprobe	Sus scrofa	Porcine 	Affymetrix	Porcine Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=porcine	AnnotationData
+prt440acdf	Homo sapiens	Human 	Affymetrix	HIV PRT 440		AnnotationData
+prt440scdf	Homo sapiens	Human 	Affymetrix	HIV PRT 440		AnnotationData
+rae230acdf	Rattus norvegicus	Rat	Affymetrix	Rat Expression Set 230	http://www.affymetrix.com/support/technical/byproduct.affx?product=rae230	AnnotationData
+rae230a	Rattus norvegicus	Rat	Affymetrix	Rat Expression Set 230	http://www.affymetrix.com/support/technical/byproduct.affx?product=rae230	AnnotationData
+rae230aprobe	Rattus norvegicus	Rat	Affymetrix	Rat Expression Set 230	http://www.affymetrix.com/support/technical/byproduct.affx?product=rae230	AnnotationData
+rae230bcdf	Rattus norvegicus	Rat	Affymetrix	Rat Expression Set 230	http://www.affymetrix.com/support/technical/byproduct.affx?product=rae230	AnnotationData
+rae230b	Rattus norvegicus	Rat	Affymetrix	Rat Expression Set 230	http://www.affymetrix.com/support/technical/byproduct.affx?product=rae230	AnnotationData
+rae230bprobe	Rattus norvegicus	Rat	Affymetrix	Rat Expression Set 230	http://www.affymetrix.com/support/technical/byproduct.affx?product=rae230	AnnotationData
+rat2302cdf	Rattus norvegicus	Rat	Affymetrix	Rat Genome 230 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rat230-20	AnnotationData
+rat2302	Rattus norvegicus	Rat	Affymetrix	Rat Genome 230 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rat230-20	AnnotationData
+rat2302probe	Rattus norvegicus	Rat	Affymetrix	Rat Genome 230 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rat230-20	AnnotationData
+ratCHRLOC	Rattus norvegicus	Rat				FunctionalAnnotation
+ratLLMappings	Rattus norvegicus	Rat				AnnotationData
+rgu34acdf	Rattus norvegicus	Rat	Affymetrix	Rat Genome U34 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=rgu34	AnnotationData
+rgu34a	Rattus norvegicus	Rat	Affymetrix	Rat Genome U34 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=rgu34	AnnotationData
+rgu34aprobe	Rattus norvegicus	Rat	Affymetrix	Rat Genome U34 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=rgu34	AnnotationData
+rgu34bcdf	Rattus norvegicus	Rat	Affymetrix	Rat Genome U34 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=rgu34	AnnotationData
+rgu34b	Rattus norvegicus	Rat	Affymetrix	Rat Genome U34 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=rgu34	AnnotationData
+rgu34bprobe	Rattus norvegicus	Rat	Affymetrix	Rat Genome U34 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=rgu34	AnnotationData
+rgu34ccdf	Rattus norvegicus	Rat	Affymetrix	Rat Genome U34 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=rgu34	AnnotationData
+rgu34c	Rattus norvegicus	Rat	Affymetrix	Rat Genome U34 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=rgu34	AnnotationData
+rgu34cprobe	Rattus norvegicus	Rat	Affymetrix	Rat Genome U34 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=rgu34	AnnotationData
+rguatlas4k	Rattus norvegicus	Rat	Clontech	BD Atlas Long Oligos Rat 4K	http://orders.clontech.com/clontech/atlas/genelists/index.shtml	AnnotationData
+rgug4105a	Rattus norvegicus	Rat	Agilent			AnnotationData
+rgug4130a	Rattus norvegicus	Rat	Agilent	Rat	http://www.chem.agilent.com/scripts/generic.asp?lpage=5175&indcol=N&prodcol=Y	AnnotationData
+rgug4131a	Rattus norvegicus	Rat	Agilent	"Rat Genome,  Whole"	http://www.chem.agilent.com/scripts/generic.asp?lpage=5175&indcol=N&prodcol=Y	AnnotationData
+ricecdf	Oryza sativa	Rice 	Affymetrix	Rice Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rice	AnnotationData
+riceprobe	Oryza sativa	Rice 	Affymetrix	Rice Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rice	AnnotationData
+rnohomology	Rattus norvegicus	Rat				AnnotationData
+rnu34cdf	Rattus norvegicus	Rat	Affymetrix	Rat Neurobiology U34 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rnu34	AnnotationData
+rnu34	Rattus norvegicus	Rat	Affymetrix	Rat Neurobiology U34 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rnu34	AnnotationData
+rnu34probe	Rattus norvegicus	Rat	Affymetrix	Rat Neurobiology U34 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rnu34	AnnotationData
+rtu34cdf	Rattus norvegicus	Rat	Affymetrix	Rat Toxicology U34 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rtu34	AnnotationData
+rtu34	Rattus norvegicus	Rat	Affymetrix	Rat Toxicology U34 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rtu34	AnnotationData
+rtu34probe	Rattus norvegicus	Rat	Affymetrix	Rat Toxicology U34 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=rtu34	AnnotationData
+saureuscdf	Staphylococcus aureus	S. aureus	Affymetrix	S. aureus Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=saureus	AnnotationData
+saureusprobe	Staphylococcus aureus	S. aureus	Affymetrix	S. aureus Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=saureus	AnnotationData
+scehomology	Saccharomyces cerevisiae	Yeast				AnnotationData
+soybeancdf	Glycine max	Soybean 	Affymetrix	Soybean Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=soy	AnnotationData
+soybeanprobe	Glycine max	Soybean 	Affymetrix	Soybean Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=soy	AnnotationData
+spohomology	Schizosaccharomyces pombe	Fission yeast				AnnotationData
+sschomology	Sus scrofa	Pig				AnnotationData
+sugarcanecdf	Saccharum officinarum	Sugar Cane	Affymetrix	Sugar Cane Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=sugarcane	AnnotationData
+sugarcaneprobe	Saccharum officinarum	Sugar Cane	Affymetrix	Sugar Cane Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=sugarcane	AnnotationData
+taehomology	Triticum aestivum	Bread wheat				AnnotationData
+test1cdf			Affymetrix	Test1 Array		AnnotationData
+test2cdf			Affymetrix	Test2 Array		AnnotationData
+test3cdf			Affymetrix	Test3 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=test3	AnnotationData
+test3probe			Affymetrix	Test3 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=test3	AnnotationData
+u133x3pcdf	Homo sapiens	Human 	Affymetrix	Human X3P Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=x3p	AnnotationData
+u133x3p	Homo sapiens	Human 	Affymetrix	Human X3P Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=x3p	AnnotationData
+u133x3pprobe	Homo sapiens	Human 	Affymetrix	Human X3P Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=x3p	AnnotationData
+vitisviniferacdf	Vitis vinifera	Grape 	Affymetrix	Vitis vinifera (Grape) Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=grape	AnnotationData
+vitisviniferaprobe	Vitis vinifera	Grape 	Affymetrix	Vitis vinifera (Grape) Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=grape	AnnotationData
+vvihomology	Vitis vinifera	Grape 				AnnotationData
+wheatcdf	Triticum aestivum	Wheat 	Affymetrix	Wheat Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=wheat	AnnotationData
+wheatprobe	Triticum aestivum	Wheat 	Affymetrix	Wheat Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=wheat	AnnotationData
+xenopuslaeviscdf	Xenopus laevis	African clawed frog	Affymetrix	Xenopus laevis Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=xenopus	AnnotationData
+xenopuslaevis	Xenopus laevis	African clawed frog	Affymetrix	Xenopus laevis Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=xenopus	AnnotationData
+xenopuslaevisprobe	Xenopus laevis	African clawed frog	Affymetrix	Xenopus laevis Genome Array 	http://www.affymetrix.com/support/technical/byproduct.affx?product=xenopus	AnnotationData
+xlahomology	Xenopus laevis	African clawed frog				AnnotationData
+xtrhomology	Xenopus tropicalis	Western clawed frog				AnnotationData
+ye6100subacdf	Saccharomyces cerevisiae	Yeast	Affymetrix	Yeast 6100 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=ye6100	AnnotationData
+ye6100subbcdf	Saccharomyces cerevisiae	Yeast	Affymetrix	Yeast 6100 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=ye6100	AnnotationData
+ye6100subccdf	Saccharomyces cerevisiae	Yeast	Affymetrix	Yeast 6100 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=ye6100	AnnotationData
+ye6100subdcdf	Saccharomyces cerevisiae	Yeast	Affymetrix	Yeast 6100 Set	http://www.affymetrix.com/support/technical/byproduct.affx?product=ye6100	AnnotationData
+yeast2cdf	Saccharomyces cerevisiae	Yeast	Affymetrix	Yeast Genome 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=yeast-20	AnnotationData
+yeast2	Saccharomyces cerevisiae	Yeast	Affymetrix	Yeast Genome 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=yeast-20	AnnotationData
+yeast2probe	Saccharomyces cerevisiae	Yeast	Affymetrix	Yeast Genome 2.0 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=yeast-20	AnnotationData
+YEAST	Saccharomyces cerevisiae	Yeast				AnnotationData
+ygs98cdf	Saccharomyces cerevisiae	Yeast	Affymetrix	Yeast Genome S98 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=yeast	AnnotationData
+ygs98	Saccharomyces cerevisiae	Yeast	Affymetrix	Yeast Genome S98 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=yeast	AnnotationData
+ygs98probe	Saccharomyces cerevisiae	Yeast	Affymetrix	Yeast Genome S98 Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=yeast	AnnotationData
+zebrafishcdf	Danio rerio	Zebrafish 	Affymetrix	Zebrafish Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=zebrafish	AnnotationData
+zebrafish	Danio rerio	Zebrafish 	Affymetrix	Zebrafish Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=zebrafish	AnnotationData
+zebrafishprobe	Danio rerio	Zebrafish 	Affymetrix	Zebrafish Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=zebrafish	AnnotationData
+zmahomology	Zea mays	Teosinte				AnnotationData
+PFAM					http://www.sanger.ac.uk/Software/Pfam/	FunctionalAnnotation
+
+cladmer16	Rattus norvegicus	Rat	GE	CodeLink ADME Rat 16 Assay	http://www.mdyn.com/aptrix/upp01077.nsf/Content/codelink_gene_lists	AnnotationData
+clhwg	Homo sapiens	Human 	GE	Human Whole Genome	http://www.mdyn.com/aptrix/upp01077.nsf/Content/codelink_gene_lists	AnnotationData
+clmwg	Mus musculus	Mouse 	GE	Mouse Whole Genome	http://www.mdyn.com/aptrix/upp01077.nsf/Content/codelink_gene_lists	AnnotationData
+clrwg	Rattus norvegicus	Rat	GE	Rat Whole Genome	http://www.mdyn.com/aptrix/upp01077.nsf/Content/codelink_gene_lists	AnnotationData
+clush1	Homo sapiens	Human 	GE	UniSet Human I	http://www.mdyn.com/aptrix/upp01077.nsf/Content/codelink_gene_lists	AnnotationData
+clush20k	Homo sapiens	Human 	GE	UniSet Human 20K	http://www.mdyn.com/aptrix/upp01077.nsf/Content/codelink_gene_lists	AnnotationData
+clusm1	Mus musculus	Mouse 	GE	UniSet Mouse I	http://www.mdyn.com/aptrix/upp01077.nsf/Content/codelink_gene_lists	AnnotationData
+clusm20k	Mus musculus	Mouse 	GE	UniSet Mouse 20K	http://www.mdyn.com/aptrix/upp01077.nsf/Content/codelink_gene_lists	AnnotationData
+clusr1	Rattus norvegicus	Rat	GE	UniSet Rat I	http://www.mdyn.com/aptrix/upp01077.nsf/Content/codelink_gene_lists	AnnotationData
+illuminaHumanv1	Homo sapiens	Human	Illumina	Sentrix Human-6 v1 and Sentrix HumanRef-8 v1	www.illumina.com/downloads/Human6ExpressionDatasheet.pdf, www.illumina.com/downloads/HumanRef8ExpressionDatasheet.pdf, icom.illumina.com/Commerce2/UI/Software/Download.aspx?id=65, icom.illumina.com/Commerce2/UI/Software/Download.aspx?id=66	AnnotationData
+illuminaHumanv2	Homo sapiens	Human	Illumina	Sentrix Human-6 v2 and Sentrix HumanRef-8 v2	www.illumina.com/downloads/GXHuman6-8v2ExpressionDatasheet.pdf, icom.illumina.com/Commerce2/UI/Software/Download.aspx?id=67, icom.illumina.com/Commerce2/UI/Software/Download.aspx?id=64	AnnotationData
+illuminaMousev1	Mus musculus	Mouse	Illumina	Sentrix Mouse-6 v1.0a and Sentrix MouseRef-8 v1.0a	icom.illumina.com/Commerce2/UI/Software/Download.aspx?id=68, icom.illumina.com/Commerce2/UI/Software/Download.aspx?id=69	AnnotationData
+illuminaMousev1-1	Mus musculus	Mouse	Illumina	Sentrix Mouse-6 v1.1 and Sentrix MouseRef-8 v1.1	www.illumina.com/downloads/Mouse6ExpressionDatasheet.pdf, www.illumina.com/downloads/MouseRef8ExpressionDatasheet.pdf, icom.illumina.com/Commerce2/UI/Software/Download.aspx?id=58, icom.illumina.com/Commerce2/UI/Software/Download.aspx?id=59	AnnotationData
+illuminaRatV1	Rattus norvegicus	Rat	Illumina	Sentrix RatRef-12 v1	www.illumina.com/downloads/GXRatRef-12DataSheet.pdf, icom.illumina.com/Commerce2/UI/Software/Download.aspx?id=70	AnnotationData
+lumiHumanV1	Homo sapiens	Human	Illumina	Sentrix HumanRef-8 or Human-6 version 1	http://www.illumina.com/pages.ilmn?ID=53	AnnotationData
+lumiHumanV2	Homo sapiens	Human	Illumina	Sentrix HumanRef-8 or Human-6 version 2	http://www.illumina.com/pages.ilmn?ID=53	AnnotationData
+lumiMouseV1	Mus musculus	Mouse	Illumina	Sentrix MouseRef-8 or Mouse-6 version 1 or 1.1	http://www.illumina.com/pages.ilmn?ID=53	AnnotationData
+lumiRatV1	Rattus norvegicus	Rat	Illumina	Sentrix RatRef-12 version 1	http://www.illumina.com/pages.ilmn?ID=53	AnnotationData
+celegans	Caenorhabditis elegans	C. elegans	Affymetrix	C. elegans Genome Array	http://www.affymetrix.com/support/technical/byproduct.affx?product=celegans	AnnotationData
+						
+indac	Drosophila melanogaster	Fly	INDAC	FlyChip_long_oligonucleotide_002 (FL002)	http://www.flychip.org.uk/services/core/FL002/	AnnotationData
+
+klahomology	Kluyveromyces lactis					AnnotationData
+mgrhomology	Magnaporthe grisea	Rice blast fungus				AnnotationData
+ncrhomology	Neurospora crassa					AnnotationData
+ptrhomology	Pan troglodytes	Chimpanzee				AnnotationData
+Mu15v1	Mus musculus	Mouse	FHCRC Genomics Shared Resource	Mu15v1		CustomArray
+Mu22v3	Mus musculus	Mouse	FHCRC Genomics Shared Resource	Mu22v3		CustomArray
+HuO22	Homo sapiens	Human	FHCRC Genomics Shared Resource	HuO22		CustomArray
+pedbarrayv9	Homo sapiens	Human	FHCRC Nelson Lab	pedbarrayv9		CustomArray
+pedbarrayv10	Homo sapiens	Human	FHCRC Nelson Lab	pedbarrayv10		CustomArray
+mpedbarray	Mus musculus	Mouse	FHCRC Nelson Lab	mpedbarray		CustomArray
+OperonHumanV3	Homo sapiens	Human	FHCRC Nelson Lab	OperonHumanV3		CustomArray
+SHDZ	Homo sapiens	Human	Stanford Microarray Database	SHDZ	http://genome-www5.stanford.edu/	CustomArray
+Norway981	Homo sapiens	Human	Stanford Microarray Database	Norway981	http://genome-www5.stanford.edu/	CustomArray
+JazaeriMetaData	Homo sapiens	Human	National Cancer Institute	JazaeriMetaData		CustomArray
+PartheenMetaData	Homo sapiens	Human	Swegene DNA Microarray Resource Centre, Lund, Sweden	PartheenMetaData	http://swegene.onk.lu.se	CustomArray
+Roberts2005Annotation	Homo sapiens	Human	Roberts2005Annotation	Roberts2005Annotation		CustomArray

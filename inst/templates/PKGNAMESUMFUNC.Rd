@@ -3,12 +3,12 @@
 \title{Map between Manufacturer Identifiers and Gene Function Summaries}
 \description{
   #PKGNAME#SUMFUNC is an R environment that provides mappings between
-  manufacturer ids and brief summaries of functions of the gene products.  
+  manufacturer identifiers and brief summaries of functions of the gene products.  
 }
 \details{
-  Each manufacturer id is mapped to a vector containing a brief summary
+  Each manufacturer identifier is mapped to a vector containing a brief summary
   of the function for the gene product. This information was previously
-  supplied by LocusLink, but with the change to Entrez Gene these data
+  supplied by Entrez Gene, but with the change to Entrez Gene these data
   may no longer be available, and the environment may be discontinued.
   
   Mappings were based on data provided by:

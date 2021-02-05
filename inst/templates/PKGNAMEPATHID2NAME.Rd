@@ -3,12 +3,12 @@
 \title{An annotation data file that maps KEGG pathway identifiers to
   KEGG pathway names}
 \description{
-   #PKGNAME#PATHID2NAME maps KEGG pathway ids to pathway names used by
+   #PKGNAME#PATHID2NAME maps KEGG pathway identifiers to pathway names used by
    KEGG for various pathways 
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  KEGG pathway ids and values are pathway names. Values are vectors of
+  KEGG pathway identifiers and values are pathway names. Values are vectors of
   length 1.  
 
   Mappings were based on data provided by:

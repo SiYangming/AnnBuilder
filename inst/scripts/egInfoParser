@@ -69,11 +69,19 @@ while( <DATA> ) {
                     }else{
                         $nameHash{$x} = $lines[11];
                     }
+                } elsif($lines[8] ne "-"){
+                    if($nameHash{$x} ne "NA"){
+                        $nameHash{$x} = $nameHash{$x} . ";" . $lines[8];
+                    }else{
+                        $nameHash{$x} = $lines[8];
+                    }
                 }
             }else{
                 if($lines[11] ne "-"){
                     $nameHash{$x} = $lines[11];
-                }else{
+                } elsif($lines[8] ne "-"){
+		    $nameHash{$x} = $lines[8];
+		} else{
                     $nameHash{$x} = "NA";
                 }
             } 

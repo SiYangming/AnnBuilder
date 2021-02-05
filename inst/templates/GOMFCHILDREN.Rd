@@ -31,10 +31,10 @@
     require("annotate", character.only = TRUE) || stop("annotate unavailable")
     # Convert the environment object to a list
     xx <- as.list(GOMFCHILDREN)
-    # Remove GO ids that do not have any children
+    # Remove GO identifiers that do not have any children
     xx <- xx[!is.na(xx)]
     if(length(xx) > 0){
-        # Get the children GO ids for the first elents of xx
+        # Get the children GO identifiers for the first elents of xx
         goids <- xx[[1]]
         # Find out the GO terms for the first parent goid
         GOID(GOTERM[[goids[1]]])
@@ -42,7 +42,7 @@
         Synonym(GOTERM[[goids[1]]])
         Secondary(GOTERM[[goids[1]]])
         Definition(GOTERM[[goids[1]]])
-        Category(GOTERM[[goids[1]]])
+        Ontology(GOTERM[[goids[1]]])
     }
 }
 \keyword{datasets}

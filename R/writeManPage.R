@@ -2,12 +2,13 @@
 # for a data package
 writeAccessory <- function(pkgName, pkgPath, organism, version,
                          author = list(author = "who",
-                         maintainer = "who@email.net"),
+                         maintainer = "My Name <who@email.net>"),
                          dataSrc = "public data repositories",
-                         license = "LGPL"){
+                         license = "The Artistic License, Version 2.0"){
     # Write to DESCRIPTION
     writeDescription(pkgName, pkgPath, version, author, dataSrc, license)
     # Write Rd files for all the rda files that already exist in data
+    AnnInfo <- as.list(get("AnnInfo", env = .GlobalEnv))
     for(i in getAllRdaName(pkgName, pkgPath)){
         writeManPage(pkgName, pkgPath, i, organism,
                      src = get(i, AnnInfo)$src)
@@ -42,6 +43,7 @@ writeManPage <- function(pkgName, pkgPath, manName, organism = "human",
             srcBuild <- getSrcBuiltNRef(src, organism)
         }
     }
+    AnnInfo <- get("AnnInfo")
     write(paste("\\name{", paste(pkgName, manName, sep = ""), "}\n",
                 "\\alias{", paste(pkgName, manName, sep = ""), "}\n",
                 "\\title{", "An annotation data file for ", manName,
@@ -102,7 +104,7 @@ getSrcBuiltNRef <- function(src, organism){
                                  getSrcNBuilt(src, organism), "\n",
                                  paste("Package built:", date()),
                                  sep = "")), "\n}\n",
-                     "\\references{\n", paste("\\url{", getSrcUrl(src), "}",
+                     "\\references{\n", paste("\\url{", gsub("_", "\\\\_", getSrcUrl(src)), "}",
                                               sep = ""), "\n}\n", sep = ""))
     }
 }
@@ -202,29 +204,66 @@ writeREADME <- function(pkgPath, pkgName, urls){
 
 writeDescription <- function(pkgName, pkgPath, version, author,
                              dataSrc = "public data repositories",
-                             license = "LGPL"){
-
+                             license = "The Artistic License, Version 2.0") {
     path <- file.path(pkgPath, pkgName)
     fileName <- file.path(path, "DESCRIPTION")
     if(file.exists(fileName)){
         unlink(fileName)
     }
     rVersion <- paste(R.Version()[c("major", "minor")], collapse=".")
-    write(paste("Package:", pkgName,
-                "\nTitle: A data package containing",
-                "annotation data for", pkgName,
-                "\nVersion:", version,
+    ## read destriptionInfo.txt
+    data("descriptionInfo")
+    descriptionInfo <- get("descriptionInfo")
+    slots <- descriptionInfo[which(descriptionInfo[,"biocPkgName"]==pkgName),]
+    
+    write(paste("Package:", pkgName), file=fileName, append=FALSE)
+    ## nrow(slots)==0 means that there is no such pkgName in the descriptionInfo
+    if(nrow(slots)==0 || slots["chipName"]=="") {
+        write(paste("Title: A data package containing",
+                    "annotation data for", pkgName),
+              file=fileName, append=TRUE)
+        write(paste("Description: Annotation data file for",
+                    pkgName, "assembled using data\n   from",
+                    dataSrc),
+              file=fileName, append=TRUE)
+    }else{
+        write(paste("Title: ", slots["manufacturer"], " ", slots["chipName"], " Annotation Data (", pkgName, ")", sep=""),
+              file=fileName, append=TRUE)
+        write(paste("Description: ", slots["manufacturer"], " ", slots["chipName"], " annotation data (", pkgName, 
+                    ") assembled using data from ", dataSrc, sep=""),
+              file=fileName, append=TRUE)
+    }
+    write(paste("Version:", version,
                 "\nCreated:", date(),
                 "\nAuthor:", paste(author[["authors"]], collapse=", "),
-                "\nDescription: Annotation data file for",
-                pkgName, "assembled using data\n   from",
-                dataSrc,
                 "\nMaintainer:", author[["maintainer"]],
                 "\nLazyData: yes",
                 paste("\nDepends: R(>= ", rVersion, ")", sep=""),
-                "\nLicense:", license, "\n"), file=fileName, append=FALSE)
+                "\nLicense:", license),
+          file=fileName, append=TRUE)
+    if(pkgName=="GO") {
+        write("Suggests: annotate",
+          file=fileName, append=TRUE)
+    }
+    if(nrow(slots)!=0) {
+       	slots <- slots[,-which(colnames(slots)=="biocPkgName")]
+       	slots[is.na(slots)] <- ""
+	slotNames <- names(slots)
+	if (slots["chipName"]=="") {## YEAST, *LLMappings, etc
+        	for(i in 1:length(slots)) {
+			if (slots[i]!="") {
+            			write(paste(slotNames[i], ": ", slots[i], sep=""),
+        	      		file=fileName, append=TRUE)
+			}
+        	}
+	} else {## chip annotation packages
+        	for(i in 1:length(slots)) {
+            		write(paste(slotNames[i], ": ", slots[i], sep=""),
+        	      	file=fileName, append=TRUE)
+        	}
+	}
+    }  
 }
-
 
 getDSrc <- function(organism){
     switch(tolower(organism),
@@ -247,13 +286,77 @@ getAllRdaName <- function(pkgName, pkgPath){
     return(rdaNames[!is.element(rdaNames, c("QC", "print.ABQCList"))])
 }
 
+writeWarning <- function(pkgName, oldObj, newObj, useMsg=F) {
+    if (useMsg) {
+    		toWrite <- paste(
+                     pkgName, oldObj, "func <- function() {\n",
+                     "\t.Deprecated(msg=\"", newObj, "\")\n",
+                     "\t", pkgName, oldObj, "_DEPRECATED\n",
+                     "}\n",
+                     "makeActiveBinding(\"", pkgName, oldObj, "\", ",
+                     pkgName, oldObj, "func, ns)\n",
+                     sep="", collapse="")
+    } else { 
+    		toWrite <- paste(
+                     pkgName, oldObj, "func <- function() {\n",
+                     "\t", pkgName, oldObj, " <- function(){\n",
+                     "\t\t.Deprecated(\"", pkgName, newObj, "\")\n",
+                     "\t}\n",
+                     "\t", pkgName, oldObj, "()\n",
+                     "\t", pkgName, newObj, "\n",
+                     "}\n",
+                     "makeActiveBinding(\"", pkgName, oldObj, "\", ",
+                     pkgName, oldObj, "func, ns)\n",
+                     sep="", collapse="")
+   }
+   toWrite
+}
+
 writeFun <- function (pkgPath, pkgName, organism = "human"){
     Rdir <- file.path(pkgPath, pkgName, "R")
     fileName <- file.path(Rdir, paste(pkgName, ".R", sep = ""))
     qc <- paste(pkgName, "QC", sep="")
     toWrite <- paste(pkgName, " <- function() cat(", qc, ")\n",
-                     ".no_S3_generics = TRUE", sep="")
+                     ".no_S3_generics = TRUE\n",
+                     "ns <- asNamespace(\"", pkgName, "\")\n",
+                     sep="", collapse="") 
+    specialPkgs <- c("cMAP", "KEGG", "humanLLMappings", "mouseLLMappings", "ratLLMappings", "YEAST", "yeast2", "ygs98", "PFAM")
+    if (length(grep(".*CHRLOC$", pkgName))>0) {
+	toWrite <- paste(toWrite,
+                     writeWarning(pkgName, "LOCUSID2CHR", "ENTREZID2CHR"),
+                     sep="", collapse="")
+	depObjs <- paste(pkgName, "LOCUSID2CHR", sep="", collapse="")
+    } else if (pkgName=="GO"){
+	toWrite <- paste(toWrite,
+                     writeWarning(pkgName, "LOCUSID", "ENTREZID"),
+                     writeWarning(pkgName, "LOCUSID2GO", "ENTREZID2GO"),
+                     writeWarning(pkgName, "ALLLOCUSID", "ALLENTREZID"),
+                     sep="")
+	depObjs <- paste(pkgName, "LOCUSID, ", pkgName, "LOCUSID2GO, ", 
+                     pkgName, "ALLLOCUSID", sep="", collapse="")
+    } else if (pkgName=="ath1121501"||pkgName=="ag"){
+        toWrite <- paste(toWrite,
+                     "delayedAssign(\"", pkgName, "ENTREZID\", ",
+                     pkgName, "ACCNUM)\n",
+                     writeWarning(pkgName, "LOCUSID", "ENTREZID"),
+                     sep="")
+	depObjs <- paste(pkgName, "LOCUSID, ", pkgName, "ENTREZID", 
+                     sep="", collapse="")
+    } else if (! pkgName %in% specialPkgs){
+## 	toWrite <- paste(toWrite,
+##                      writeWarning(pkgName, "LOCUSID", "ENTREZID"),
+##                      #writeWarning(pkgName, "SUMFUNC", "This environment never contains any data, and will be removed in the next release.", useMsg=T),
+##                      sep="", collapse="") 
+## 	depObjs <- paste(pkgName, "LOCUSID", sep="", collapse=", ")
+## 	#depObjs <- paste(pkgName, c("LOCUSID", "SUMFUNC"), sep="", collapse=", ")
+    }
     write(toWrite, file = fileName)
+    nsFile <- file.path(pkgPath, pkgName, "NAMESPACE")
+    if (pkgName %in% specialPkgs) 
+	toWrite <- paste("export(", pkgName, ")\n", sep="", collapse="")
+    else
+##     	toWrite <- paste("export(", pkgName, ", ", depObjs, ")\n", sep="", collapse="")
+    write(toWrite, file=nsFile)
 }
 
 writeZZZ <- function(pkgPath, pkgName){

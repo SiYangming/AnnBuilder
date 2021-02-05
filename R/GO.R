@@ -9,14 +9,14 @@ GO <- function(srcUrl = getSrcUrl("GO", xml = TRUE), parser = "",
 
 GOXMLParser <- function(fileName) 
 {
-    goObsoleteEnv = new.env(hash=TRUE, parent=NULL)
-    goTermEnv = new.env(hash=TRUE, parent=NULL)
-    cbpEnv = new.env(hash=TRUE, parent=NULL)
-    cmfEnv = new.env(hash=TRUE, parent=NULL)
-    cccEnv = new.env(hash=TRUE, parent=NULL)
-    bpEnv = new.env(hash=TRUE, parent=NULL)
-    ccEnv = new.env(hash=TRUE, parent=NULL)
-    mfEnv = new.env(hash=TRUE, parent=NULL)
+    goObsoleteEnv = new.env(hash=TRUE, parent=emptyenv())
+    goTermEnv = new.env(hash=TRUE, parent=emptyenv())
+    cbpEnv = new.env(hash=TRUE, parent=emptyenv())
+    cmfEnv = new.env(hash=TRUE, parent=emptyenv())
+    cccEnv = new.env(hash=TRUE, parent=emptyenv())
+    bpEnv = new.env(hash=TRUE, parent=emptyenv())
+    ccEnv = new.env(hash=TRUE, parent=emptyenv())
+    mfEnv = new.env(hash=TRUE, parent=emptyenv())
     
     goXmlHandlers <- function() {
         isGOID <- FALSE
@@ -267,7 +267,7 @@ createGOChildren <- function(parentEnv) {
     numParents <- eapply(parentEnv, length)
     ngoid <- rep(names(as.list(parentEnv)), numParents)
     children <- split(ngoid, unlist(as.list(parentEnv)))
-    childEnv = new.env(parent=NULL)
+    childEnv = new.env(parent=emptyenv())
     l2e(children, childEnv)
     
 }
@@ -277,11 +277,11 @@ createGoOffspring <- function(childrenEnv, rootID) {
     goVec <- unique(unlist(as.list(childrenEnv)))
     goVecKey = unique(unlist(names(as.list(childrenEnv))))
     isChildren = sapply(goVec, function(x) x %in% goVecKey)
-    noChildren = new.env(parent=NULL)
+    noChildren = new.env(parent=emptyenv())
     nochildren_ids = goVec[isChildren==FALSE]
     names(nochildren_ids) = nochildren_ids
     l2e(as.list(nochildren_ids),noChildren) 
-    GoOffspring = new.env(parent=NULL)
+    GoOffspring = new.env(parent=emptyenv())
     
     for (y in 1:length(goVec))
       {
@@ -320,7 +320,7 @@ createGoAncestor <- function(offspringEnv) {
     numOffspring <- eapply(offspringEnv, length)
     ngoid <- rep(names(as.list(offspringEnv)), numOffspring)
     ancestor <- split(ngoid, unlist(as.list(offspringEnv)))
-    ancestorEnv = new.env(parent=NULL)
+    ancestorEnv = new.env(parent=emptyenv())
     l2e(ancestor, ancestorEnv)
 }
 

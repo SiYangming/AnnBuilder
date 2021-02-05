@@ -42,8 +42,6 @@ Class \code{"pubRepo"}, by class "UG".
 }
 \references{\url{http://www.genome.ucsc.edu}}
 \author{Jianhua Zhang}
-\note{This class is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{pubRepo-class}}}
 

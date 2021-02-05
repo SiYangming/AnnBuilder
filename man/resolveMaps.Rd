@@ -57,7 +57,7 @@ hasDelimit(entry, deli = ";")
   \code{\link{getNoDup}} gets a value based on predefined rules when
   values from different sources do not agree.
   
-  \code{\link{hasDelimit}} checks to see if a delimiter exists}
+  \code{\link{hasDelimit}} checks to see if a delimiter exists
 }
 \value{
   \code{\link{resolveMaps}} returns a matrix with the first column being
@@ -73,8 +73,6 @@ hasDelimit(entry, deli = ";")
   \code{\link{hasDelimit}} returns TRUE or FALSE.
 }
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{LL-class}}, \code{\link{UG-class}}}
 \examples{

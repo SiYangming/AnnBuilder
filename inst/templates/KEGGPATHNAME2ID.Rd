@@ -1,9 +1,9 @@
 \name{#PKGNAME#PATHNAME2ID}
 \alias{#PKGNAME#PATHNAME2ID}
-\title{Map KEGG pathway names to pathway ids}
+\title{Map KEGG pathway names to pathway identifiers.
 \description{
   #PKGNAME#PATHNAME2ID is an R environment that maps KEGG pathway names
-  to the ids used by KEGG for various pathways 
+  to the identifiers used by KEGG for various pathways 
 }
 \details{
   Each KEGG pathway name is mapped to a vector containing a single id

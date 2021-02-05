@@ -32,7 +32,7 @@
   require("annotate", character.only = TRUE) || stop("annotate unavailable")
   # Convert the environment object to a list
   xx <- as.list(GOCCCHILDREN)
-  # Remove GO ids that do not have any children
+  # Remove GO IDs that do not have any children
   xx <- xx[!is.na(xx)]
   if(length(xx) > 0){
     goids <- xx[[1]]
@@ -42,7 +42,7 @@
     Synonym(GOTERM[[goids[1]]])
     Secondary(GOTERM[[goids[1]]])
     Definition(GOTERM[[goids[1]]])
-    Category(GOTERM[[goids[1]]])
+    Ontology(GOTERM[[goids[1]]])
   }
 }
 \keyword{datasets}

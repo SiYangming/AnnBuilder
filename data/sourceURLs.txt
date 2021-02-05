@@ -1,15 +1,16 @@
 name url
 EG ftp://ftp.ncbi.nlm.nih.gov/gene/DATA 
 GEO http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi? 
-GO http://www.godatabase.org/dev/database/archive/latest
+GO ftp://ftp.geneontology.org/pub/go/godatabase/archive/latest
 GP ftp://hgdownload.cse.ucsc.edu/goldenPath/currentGenomes
 HG ftp://ftp.ncbi.nih.gov/pub/HomoloGene/old/hmlg.ftp 
-KEGG ftp://ftp.genome.ad.jp/pub/kegg/pathways 
+KEGG ftp://ftp.genome.ad.jp/pub/kegg/pathway/organisms 
 LL ftp://ftp.ncbi.nih.gov/refseq/LocusLink/LL_tmpl.gz 
 UG ftp://ftp.ncbi.nih.gov/repository/UniGene 
 YG ftp://genome-ftp.stanford.edu/pub/yeast/data_download/ 
-
-
-
-
-
+AT ftp://ftp.arabidopsis.org/home/tair/
+IPI ftp://ftp.ebi.ac.uk/pub/databases/IPI/current/
+CMAP ftp://ftp1.nci.nih.gov/pub/CMAP/
+YEAST ftp://ftp.yeastgenome.org/pub/yeast/sequence_similarity/domains/
+KEGGGENOME ftp://ftp.genome.ad.jp/pub/kegg/genes/genome
+PFAM ftp://ftp.sanger.ac.uk/pub/databases/Pfam/current_release/Pfam-A.full.gz

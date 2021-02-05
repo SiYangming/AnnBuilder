@@ -3,12 +3,12 @@
 \title{Map Between Manufacturer IDs and Enzyme Commission (EC) Numbers}
 \description{ 
   #PKGNAME#ENZYME is an R environment that provides mappings between
-  manufacturer ids and EC numbers. 
+  manufacturer identifiers and EC numbers. 
 }
 \details{
-  Each manufacturer id maps to a named vector containing the EC number that
+  Each manufacturer identifier maps to a named vector containing the EC number that
   corresponds to the enzyme produced by that gene. The name corresponds
-  to the manufacturer id. If this information is unknown, the vector
+  to the manufacturer identifier. If this information is unknown, the vector
   will contain an \code{NA}.
   
   Enzyme Commission numbers are assigned by the Nomenclature Committee
@@ -40,7 +40,7 @@
   The EC name for a given EC number can be viewed at
   \url{http://www.chem.qmul.ac.uk/iupac/jcbn/index.html#6} 
   
-  Mappings between probe ids and enzyme ids were obtained using files
+  Mappings between probe identifiers and enzyme identifiers were obtained using files
   provided by:
 
   #KEGGSOURCE#
@@ -55,7 +55,7 @@
 \examples{
         # Convert to a list
         xx <- as.list(#PKGNAME#ENZYME)
-        # Remove probe ids that do not map to any enzyme EC number
+        # Remove probe identifiers that do not map to any enzyme EC number
         xx <- xx[!is.na(xx)]
         if(length(xx) > 0){
         # Gets the enzyme commission numbers for the first five

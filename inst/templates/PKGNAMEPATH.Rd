@@ -8,13 +8,13 @@
   by the probe identifiers are involved
 }
 \details{
-  Each KEGG pathway has a name and id. Pathway name for a given pathway
-  id can be obtained using the KEGG data package that can either be
+  Each KEGG pathway has a name and identifier. Pathway name for a given pathway
+  identifier can be obtained using the KEGG data package that can either be
   built using AnnBuilder or downloaded from Bioconductor
   \url{http://www.bioconductor.org}.
 
   Graphic presentations of pathways are searchable at
-  url{http://www.genome.ad.jp/kegg/pathway.html} by using pathway ids as
+  url{http://www.genome.ad.jp/kegg/pathway.html} by using pathway identifiers as
   keys.   
 
   Mappings were based on data provided by:
@@ -31,10 +31,10 @@
 \examples{
     # Convert the environment to a list
     xx <- as.list(#PKGNAME#PATH)
-    # Remove probe ids that do not map to any pathway id
+    # Remove probe identifiers that do not map to any pathway id
     xx <- xx[!is.na(xx)]
     if(length(xx) > 0){
-        # The pathway ids for the first two elements of XX
+        # The pathway identifiers for the first two elements of XX
         xx[1:2]
         # Get the first one
         xx[[1]]

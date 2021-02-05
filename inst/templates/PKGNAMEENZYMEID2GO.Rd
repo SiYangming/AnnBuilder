@@ -4,11 +4,11 @@
   Gene Ontology identifiers}
 \description{
   #PKGNAME#ENZYMEID2GO maps Enzyme Commission numbers to Gene Ontoloty
-  (GO) ids 
+  (GO) identifiers 
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  Enzyme Commission numbers and values are GO ids. Values are vectors of
+  Enzyme Commission numbers and values are GO identifiers. Values are vectors of
   length 1. Enzyme Commission numbers that can not be mapped to a GO
   term are assigned a value NA.
 

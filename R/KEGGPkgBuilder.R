@@ -11,15 +11,15 @@ KEGGPkgBuilder <- function(pkgPath, pkgName = "KEGG", version = "1.0.1",
     geneMapURL = getKEGGFile("geneMap") 
    
     # Create two environments to hold the parsed data
-    pNameEnv <- new.env(hash = TRUE, parent = NULL)
-    pIdEnv <- new.env(hash = TRUE, parent = NULL)
+    pNameEnv <- new.env(hash = TRUE, parent = emptyenv())
+    pIdEnv <- new.env(hash = TRUE, parent = emptyenv())
     makeSrcInfo()
     createEmptyDPkg(pkgName, pkgPath)
     # Write mappings between path ids and path names
     kegg <- KEGG(pathwayURL, fromWeb = TRUE)
-    idNName <- getKEGGIDNName(kegg, "")
+    idNName <- getKEGGIDNName(kegg)
     #saveMat(as.matrix(cbind(names(, go2All)), pkgName = pkgName,
-    #        pkgPath = pkgPath, envName = "ALLLOCUSID", fun = tempFun)
+    #        pkgPath = pkgPath, envName = "ALLENTREZID", fun = tempFun)
     saveMat(cbind(idNName, names(idNName)), pkgName = pkgName,
             pkgPath = pkgPath, envName = "PATHNAME2ID")
     saveMat(cbind(names(idNName), idNName), pkgName = pkgName,
@@ -78,8 +78,7 @@ getEIdNName <- function(enzymeURL =
 
 getKEGGFile <- function(whichOne, organism = "hsa"){
     switch(tolower(whichOne),
-           path = return(paste(getSrcUrl("KEGG"), "/",
-                    "map_title.tab", sep = "")),
+           path = return(getSrcUrl("KEGG")),
            enzyme = return("http://www.geneontology.org/external2go/ec2go"),
            genemap = return(paste(getSrcUrl("KEGG"),
                        organism, paste(organism, "_gene_map.tab",

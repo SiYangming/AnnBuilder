@@ -1,0 +1,44 @@
+# This parser is for parsing Entrez Gene gene2unigene  file to get the 
+# mappings between probe ids and Unigene ids 
+
+%affyHash = (); 
+%unigeneHash = ();
+while( <BASE> ) {
+    chomp;
+    @vals = split /\t/;
+    @gbs = split /;/, @vals[2];
+    foreach $x (@gbs){
+        if (exists $affyHash{$x}){
+	    $affyHash{$x} = $affyHash{$x} . "," . $vals[0];
+        }else{   
+            $affyHash{$x} = $vals[0];
+        }
+    }
+}
+close BASE;
+
+while( <DATA> ) {
+    @lines = split("\t|\n");
+
+    if(exists $affyHash{$lines[0]}){
+	@affys = split/,/, $affyHash{$lines[0]};
+        foreach $x (@affys){
+            if(exists $unigeneHash{$x}){
+                $unigeneHash{$x} = $unigeneHash{$x} . ";" . $lines[1];
+            }else{
+                $unigeneHash{$x} = $lines[1];
+            }    
+	}		
+    }
+}
+
+close DATA;
+
+foreach $x (keys %unigeneHash){
+    print OUT $x, "\t", $unigeneHash{$x}, "\n";
+}
+
+
+
+
+

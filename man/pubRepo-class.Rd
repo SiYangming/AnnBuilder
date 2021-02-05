@@ -92,8 +92,6 @@ Objects can be created by calls of the form \code{new("pubRepo", ...)}.
   }
 }
 \author{Jianhua Zhang}
-\note{This class is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{GO-class}}, \code{\link{KEGG-class}},
   \code{\link{LL-class}}, \code{\link{UG-class}}, \code{\link{GEO-class}}}

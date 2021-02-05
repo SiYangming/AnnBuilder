@@ -47,8 +47,6 @@ Class \code{"pubRepo"}, by class "UG".
 }
 \references{\url{www.genome.ad.jp/kegg/}}
 \author{Jianhua Zhang}
-\note{This class is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{pubRepo-class}}, \code{\link{UG-class}} }
 

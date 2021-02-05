@@ -70,8 +70,6 @@ countMapping(rdaName, noNA = FALSE)
   \item{list}{A list with name and value pairs}
 }
 \author{Jianhua Zhang}
-\note{This function is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{ABPkgBuilder}}}
 

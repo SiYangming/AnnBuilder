@@ -1,344 +1,0 @@
-
-R/EG.R,23
-EG <- functionEG4,68
-
-R/GO.R,23
-GO <- functionGO4,34
-
-R/GP.R,284
-GP <- functionGP4,53
-getChroLocation <- functiongetChroLocation12,379
-getGPData <- functiongetGPData58,2582
-gpLinkNGene <- functiongpLinkNGene67,2903
-#gpParser <- function#gpParser80,3259
-getCytoLoc <- functiongetCytoLoc85,3438
-getCytoList <- functiongetCytoList98,3913
-
-R/HG.R,22
-HG <- functionHG1,0
-
-R/LL.R,106
-LL <- functionLL4,32
-fileMuncher <- functionfileMuncher19,554
-.callPerl <- function.callPerl75,2498
-
-R/UG.R,23
-UG <- functionUG4,32
-
-R/chrLocPkgBuilder.R,187
-chrLocPkgBuilder <- functionchrLocPkgBuilder3,78
-getChrNum <- functiongetChrNum98,5201
-saveCytoband <- functionsaveCytoband106,5390
-getChroms4Org <- functiongetChroms4Org114,5738
-
-R/KEGGPkgBuilder.R,136
-KEGGPkgBuilder <- functionKEGGPkgBuilder7,185
-getEIdNName <- functiongetEIdNName57,2785
-getKEGGFile <- functiongetKEGGFile79,3431
-
-R/KEGG.R,397
-KEGG <- functionKEGG4,36
-getKEGGIDNName <- functiongetKEGGIDNName18,569
-getKEGGOrgName <- functiongetKEGGOrgName32,999
-parseKEGGGenome <- functionparseKEGGGenome45,1448
-getLLPathMap <- functiongetLLPathMap68,2335
-mapll2PathID <- functionmapll2PathID109,3630
-mapll2EC <- functionmapll2EC122,4161
-parseEC <- functionparseEC152,5015
-getKEGGGeneMap <- functiongetKEGGGeneMap165,5407
-
-R/GEO.R,62
-GEO <- functionGEO4,35
-queryGEO <- functionqueryGEO15,415
-
-R/writeManPage.R,826
-writeAccessory <- functionwriteAccessory3,91
-writeManPage <- functionwriteManPage30,1197
-getExample <- functiongetExample54,2190
-getSrcBuiltNRef <- functiongetSrcBuiltNRef82,3623
-writeMan4Fun <- functionwriteMan4Fun112,5001
-escapeLatexChr <- functionescapeLatexChr135,6008
-getSrcNBuilt <- functiongetSrcNBuilt145,6288
-getUrlNBuilt <- functiongetUrlNBuilt172,7586
-#getItem <- function#getItem177,7778
-formatName <- functionformatName181,7876
-writeREADME <- functionwriteREADME185,7949
-writeDescription <- functionwriteDescription203,8545
-getDSrc <- functiongetDSrc229,9611
-getAllRdaName <- functiongetAllRdaName243,10093
-writeFun <- functionwriteFun250,10358
-writeZZZ <- functionwriteZZZ259,10725
-writeMan4QC <- functionwriteMan4QC264,10786
-getBuild4Yeast <- functiongetBuild4Yeast300,12952
-
-R/print.ABQCList.R,48
-print.ABQCList <- functionprint.ABQCList6,131
-
-R/zzz.R,77
-##.onLoad <- function##.onLoad1,0
-.First.lib <- function.First.lib22,914
-
-R/ABPkgBuilder.R,2141
-ABPkgBuilder <- functionABPkgBuilder1,0
-resumeSrcUrl <- functionresumeSrcUrl120,5688
-getRepList <- functiongetRepList131,6001
-getRepSourceNBuilt <- functiongetRepSourceNBuilt170,8406
-mapGO2Probe <- functionmapGO2Probe181,8757
-writeReverseMap <- functionwriteReverseMap214,10156
-writeAnnData2Pkg <- functionwriteAnnData2Pkg228,10673
-getAnnData <- functiongetAnnData281,12846
-.parseEGUniGene <- function.parseEGUniGene404,18066
-unifyMappings <- functionunifyMappings416,18457
-getUniMappings <- functiongetUniMappings487,21302
-#mapImage2Ref <- function#mapImage2Ref508,21929
-getBaseFile <- functiongetBaseFile522,22452
-getSrcObjs <- functiongetSrcObjs541,23043
-getEGAccName <- functiongetEGAccName582,24976
-cleanSrcObjs <- functioncleanSrcObjs589,25158
-getBaseParsers <- functiongetBaseParsers597,25319
-createEmptyDPkg <- functioncreateEmptyDPkg626,26911
-splitEntry <- functionsplitEntry641,27419
-twoStepSplit <- functiontwoStepSplit653,27828
-cols2Env <- functioncols2Env684,28875
-matchAll <- functionmatchAll722,30041
-matchOneRow <- functionmatchOneRow738,30394
-getDirContent <- functiongetDirContent770,31298
-getMultiColNames <- functiongetMultiColNames786,31786
-getUniColNames <- functiongetUniColNames791,31920
-getTypeColNames <- functiongetTypeColNames796,32049
-getList4GO <- functiongetList4GO804,32329
-vect2List <- functionvect2List822,32849
-writeOrganism <- functionwriteOrganism830,33022
-writeChrLength <- functionwriteChrLength838,33352
-findChrLength <- functionfindChrLength847,33794
-getChrLengths <- functiongetChrLengths883,35069
-getHumanChrLengths <- functiongetHumanChrLengths892,35402
-getMouseChrLengths <- functiongetMouseChrLengths904,35982
-getRatChrLengths <- functiongetRatChrLengths914,36471
-getYeastChrLengths <- functiongetYeastChrLengths925,36982
-nameGOByCat <- functionnameGOByCat934,37345
-saveList <- functionsaveList952,37794
-saveMat <- functionsaveMat964,38244
-writeDatalist <- functionwriteDatalist985,39049
-addGoAllProbeData <- functionaddGoAllProbeData995,39382
-createGo2AllProbesEnv <- functioncreateGo2AllProbesEnv1019,40344
-
-R/getSrcBuilt.R,526
-getSrcBuilt <- functiongetSrcBuilt6,119
-getEGBuilt <- functiongetEGBuilt20,661
-getLLBuilt <- functiongetLLBuilt24,760
-getUGBuilt <- functiongetUGBuilt44,1346
-getUCSCBuilt <- functiongetUCSCBuilt67,2137
-getGOBuilt <- functiongetGOBuilt97,3374
-getKEGGBuilt <- functiongetKEGGBuilt103,3502
-getYGBuilt <- functiongetYGBuilt121,4074
-readURL <- functionreadURL126,4244
-getRefSeqBuilt <- functiongetRefSeqBuilt139,4546
-getHGBuilt <- functiongetHGBuilt146,4789
-getRefBuilt4HS <- functiongetRefBuilt4HS150,4868
-
-R/loadFromUrl.R,126
-loadFromUrl <- functionloadFromUrl6,157
-validateUrl <- functionvalidateUrl54,1834
-unzipFile <- functionunzipFile66,2167
-
-R/cols2Env.R,119
-cols2Env <- functioncols2Env10,343
-matchAll <- functionmatchAll59,1895
-matchOneRow <- functionmatchOneRow75,2248
-
-R/map2LL.R,448
-map2LL <- functionmap2LL3,40
-#getUrl4Org <- function#getUrl4Org90,3843
-getOrgName <- functiongetOrgName98,4045
-#getFullIDName <- function#getFullIDName110,4500
-.keepAround <- function.keepAround120,4805
-getExten <- functiongetExten194,8883
-saveData2Env <- functionsaveData2Env205,9175
-getReverseMapping <- functiongetReverseMapping219,9670
-reverseMap4GO <- functionreverseMap4GO230,10009
-getLL2ACC <- functiongetLL2ACC262,11004
-
-R/pubRepo.R,33
-pubRepo <- functionpubRepo4,39
-
-R/addNamespace.R,79
-addNamespace <- functionaddNamespace1,0
-sealEnvs <- functionsealEnvs13,603
-
-R/getSrcUrl.R,664
-.srcUrls <- function.srcUrls7,183
-getSrcUrl <- functiongetSrcUrl13,291
-getAllUrl <- functiongetAllUrl31,1028
-getEGUrl <- functiongetEGUrl39,1265
-getYGUrl <- functiongetYGUrl43,1317
-getLLUrl <- functiongetLLUrl47,1371
-getUCSCUrl <- functiongetUCSCUrl51,1425
-getUGUrl <- functiongetUGUrl71,2161
-getGOUrl <- functiongetGOUrl89,2916
-getRefSeqUrl <- functiongetRefSeqUrl103,3465
-getKEGGUrl <- functiongetKEGGUrl111,3771
-getGEOUrl <- functiongetGEOUrl115,3829
-getHGUrl <- functiongetHGUrl119,3885
-getUGShortName <- functiongetUGShortName123,3939
-UGSciNames <- functionUGSciNames129,4064
-getShortSciName <- functiongetShortSciName155,5385
-
-R/homoPkgBuilder.R,855
-homoPkgBuilder <- functionhomoPkgBuilder18,796
-procHomoData <- functionprocHomoData60,2806
-mapOrgs <- functionmapOrgs76,3457
-getOrgNameNCode <- functiongetOrgNameNCode96,3901
-mapPS <- functionmapPS135,5453
-HomoData2List <- functionHomoData2List213,9661
-getHomoDList <- functiongetHomoDList219,9852
-getHomoData <- functiongetHomoData225,9999
-saveOrgNameNCode <- functionsaveOrgNameNCode303,13817
-getLL2IntID <- functiongetLL2IntID320,14591
-writeHomoXMLData <- functionwriteHomoXMLData342,15181
-writeHGID2Caption <- functionwriteHGID2Caption374,16430
-#writeOrgLL <- function#writeOrgLL384,16921
-writeHGID2LL <- functionwriteHGID2LL404,17858
-writeHomoData <- functionwriteHomoData422,18722
-homoXMLParser <- functionhomoXMLParser474,21137
-.newHomoData <- function.newHomoData610,25264
-homoData <- functionhomoData731,29687
-
-R/yeastPkgBuilder.R,49
-yeastPkgBuilder <- functionyeastPkgBuilder3,55
-
-R/getDPStats.R,305
-getDPStats <- functiongetDPStats7,129
-formatABQCList <- functionformatABQCList74,2540
-getDate <- functiongetDate101,4014
-getProbeNum <- functiongetProbeNum121,4583
-countMapping <- functioncountMapping134,5047
-matchProbes <- functionmatchProbes157,5776
-getPBased <- functiongetPBased185,6670
-
-R/downloadSourceData.R,673
-writeSourceUrlConfig <- functionwriteSourceUrlConfig12,398
-readSourceUrlConfig <- functionreadSourceUrlConfig23,792
-downloadSourceData <- functiondownloadSourceData35,1103
-wget <- functionwget48,1552
-getPubDataHomoloGene <- functiongetPubDataHomoloGene66,2065
-getPubDataLocusLink <- functiongetPubDataLocusLink71,2161
-getPubDataUniGene <- functiongetPubDataUniGene76,2258
-getPubDataEntrezGene <- functiongetPubDataEntrezGene81,2351
-getPubDataGoldenPath <- functiongetPubDataGoldenPath86,2427
-getPubDataGo <- functiongetPubDataGo124,4220
-getPubDataYeastGenome <- functiongetPubDataYeastGenome129,4306
-getPubDataKegg <- functiongetPubDataKegg138,4579
-
-R/yeastAnn.R,303
-yeastAnn <- functionyeastAnn2,31
-getProbe2SGD <- functiongetProbe2SGD65,2992
-procYeastGeno <- functionprocYeastGeno94,4071
-formatGO <- functionformatGO117,4883
-formatChrLoc <- functionformatChrLoc128,5274
-getGEOYeast <- functiongetGEOYeast137,5632
-getYGExons <- functiongetYGExons147,5960
-
-R/MeSHParser.R,77
-MeSHParser <- functionMeSHParser7,167
-setVars <- functionsetVars112,4404
-
-R/makeLLDB.R,34
-makeLLDB <- functionmakeLLDB1,0
-
-R/writeXMLHeader.R,48
-writeXMLHeader <- functionwriteXMLHeader5,110
-
-R/fileToXML.R,80
-fileToXML <- functionfileToXML8,225
-.formatStr <- function.formatStr95,4034
-
-R/resolveMaps.R,202
-resolveMaps <- functionresolveMaps7,189
-getUnified <- functiongetUnified67,2150
-getNoDup<- functiongetNoDup102,3211
-hasDelimit <- functionhasDelimit120,3657
-getVote <- functiongetVote132,3954
-
-R/athPkgBuilder.R,293
-athPkgBuilder <- functionathPkgBuilder1,0
-getOneMap <- functiongetOneMap133,6894
-procPMIDData <- functionprocPMIDData137,6978
-getSrcObjs4Ath <- functiongetSrcObjs4Ath157,7550
-readAthData <- functionreadAthData165,7802
-mergeDupMatByFirstCol <- functionmergeDupMatByFirstCol187,8701
-
-R/SPPkgBuilder.R,172
-SPPkgBuilder <- functionSPPkgBuilder1,0
-getDetailV <- functiongetDetailV89,4674
-getEnvNames <- functiongetEnvNames125,6588
-isOneToOne <- functionisOneToOne132,6905
-
-R/GOXmlParser.R,294
-goXmlParser <- functiongoXmlParser1,0
-addRoot <- functionaddRoot245,8565
-createGOChildren <- functioncreateGOChildren256,8842
-createGoOffspring <- functioncreateGoOffspring267,9108
-findOffspring <- functionfindOffspring292,9954
-createGoAncestor <- functioncreateGoAncestor310,10459
-
-R/getLLNGBMap.R,246
-#mapLLNGB <- function#mapLLNGB1,0
-mapLLNGB <- functionmapLLNGB19,729
-getTaxid <- functiongetTaxid46,1849
-mapUGNGB <- functionmapUGNGB56,2068
-getRepList4Perl <- functiongetRepList4Perl74,2699
-getLLNGBMap <- functiongetLLNGBMap109,3851
-
-R/makeSrcInfo.R,83
-makeSrcInfo <- functionmakeSrcInfo11,415
-getAllSrc <- functiongetAllSrc31,1103
-
-R/mergeRowByKey.R,46
-mergeRowByKey <- functionmergeRowByKey9,273
-
-R/GOPkgBuilder.R,411
-GOPkgBuilder <- functionGOPkgBuilder1,0
-getEG <- functiongetEG46,1630
-getGOLOCUSID <- functiongetGOLOCUSID70,2556
-createGoLocusId2Go <- functioncreateGoLocusId2Go81,2730
-getGOALLLOCUSID <- functiongetGOALLLOCUSID132,4495
-saveEnv <- functionsaveEnv166,5474
-createEmptyDPkg <- functioncreateEmptyDPkg176,5889
-writeDocs <- functionwriteDocs192,6363
-copyTemplates <- functioncopyTemplates215,7450
-
-R/yeastGeno.R,154
-YG <- functionYG4,35
-getYeastData <- functiongetYeastData18,636
-readBadData <- functionreadBadData44,1611
-findNumCol <- functionfindNumCol62,2163
-
-R/CMAP.R,138
-cMapPathBuilder <- functioncMapPathBuilder1,0
-cMAPParser <- functioncMAPParser64,2633
-#getCompnent <- function#getCompnent327,11180
-
-data/sourceURLs.R,70
-.annBuilderParseSourceURLs <- function.annBuilderParseSourceURLs1,0
-
-inst/scripts/ABPkgsBuilder.R,487
-ABPkgsBuilder <- functionABPkgsBuilder1,0
-getPkgFileNames <- functiongetPkgFileNames150,7392
-getOrganism <- functiongetOrganism170,8166
-getPkgNameByOrg <- functiongetPkgNameByOrg189,8743
-putDPkgsToWeb <- functionputDPkgsToWeb203,9175
-writeDataHTML <- functionwriteDataHTML221,9808
-checkNBuildPkgs <- functioncheckNBuildPkgs228,10096
-getNPEnvs <- functiongetNPEnvs271,11737
-getPBasedEnv <- functiongetPBasedEnv276,11862
-getAllSrcData <- functiongetAllSrcData282,12083
-
-inst/scripts/dataPkgLoad.R,44
-.getDatasets <- function.getDatasets7,245
-
-inst/scripts/geneLocClass.R,0
-
-data/pubDataURLs.R,0
-
-R/initClasses.R,0

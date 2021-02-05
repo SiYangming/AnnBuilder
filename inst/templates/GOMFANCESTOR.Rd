@@ -31,10 +31,10 @@
   require("GO", character.only = TRUE) || stop("GO unavailable")
   # Convert the environment object to a list
   xx <- as.list(GOMFANCESTOR)
-  # Remove GO ids that do not have any ancestor
+  # Remove GO identifiers that do not have any ancestor
   xx <- xx[!is.na(xx)]
   if(length(xx) > 0){
-    # Get the ancestor GO ids for the first two elents of xx
+    # Get the ancestor GO identifiers for the first two elents of xx
     goids <- xx[1:2]
   }
 }

@@ -9,11 +9,11 @@
 \details{
   This is an environment object containing key and value pairs. Keys are
   short pathway names and values are lists of vectors. Each
-  pathway name is mapped to a list that has an id, name, organism,
+  pathway name is mapped to a list that has an identifier. name, organism,
   source, and component element.
 
-  The id element is an integer for NCICB Pathway Interaction Database
-  id.
+  The identifier element is an integer for NCICB Pathway Interaction Database
+  identifier.
 
   The name element is the full length of textual descriptive name for
   the pathway.
@@ -25,10 +25,10 @@
   interaction is a BioCarta or KEGG pathway.
 
   The type element is a character string describing what type of
-  molecule the key molecule id corresponds to. Potential values for type
+  molecule the key molecule identifier corresponds to. Potential values for type
   include "protein", "complex", "compound", and "rna".
 
-  The component element is a vector of integers for the ids of molecules
+  The component element is a vector of integers for the identifiers of molecules
   that are involved in the pathway.  
 
   Mappings were based on data provided by:

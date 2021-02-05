@@ -1,7 +1,7 @@
 # This function creates an R environment in .GlobalEnv to hold source
 # data information that will be used later by other functions. The
 # environment object contains key-value pairs with
-# keys being data names such as LOCUSID, ACCNUM and values being a
+# keys being data names such as ENTREZID, ACCNUM and values being a
 # list containing a short (sort diescription), long (long
 # description), and source (data source) element.
 #
@@ -17,7 +17,7 @@ makeSrcInfo <- function(srcFile = ""){
 
     info <- matrix(scan(srcFile, what = "", sep = "\t", quiet = TRUE),
                    ncol = 5, byrow = TRUE)
-    temp<- new.env(hash = TRUE, parent = NULL)
+    temp<- new.env(hash = TRUE, parent = emptyenv())
     for(i in 1:nrow(info)){
         assign(info[i,][1], list(short = info[i,][2],
                                  long = info[i,][3],

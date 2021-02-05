@@ -10,7 +10,7 @@
 cols2Env <- function(cols, colNames, keyColName = colNames[1], sep = ";"){
 
     # Environment to return
-    dataEnv <- new.env(hash = TRUE, parent = NULL)
+    dataEnv <- new.env(hash = TRUE, parent = emptyenv())
 
     # Force a matrix
     cols <- as.matrix(cols)

@@ -26,7 +26,7 @@ Objects can be created by calls of the form \code{new("geneLoc", probeId
 \section{Slots}{
   \describe{
     \item{\code{probeId}:}{Object of class \code{"character"} a
-      character string for the probe id corresponding the sequence}
+      character string for the probe identifier corresponding the sequence}
     \item{\code{chrom}:}{Object of class \code{"character"} a character
       string for the chromosome number the sequence belongs to}
     \item{\code{strand}:}{Object of class \code{"character"} a character
@@ -44,7 +44,7 @@ Objects can be created by calls of the form \code{new("geneLoc", probeId
     \item{endLoc}{\code{signature(object = "geneLoc")}: get method for
       ending location of the sequence}
     \item{probeId}{\code{signature(object = "geneLoc")}: get method for
-      probe id}
+      probe identifier}
     \item{print}{\code{signature(x = "geneLoc")}: print method for the object}
     \item{startLoc}{\code{signature(object = "geneLoc")}: get method for
       stating location of the sequence}
@@ -53,8 +53,6 @@ Objects can be created by calls of the form \code{new("geneLoc", probeId
 }
 \references{\url{http://www.genome.ucsc.edu}}
 \author{Jianhua Zhang}
-\note{This class is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics fucntionalities through R}
 
 \seealso{
   \code{\link{exonPkgBuilder}}

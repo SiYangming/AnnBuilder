@@ -11,11 +11,10 @@
   making the mapping are from the Internet.
 }
 \usage{
-KEGGPkgBuilder(pkgPath, pkgName = "KEGG", version = "1.0.1", 
-author = list(author = "who",maintainer = "who@email.com"))
+KEGGPkgBuilder(pkgPath, pkgName = "KEGG", version = "1.0.1", author = list(author = "who",maintainer = "who@email.com"))
 getEIdNName(enzymeURL)
 getKEGGFile(whichOne, organism = "hsa")
-getKEGGGeneMap(organism = "Homo sapiens"))
+getKEGGGeneMap(organism = "Homo sapiens")
 }
 
 \arguments{
@@ -44,8 +43,6 @@ getKEGGGeneMap(organism = "Homo sapiens"))
 }
 \references{An Introduction to R - Writting R Extensions.}
 \author{Jianhua Zhang}
-\note{This function is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R.}
 
 \seealso{\code{\link{package.skeleton}}}
 

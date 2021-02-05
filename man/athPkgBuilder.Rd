@@ -5,6 +5,7 @@
 \alias{getSrcObjs4Ath}
 \alias{readAthData}
 \alias{mergeDupMatByFirstCol}
+\alias{getFileExt}
 
 \title{Functions that build annotation packages for Arbidopsis}
 \description{
@@ -13,40 +14,64 @@
   (TAIR). 
 }
 \usage{
-athPkgBuilder(baseName, pkgName, pkgPath,
-                   fileExt = list(estAssign =
-                   "Genes/est_mapping/est.Assignment.Locus",
-                   seqGenes = "Genes/TAIR_sequenced_genes",
-                   go = "Ontologies/Gene_Ontology/ATH_GO_GOSLIM.20050507.txt",
-                   aliases = "Genes/gene_aliases.20041105",
-                   pathway = "Pathways/aracyc_dump_20050412",
-                   pmid = "Genes/Gene_Anatomy/ATH_Anatomy.20040209.txt"),
-                   ncols = list(estAssign = 7, seqGenes = 4, go = 12,
-                   aliases = 4, pathway = 4, pmid = 15),
-    cols2Keep = list(estAssign = c(3, 6, 7), seqGenes = c(1, 3),
-                   go = c(1, 5, 9), aliases = c(1, 2),
-                   pathway = c(1, 3, 4), pmid = c(6, 11)),
-    colNames = list(estAssign = c("CHRLOC", "ORI",  "ACCNUM"),
-                   seqGenes = c("ACCNUM", "CHR"),
-                   go = c("ACCNUM", "GO", "EVID"),
-                   aliases = c("ACCNUM", "SYMBOL"),
-                   pathway = c("PATH", "ENZYME", "ACCNUM"),
-                   pmid = c("PMID", "ACCNUM")),
-    version,
-    author,
-    baseUrl="ftp://ftp.arabidopsis.org/home/tair/", lazyLoad=TRUE)
+athPkgBuilder(
+                        baseName = NULL, 
+                        pkgName, pkgPath, 
+                        fileExt = list(
+                            base = "Microarrays/Affymetrix/affy_ATH1_array_elements-2006-07-14.txt",
+                            estAssign = "Genes/est_mapping/est.Assignment.Locus", 
+                            seqGenes = "Genes/TAIR_sequenced_genes", 
+                            go = "Ontologies/Gene_Ontology/ATH_GO_GOSLIM.20050827.txt", 
+                            aliases = "Genes/gene_aliases.20041105", 
+                            aracyc = "Pathways/aracyc_dump_20050412", 
+                            kegg = "/ath/ath_gene_map.tab", 
+                            pmid = "User_Requests/LocusPublished.08012006.txt"), 
+                        ncols = list(
+                            base = 9, 
+                            estAssign = 7, 
+                            seqGenes = 4, 
+                            go = 12, 
+                            aliases = 4, 
+                            aracyc = 4, 
+                            kegg = 2, 
+                            pmid = 4), 
+                        cols2Keep = list(
+                            base = c(1, 5), 
+                            estAssign = c(3, 6, 7), 
+                            seqGenes = c(1, 3, 4), 
+                            go = c(1, 5, 9), 
+                            aliases = c(1, 2), 
+                            aracyc = c(1, 3, 4), 
+                            kegg = c(1, 2), 
+                            pmid = c(1, 4)), 
+                        colNames = list(
+                            base = c("PROBE", "ACCNUM"), 
+                            estAssign = c("CHRLOC", "ORI", "ACCNUM"), 
+                            seqGenes = c("ACCNUM", "CHR", "GENENAME"), 
+                            go = c("ACCNUM", "GO", "EVID"), 
+                            aliases = c("ACCNUM", "SYMBOL"), 
+                            aracyc = c("ARACYC", "ENZYME", "ACCNUM"), 
+                            kegg = c("ACCNUM", "PATH"), 
+                            pmid = c("ACCNUM", "PMID")), 
+                        indexby = "PROBE", 
+                        version, 
+                        author, 
+                        lazyLoad = TRUE)
 getOneMap(map, keyCol)
 procPMIDData(pmid)
 getSrcObjs4Ath()
 readAthData(baseUrl, ext, col2Keep, colNames, ncols)
 mergeDupMatByFirstCol(dupMat, sep = ";")
+getFileExt(chipName = "ATH1", verbose = FALSE)
 }
 
 \arguments{
   \item{baseName}{\code{baseName} a character string for the name of the
     base file to be used to build an annotation data package. The base
     file is assumed to have two columns with the first one being probe
-    ids and second one being the corresponding TAIR locus ids.}
+    ids and second one being the corresponding TAIR locus ids. If no input
+    is given, the file pointed by slot \code{base} in \code{fileExt} is 
+    used}
   \item{pkgName}{\code{pkgName} a character string for the name of the
     data package to be built}
   \item{pkgPath}{\code{pkgPath} a character string for the path to a
@@ -54,7 +79,8 @@ mergeDupMatByFirstCol(dupMat, sep = ";")
   \item{fileExt}{\code{fileExt} a list of character strings for the
     extension to be appended to a base url to form a complete url for a
     desired source data file stored at TAIR's ftp site. Some of the
-    names given as default will change with time and need to be updated}
+    names given as default will change with time and need to be updated.
+    The input value of \code{fileExt} can be generated by \code{getFileExt}}
   \item{ncols}{\code{ncols} an integer indicating the total number of
     columns of a given source data file}
   \item{cols2Keep}{\code{cols2Keep} a vector of integers indicating
@@ -62,6 +88,9 @@ mergeDupMatByFirstCol(dupMat, sep = ";")
     when the source file is read}
   \item{colNames}{\code{colNames} a vector of character strings for the
     names of the columns of the source file to be retained}
+  \item{indexby}{\code{indexby} whether use probeset ID or TAIR locus ID
+    to index most annotations, either \code{PROBE} (default) or
+    \code{ACCNUM}}
   \item{version}{\code{version} a character string for the version
     number of the data package to be built}
   \item{author}{\code{author} a list of character stirngs with an author
@@ -86,13 +115,18 @@ mergeDupMatByFirstCol(dupMat, sep = ";")
     of the column of a data file will be kept when a file is read}
   \item{lazyLoad}{\code{lazyLoad} a boolean indicating whether a lazy
     load database will be created}
+  \item{chipName}{\code{chipName} affymetrix chip name, either \code{ATH} 
+    or \code{AG}}
+  \item{verbose}{\code{verbose} logical, whether give verbose output for
+    \code{getFileExt}} 
 
 }
 \details{
   The annotation data will be extracted from various sources that may
   change in both names and contents. The default values provided were
   correct at the time of implementation but may need updating when the
-  function is actually used.
+  function is actually used. \code{getFileExt} helps to generate the
+  up-to-date value for parameter \code{fileExt} in \code{athPkgBuilder}
 }
 \value{
   The main function athPkgBuilder returns invisible()

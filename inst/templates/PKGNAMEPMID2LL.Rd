@@ -1,17 +1,17 @@
 \name{#PKGNAME#PMID2LL}
 \alias{#PKGNAME#PMID2LL}
-\title{An annotation data file that maps PubMed identifiers to LocusLink
+\title{An annotation data file that maps PubMed identifiers to Entrez Gene
   identifiers} 
 \description{
-  #PKGNAME#PMID2LL maps PubMed ids to LocusLink ids for genes that have
-  been cited by publications represented by the PubMed ids
+  #PKGNAME#PMID2LL maps PubMed identifiers to Entrez Gene identifiers for genes that have
+  been cited by publications represented by the PubMed identifiers
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  PubMed id and values are LocusLink ids representing genes cited by
-  publications corresponding to the PubMed ids. Values are vectors of
-  length 1 or more depending on whether a PubMed id can be mapped to one
-  or more LocusLink ids.
+  PubMed identifier and values are Entrez Gene identifiers representing genes cited by
+  publications corresponding to the PubMed identifiers. Values are vectors of
+  length 1 or more depending on whether a PubMed identifier can be mapped to one
+  or more Entrez Gene identifiers.
 
   Mappings were derived from data provided by:
 

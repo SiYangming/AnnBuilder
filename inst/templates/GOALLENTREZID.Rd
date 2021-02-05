@@ -1,20 +1,21 @@
-\name{GOALLLOCUSID}
+\name{GOALLENTREZID}
+\alias{GOALLENTREZID}
 \alias{GOALLLOCUSID}
 \title{Annotation of GO identifiers by all the corresponding Entrez Gene
   identifiers} 
 \description{
-This is an R environment (hash table) mapping GO ids to all the Entrez Gene
-ids corresponding to the GO id and its direct or indirect
-offspring. The direct or indirect offspring of a given GO id are the
-nodes that are directly linked to the node for the GO id or indirectly
-linked to the GO id through nodes that are linked to the GO id based on
+This is an R environment (hash table) mapping GO identifiers to all the Entrez Gene
+identifiers corresponding to the GO identifiers and its direct or indirect
+offspring. The direct or indirect offspring of a given GO identifier are the
+nodes that are directly linked to the node for the GO identifier or indirectly
+linked to the GO identifier through nodes that are linked to the GO identifier based on
 the directed acyclic graph defined by Gene Ontology Consortium
 }
 \details{
-  GO ids are Keys and the corresponding Entrez Gene ids are Values. Values
+  GO identifiers are Keys and the corresponding Entrez Gene identifiers are Values. Values
   are named vectors of length 1 or greater depending on whether a given
-  GO id can be mapped to one or more Entrez Gene ids. Names for
-  values are the evidence codes for the GO id (if an evidence code was
+  GO identifier can be mapped to one or more Entrez Gene identifiers. Names for
+  values are the evidence codes for the GO identifier (if an evidence code was
   provided by source data). The evidence codes that are in use include:
   
   IMP - inferred from mutant phenotype  
@@ -39,7 +40,7 @@ the directed acyclic graph defined by Gene Ontology Consortium
 
   IC - inferred by curator
 
-  NA is assigned to GO ids that can not be mapped to any Entrez Gene id at
+  NA is assigned to GO identifiers that can not be mapped to any Entrez Gene identifier at
   this time.  
 
   Mappings were based on data provided by:
@@ -57,11 +58,11 @@ the directed acyclic graph defined by Gene Ontology Consortium
 \examples{
 	require("GO") || stop("GO unavailable")
         # Convert the environment object to a list
-	xx <- as.list(GOALLLOCUSID)
-        # Remove GO ids that are not mapped to any Entrez Gene id
+	xx <- as.list(GOALLENTREZID)
+        # Remove GO identifiers that are not mapped to any Entrez Gene identifier
         xx <- xx[!is.na(xx)]
 	if(length(xx) > 0){
-		# Get the Entrez Gene ids for the first two elents of xx
+		# Get the Entrez Gene identifiers for the first two elents of xx
 		llids  <- xx[1:2]
                 # Get the evidence code llids
                 evds <- sapply(llids, names)

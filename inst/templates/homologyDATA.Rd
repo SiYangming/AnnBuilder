@@ -57,7 +57,7 @@
     if(length(xx) > 0){
         # Gets the homology data for the first key of #PKGNAME#DATA
         homodata <- xx[[1]]
-        # Gets the organism name, LocusLink id, internal HomoloGene id,
+        # Gets the organism name, Entrez Gene identifier. internal HomoloGene identifier,
         # GenBank accession number, type of similarity, percent
         # similarity, and URL for percent similarity for the first
         # homoData object in the list obtained previously

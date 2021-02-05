@@ -33,8 +33,6 @@ Class \code{"pubRepo"}, directly.
 }
 \references{Programming with data}
 \author{Jianhua Zhang}
-\note{This class is part of the BioConductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{queryGEO}},\code{\link{pubRepo-class}}}
 

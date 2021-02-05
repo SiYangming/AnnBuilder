@@ -42,8 +42,6 @@ writeOrganism(pkgName, pkgPath, organism)
 }
 \references{}
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide BioInformatics functionalities through R}
 
 \seealso{\code{\link{ABPkgBuilder}}} 
 

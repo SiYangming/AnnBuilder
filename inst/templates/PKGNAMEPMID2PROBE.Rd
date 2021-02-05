@@ -3,17 +3,17 @@
 \title{Map between PubMed Identifiers and Manufacturer Identifiers}
 \description{
   #PKGNAME#PMID2PROBE is an R environment that provides mappings between
-  PubMed ids and manufacturer ids.
+  PubMed identifiers and manufacturer identifiers.
 }
 \details{
-  Each PubMed id is mapped to a named vector of manufacturer ids. The
-  name represents the PubMed id and the vector contains all manufacturer
-  ids that are represented by that PubMed id. The length of the vector
-  may be one or longer, depending on how many manufacturer ids are
-  mapped to a given PubMed id.
+  Each PubMed identifier is mapped to a named vector of manufacturer identifiers. The
+  name represents the PubMed identifier and the vector contains all manufacturer
+  identifiers that are represented by that PubMed identifier. The length of the vector
+  may be one or longer, depending on how many manufacturer identifiers are
+  mapped to a given PubMed identifier.
 
   Titles, abstracts, and possibly full texts of articles can be obtained
-  from PubMed by providing a valid PubMed id. The pubmed function of
+  from PubMed by providing a valid PubMed identifier. The pubmed function of
   annotate can also be used for the same purpose
   
   Mappings were based on data provided by:
@@ -27,7 +27,7 @@
     # Convert the environment to a list
     xx <- as.list(#PKGNAME#PMID2PROBE)
     if(length(xx) > 0){
-        # The probe ids for the first two elements of XX
+        # The probe identifiers for the first two elements of XX
         xx[1:2]
         # Get the first one
         xx[[1]]

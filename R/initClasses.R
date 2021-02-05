@@ -10,70 +10,70 @@
                                        fromWeb = "logical"))
 
     # Set the get methods
-    if(!isGeneric("srcUrl")){
+
         setGeneric("srcUrl",
                    function(object) standardGeneric("srcUrl"))
-    }
+
     setMethod("srcUrl", "pubRepo",
               function(object) object@srcUrl)
 
-    if(!isGeneric("builtInfo")){
+
         setGeneric("builtInfo",
                    function(object) standardGeneric("builtInfo"))
-    }
+
     setMethod("builtInfo", "pubRepo",
               function(object) object@built)
-    if(!isGeneric("fromWeb")){
+
         setGeneric("fromWeb",
                    function(object) standardGeneric("fromWeb"))
-    }
+
     setMethod("fromWeb", "pubRepo",
               function(object) object@fromWeb)
-    if(!isGeneric("fromWeb<-")){
+
         setGeneric("fromWeb<-", function(object, value)
                    standardGeneric("fromWeb<-"))
-    }
+
     setReplaceMethod("fromWeb", "pubRepo", function(object, value){
                   object@fromWeb <- value; object})
     # Define the replace methods
-    if(!isGeneric("srcUrl<-")){
+
         setGeneric("srcUrl<-", function(object, value)
                    standardGeneric("srcUrl<-"))
-    }
+
     setReplaceMethod("srcUrl", "pubRepo", function(object, value){
                   object@srcUrl <- value; object})
-    if(!isGeneric("baseFile")){
+
         setGeneric("baseFile",
                    function(object) standardGeneric("baseFile"))
-    }
+
     setMethod("baseFile", "pubRepo",
               function(object) object@baseFile)
 
     # Define the replace methods
-    if(!isGeneric("baseFile<-")){
+
         setGeneric("baseFile<-", function(object, value)
                    standardGeneric("baseFile<-"))
-    }
+
     setReplaceMethod("baseFile", "pubRepo", function(object, value){
                   object@baseFile <- value; object})
-    if(!isGeneric("parser")){
+
         setGeneric("parser",
                    function(object) standardGeneric("parser"))
-    }
+
     setMethod("parser", "pubRepo",
               function(object) object@parser)
-    if(!isGeneric("parser<-")){
+
         setGeneric("parser<-", function(object, value)
                    standardGeneric("parser<-"))
-    }
+
     setReplaceMethod("parser", "pubRepo", function(object, value){
                   object@parser <- value; object})
     # Defines functions
-    if(!isGeneric("readData")){
+
         setGeneric("readData",
                    function(object, ...)
                    standardGeneric("readData"))
-    }
+
     setMethod("readData", "pubRepo",
               function(object, ...){
                   if(fromWeb(object)){
@@ -84,18 +84,18 @@
                   temp <- readLines(conn)
                   close(conn)
                   return(temp)})
-    if(!isGeneric("downloadData")){
+
         setGeneric("downloadData",
                    function(object, dist)
                    standardGeneric("downloadData"))
-    }
+
     setMethod("downloadData", "pubRepo",
               function(object, dist)
                   return(loadFromUrl(srcUrl(object), dist)))
-    if(!isGeneric("parseData")){
+
         setGeneric("parseData", function(object, ...)
                    standardGeneric("parseData"))
-    }
+
     setMethod("parseData", "pubRepo", function(object, sep = "\t",
                                                ncol = 2, mergeKey = TRUE){
         if(fromWeb(object)){
@@ -199,42 +199,41 @@
 
     setClass("UG", contains = "pubRepo",
              representation(organism = "character"))
-    if(!isGeneric("orgName")){
+
         setGeneric("orgName",
                    function(object) standardGeneric("orgName"))
-    }
+
     setMethod("orgName", "UG",
               function(object) object@organism)
-    if(!isGeneric("orgName<-")){
+
         setGeneric("orgName<-", function(object, value)
                    standardGeneric("orgName<-"))
-    }
+
     setReplaceMethod("orgName", "UG", function(object, value){
                   object@organism <- value; object})
 
     setClass("KEGG", contains = "UG")
     # Defines specific functions
-    if(!isGeneric("findIDNPath")){
+
         setGeneric("findIDNPath", function(object)
                    standardGeneric("findIDNPath"))
-    }
+
     # Get a named vector that labels KEGG pathway names with pathway ids.
     setMethod("findIDNPath", "KEGG", function(object)
               return(getKEGGIDNName(object)))
-    if(!isGeneric("mapLL2ECNPName")){
+
         setGeneric("mapLL2ECNPName", function(object)
                    standardGeneric("mapLL2ECNPName"))
-    }
     setMethod("mapLL2ECNPName", "KEGG", function(object)
               return(getLLPathMap(srcUrl(object), findIDNPath(object),
                                orgName(object), fromWeb = fromWeb(object))))
 
     setClass("GP", contains = "UG")
     # Defines specific functions
-    if(!isGeneric("getStrand")){
+
         setGeneric("getStrand", function(object, ...)
                    standardGeneric("getStrand"))
-    }
+
     # Parse refLink and refGene data files to get chromosomal location data
     setMethod("getStrand", "GP", function(object)
               return(getChroLocation(srcUrl(object),
@@ -248,3 +247,39 @@
     setMethod("readData", "HG",
               function(object)
               return(procHomoData(srcUrl(object))))
+
+# Sub class of pubRepo that reads/downloads data from IPI
+# srcUrl -  the url for the files containing IPI data
+# ftp://ftp.ebi.ac.uk/pub/databases/IPI/current/
+    setClass("IPI", contains = "pubRepo")
+    # Redefines readData
+    setMethod("parseData", "IPI",
+              function(object)
+              {
+                  ipiData <- paste(srcUrl(object), baseFile(object), sep="")
+                  ipiParser(ipiData, fromWeb=fromWeb(object))
+              }
+              )
+
+# Sub class of pubRepo that reads/downloads data from YEAST
+# srcUrl -  the url for the files containing YEAST data
+# ftp://ftp.yeastgenome.org/pub/yeast/sequence_similarity/domains/
+    setClass("YEAST", contains = "pubRepo")
+    # Redefines readData
+    setMethod("parseData", "YEAST",
+              function(object)
+              {
+                  yeastData <- paste(srcUrl(object), baseFile(object), sep="")
+                  yeastParser(yeastData)
+              }
+              )
+
+# Sub class of pubRepo that reads/downloads data from PFAM
+# srcUrl -  the url for the files containing PFAM data
+# ftp://ftp.sanger.ac.uk/pub/databases/Pfam/current_release/Pfam-A.full.gz
+setClass("PFAM", contains = "pubRepo")
+setMethod("parseData", "PFAM",
+          function(object){
+              pfamParser(pfamFile=srcUrl(object), fromWeb=fromWeb(object))
+          }
+          )

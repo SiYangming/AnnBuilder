@@ -3,9 +3,9 @@
 \title{Annotation of GO Identifiers to their Biological Process Offspring} 
 \description{
   This data set describes associations between GO molecular function (BP)
-  terms and their ancestor BP terms, based on the directed acyclic
+  terms and their offspring BP terms, based on the directed acyclic
   graph (DAG) defined by the Gene Ontology Consortium. The format is an R
-  environment mapping the GO BP terms to all ancestor terms, where an
+  environment mapping the GO BP terms to all offspring terms, where an
   ancestor term is a more specific GO term that is preceded
   by the given GO term in the DAG (in other words, the children and all
   their children, etc.).
@@ -32,10 +32,10 @@
   require("GO", character.only = TRUE) || stop("GO unavailable")
   # Convert the environment object to a list
   xx <- as.list(GOBPOFFSPRING)
-  # Remove GO ids that do not have any offspring
+  # Remove GO IDs that do not have any offspring
   xx <- xx[!is.na(xx)]
   if(length(xx) > 0){
-    # Get the offspring GO ids for the first two elents of xx
+    # Get the offspring GO IDs for the first two elents of xx
     goids <- xx[1:2]
   }
 }

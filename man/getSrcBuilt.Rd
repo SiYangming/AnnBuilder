@@ -20,14 +20,13 @@
 \usage{
 getSrcBuilt(src = "LL", organism = "Homo sapiens")
 getLLBuilt(url = "http://www.ncbi.nlm.nih.gov/LocusLink/statistics.html")
-getUGBuilt(organism, url = "ftp://ftp.ncbi.nih.gov/repository/UniGene")
+getUGBuilt(organism)
 getUCSCBuilt(organism)
 getGOBuilt(url = "http://www.godatabase.org/dev/database/archive/latest")
-getKEGGBuilt(url = "http://www.genome.ad.jp/kegg/kegg2.html")
+getKEGGBuilt(url = "http://www.genome.jp/kegg/docs/relnote.html")
 getYGBuilt()
 getHGBuilt()
 getRefSeqBuilt(organism)
-getRefSeqBuilt()
 getEGBuilt()
 }
 
@@ -73,8 +72,6 @@ getEGBuilt()
   \url{ftp://ftp.ncbi.nih.gov/refseq/LocusLink/},
   \url{http://www.yeastgenome.org}}
 \author{Jianhua Zhang}
-\note{The functions are part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide Bioinformatics functionalities through R}
 
 \seealso{\code{\link{getSrcUrl}}}
 

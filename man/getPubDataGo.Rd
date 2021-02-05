@@ -17,14 +17,14 @@
   
 }
 \usage{
-getPubDataHomoloGene(baseUrl)
-getPubDataLocusLink(baseUrl)
-getPubDataUniGene(baseUrl)
-getPubDataEntrezGene(baseUrl)
-getPubDataGoldenPath(baseUrl)
-getPubDataGo(baseUrl)
-getPubDataYeastGenome(baseUrl)
-getPubDataKegg(baseUrl)
+getPubDataHomoloGene(baseUrl, passive)
+getPubDataLocusLink(baseUrl, passive)
+getPubDataUniGene(baseUrl, passive)
+getPubDataEntrezGene(baseUrl, passive)
+getPubDataGoldenPath(baseUrl, passive)
+getPubDataGo(baseUrl, passive)
+getPubDataYeastGenome(baseUrl, passive)
+getPubDataKegg(baseUrl, passive)
 
 }
 %- maybe also 'usage' for other objects documented here.
@@ -32,6 +32,8 @@ getPubDataKegg(baseUrl)
   \item{baseUrl}{The URL.  Note that for some sources this is a
   directory and for others it fully specifies a file we want to have
   available.}
+  \item{passive}{logical.  If \code{TRUE}, pass the \code{-passive-ftp}
+  flag to \code{wget}}
 }
 \author{Seth Falcon <sfalcon@fhcrc.org>}
 \keyword{data}

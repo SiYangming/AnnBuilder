@@ -42,8 +42,6 @@ isOneToOne(envName)
 }
 \references{\url{ftp://ftp.ebi.ac.uk/pub/databases/swissprot/release/sprot41.dat}} 
 \author{Jianhua Zhang}
-\note{This function is part of the Bioconductor project at Dana-Farber
-  Cancer Institute to provide bioinformatics functionalities through R}
 
 \seealso{\code{\link{ABPkgBuilder}}}
 \keyword{manip}

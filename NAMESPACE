@@ -1,5 +1,9 @@
+import(AnnotationDbi)
 export(ABPkgBuilder, athPkgBuilder, chrLocPkgBuilder, cMapPathBuilder,
        GOPkgBuilder, homoPkgBuilder, KEGGPkgBuilder, SPPkgBuilder,
        yeastPkgBuilder, writeSourceUrlConfig, readSourceUrlConfig,
-       downloadSourceData, makeSrcInfo, map2LL, EG, getSrcUrl, queryGEO,
-       GEO)
+       downloadSourceData, makeSrcInfo, map2LL, getSrcUrl, queryGEO,
+       parseData, loadFromUrl,readData,createEmptyDPkg, parser, EG, GEO,
+       UG, KEGG, GP, IPI, YEAST, GO, PFAM, srcUrl, baseFile, getFileExt,
+       pfamBuilder, resolveMaps, getSrcUrl)
+exportClass(EG, GEO, UG, GO, KEGG, GP, IPI, YEAST, PFAM, pubRepo)

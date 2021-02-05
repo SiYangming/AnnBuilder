@@ -20,10 +20,9 @@ mapLLNGB <- function(organism, pkgName, pkgPath,
                      ugUrl = getSrcUrl("ug", organism),
                      egUrl = paste(getSrcUrl("eg"), "gene2accession.gz"),
                      fromWeb = TRUE){
-
     repList <- getRepList4Perl(organism, ugUrl, egUrl, fromWeb=FALSE)
     
-    eg = read.table(repList$LLFILE, na.strings="-", sep="\t", quote="", comment.char="#", header=FALSE)
+    eg = read.table(repList$LLFILE, na.strings="-", sep="\t", quote="", comment.char="#", header=FALSE, stringsAsFactors=FALSE)
     
     eg_out = eg[,c(1,2,4,6)]
     eg_out = eg_out[eg_out[,1]==getTaxid(organism),]
@@ -73,7 +72,6 @@ mapUGNGB <- function(organism, pkgName, pkgPath,
 
 getRepList4Perl <- function(organism, ugUrl = getSrcUrl("ug", organism),
                      llUrl = getSrcUrl("ll"), fromWeb = TRUE){
-
     repList <- list()
     if(fromWeb){
         tempUG <- loadFromUrl(ugUrl)
@@ -88,7 +86,7 @@ getRepList4Perl <- function(organism, ugUrl = getSrcUrl("ug", organism),
             stop("Perl is not available!")
         }
         repList[["PERLLOC"]] <- paste("#!", perlBin, sep = "")
-    }else if(OS == "windows"){
+    }else if(.Platform$OS.type == "windows"){
         repList[["PERLLOC"]] <- "#!/usr/bin/perl -w"
     }
     orgCode <- getOrgNameNCode()

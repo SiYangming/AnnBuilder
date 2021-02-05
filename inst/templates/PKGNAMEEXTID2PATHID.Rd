@@ -1,24 +1,24 @@
 \name{#PKGNAME#EXTID2PATHID}
 \alias{#PKGNAME#EXTID2PATHID}
-\title{An annotation data file that maps LocusLink or Open Reading Frame
-  ids KEGG pathway ids}
+\title{An annotation data file that maps Entrez Gene or Open Reading Frame
+  identifiers KEGG pathway identifiers}
 \description{
-  #PKGNAME#EXTID2PATHID maps LocusLink (for human, mouse, and rat)
-  and Open Reading Frame (for yeast) ids to KEGG pathway ids.   
+  #PKGNAME#EXTID2PATHID maps Entrez Gene (for human, mouse, and rat)
+  and Open Reading Frame (for yeast) identifiers to KEGG pathway identifiers.   
 }
 \details{
   This is an environment object containing key and value pairs. Keys are
-  LocusLink ids for human, mouse, and rat and Open Reading Frame (ORF) ids for
-  yeast and values are the corresponding KEGG pathway ids. Values are
+  Entrez Gene identifiers for human, mouse, and rat and Open Reading Frame (ORF) identifiers for
+  yeast and values are the corresponding KEGG pathway identifiers. Values are
   vectors of length 1 or greater depending on whether a given external
-  id can be mapped to only one or more KEGG pathway ids.  NAs are
-  assigned to LocusLink or ORF ids that can not be mapped to any pathway
-  id.
+  identifier can be mapped to only one or more KEGG pathway identifiers.  NAs are
+  assigned to Entrez Gene or ORF identifiers that can not be mapped to any pathway
+  identifier.
 
-  KEGG pathway ids are the identifiers used by KEGG for various
+  KEGG pathway identifiers are the identifiers used by KEGG for various
   pathways.
 
-  Mappings between KEGG pathway ids and pathway names can be obtained
+  Mappings between KEGG pathway identifiers and pathway names can be obtained
   through another environment named PATHID2NAME. 
 
   Mappings were based on data provided by:

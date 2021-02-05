@@ -1,9 +1,10 @@
 ## Constructor for KEGG objects
-KEGG <- function(srcUrl = "ftp://ftp.genome.ad.jp/pub/kegg/tarfiles",
+KEGG <- function(srcUrl = "ftp://ftp.genome.ad.jp/pub/kegg/pathway/organisms",
                  organism = "human", parser = "", baseFile = "",
-                 built, fromWeb = TRUE){
+                 built, fromWeb = TRUE,
+                 kegggenomeUrl = "ftp://ftp.genome.ad.jp/pub/kegg/genes/genome"){
 
-    KEGGNames <- parseKEGGGenome()
+    KEGGNames <- parseKEGGGenome(url=kegggenomeUrl)
     assignInNamespace("KEGGNames", KEGGNames, "AnnBuilder")
 ##           pos = match("package:AnnBuilder", search()))
 
@@ -11,16 +12,19 @@ KEGG <- function(srcUrl = "ftp://ftp.genome.ad.jp/pub/kegg/tarfiles",
         baseFile = baseFile, built = ifelse(missing(built),
                              getSrcBuilt("KEGG", organism), built),
         fromWeb = fromWeb)
+
 }
+
 
 ## An placeholder so we can assign into the namespace for this binding
 KEGGNames <- NULL
 
-getKEGGIDNName <- function(object, exten = "/map_title.tab" ){
+getKEGGIDNName <- function(object, exten = "/../map_title.tab" ){
+    fullUri <- paste(srcUrl(object), exten, sep = "")
     if(fromWeb(object)){
-        con <- url(paste(srcUrl(object), exten, sep = ""), "r")
+        con <- url(fullUri, "r")
     }else{
-        con <- file(file.path(srcUrl(object)))
+        con <- file(fullUri)
     }
     temp <- matrix(unlist(strsplit(readLines(con), "\t")),
                                       ncol = 2, byrow = TRUE)
@@ -44,9 +48,12 @@ getKEGGOrgName <- function(name){
     }
 }
 
-parseKEGGGenome <- function(url =
-                    "ftp://ftp.genome.ad.jp/pub/kegg/tarfiles/genome"){
+parseKEGGGenome <- function(url){
 
+    if(is.null(url)) {
+        url="ftp://ftp.genome.ad.jp/pub/kegg/genes/genome"
+    }
+    
     keggURL <- url(url)
     options(show.error.messages = FALSE)
     temp <- try(readLines(keggURL))
@@ -56,7 +63,17 @@ parseKEGGGenome <- function(url =
         stop("Faild to obtain KEGG organism code")
     }
     temp <- temp[grep("ENTRY|DEFINITION|TAXONOMY", temp)]
+    ## some KEGG entries are missing DEFINITION
+    ## the following while() can fix this problem
+    while( (3*(max(grep("DEFINITION", temp[(1:length(temp))%%3==2]))-1)+2) != (length(temp)-1) ) {
+        temp <- c(temp[1:(3*(max(grep("DEFINITION", temp[(1:length(temp))%%3==2])))+1)],
+                  "DEFINITION\t",
+                  temp[(3*(max(grep("DEFINITION", temp[(1:length(temp))%%3==2])))+2):length(temp)]
+                  )
+    }
+    
     temp <- matrix(temp, ncol = 3, byrow = TRUE)
+    
     temp[,1] <- unlist(lapply(temp[,1], function(x)
                               unlist(strsplit(x, " +"))[2]))
     temp[,2] <- unlist(lapply(temp[,2], function(x)
@@ -101,8 +118,8 @@ getLLPathMap <- function(srcUrl, idNName, organism, fromWeb = TRUE){
     if(is.null(ncol(llPathName))){
         llPathName <- matrix(NA, ncol = 2)
     }
-    colnames(llEC) <- c("LOCUSID", "ENZYME")
-    colnames(llPathName) <- c("LOCUSID", "PATH")
+    colnames(llEC) <- c("ENTREZID", "ENZYME")
+    colnames(llPathName) <- c("ENTREZID", "PATH")
 
     return(list(llec = mergeRowByKey(llEC),
                 llpathname = mergeRowByKey(llPathName)))
@@ -114,7 +131,7 @@ mapll2PathID <- function(srcUrl, organism, exten = "gene_map.tab"){
                      exten, sep = "")
     ll2Path <-as.matrix( read.table(tempUrl, header = FALSE, sep = "\t"))
     ll2Path <- cbind(ll2Path[, 1], gsub(" *", ";", ll2Path[,2]))
-    colnames(ll2Path) <- c("LOCUSID", "PATH")
+    colnames(ll2Path) <- c("ENTREZID", "PATH")
 
     return(ll2Path)
 }
@@ -122,13 +139,13 @@ mapll2PathID <- function(srcUrl, organism, exten = "gene_map.tab"){
 # Returns a matrix with Locus link ids as the first column and EC as
 # second one with NA for ll not mapped to EC
 mapll2EC <- function(id, srcUrl, organism, fromWeb, sep = "\t"){
-    if(fromWeb){
         tempURL <- paste(srcUrl,"/", getKEGGOrgName(organism),
                      "/", getKEGGOrgName(organism), as.character(id),
                      ".gene", sep = "")
+    if(fromWeb){
         con <- url(tempURL)
     }else{
-        con <- file(file.path(srcUrl, id))
+        con <- file(tempURL)
     }
 
     on.exit(options(show.error.messages = TRUE))
@@ -146,7 +163,8 @@ mapll2EC <- function(id, srcUrl, organism, fromWeb, sep = "\t"){
 #        temp <- temp[!is.na(temp[,2]),]
         return(temp)
     }else{
-        cat("Failed to get data from URL:", tempURL, "\n")
+        # Turned off as a given organism may not have all the pathways 
+        # cat("Failed to get data from URL:", tempURL, "\n")
         return(NULL)
     }
 }
@@ -167,8 +185,8 @@ parseEC <- function(llNEC){
 getKEGGGeneMap <- function(organism = "Homo sapiens"){
     idMap <- NULL
     for(i in organism){
-        print(i)
         temp <- read.table(getKEGGFile("geneMap", getKEGGOrgName(i)),
+			stringsAsFactors=FALSE,
                        sep = "\t", header = FALSE, as.is = TRUE)
         # append kegg orgnism id to the begining of each
         # KEGG pathway id and collapse multiple mappings

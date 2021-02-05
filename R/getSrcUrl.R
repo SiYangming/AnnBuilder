@@ -23,15 +23,22 @@ getSrcUrl <- function(src, organism = "Homo sapiens", xml = TRUE,
            "HG" = return(getHGUrl()),
            "REFSEQ" = return(getRefSeqUrl(organism)),
            "EG" = return(getEGUrl()),
+           "AT" = return(getATUrl()),
+           "IPI" = return(getIPIUrl()),
+           "YEAST" = return(getYEASTUrl()),
+           "KEGGGENOME" = return(getKEGGGENOMEUrl()),
            "ALL" = return(getAllUrl(organism)),
+           "CMAP" = return(getCMAPUrl()),
+           "PFAM" = return(getPFAMUrl()),
            stop(paste("Source", src, "is not supported.",
-                      "Has to be LL, GP, UG, GO, KEGG, ALL")))
+                      "Has to be LL, GP, UG, GO, KEGG, GEO, YG, HG, REFSEQ, EG, AT, IPI, CMAP, YEAST, KEGGGENOME, PFAM, or ALL")))
 }
 
 getAllUrl <- function(organism){
     urls <- c(GP = getUCSCUrl(organism),
               UG = getUGUrl(organism), GO = getGOUrl(), KEGG = getKEGGUrl(),
-              YG = getYGUrl(), HG = getHGUrl(), EG = getEGUrl())
+              YG = getYGUrl(), HG = getHGUrl(), EG = getEGUrl(), IPI=getIPIUrl(),
+              YEAST=getYEASTUrl(), KEGGGENOME=getKEGGGENOMEUrl(), PFAM=getPFAMUrl())
     return(urls)
 }
 
@@ -55,9 +62,11 @@ getUCSCUrl <- function(organism, downloadSite){
                   "HOMO SAPIENS" = "Homo_sapiens",
                   "MUS MUSCULUS" = "Mus_musculus",
                   "RATTUS NORVEGICUS" = "Rattus_norvegicus",
-                  "DANIO RERIO" = "Danio_Rerio",
+                  "DANIO RERIO" = "Danio_rerio",
                   "CAENORHABDITIS ELEGANS" = "Caenorhabditis_elegans",
                   "DROSOPHILA MELANOGASTER" = "Drosophila_melanogaster",
+		  "GALLUS GALLUS" = "Gallus_gallus",
+		  "BOS TAURUS" = "Bos_taurus",
                   NA)
     if(is.na(key)) {
         warning(paste("Organism", organism, "is not supported by GoldenPath (GP)."))
@@ -81,23 +90,13 @@ getUGUrl <- function(organism){
     #       return(NA))
            #stop(paste("Organism", organism, "is not supported.")))
 
-    return(paste(.srcUrls("UG"), "/", getUGShortName(organism),
-                 ".data.gz", sep = ""))
+    return(paste(.srcUrls("UG"), "/", gsub(" ", "_", organism), "/",
+                 getUGShortName(organism), ".data.gz", sep = ""))
 }
 
 # Figures out the url for the latest version of the GO data file
 getGOUrl <- function(xml = TRUE, dateOnly = FALSE){
-    ## XXX: We don't know the name of the file we want, so we
-    ##      do screen scraping to extract the filename from
-    ##      the HTML directory listing page
-    con <- url(.srcUrls("GO"))
-    dirIndexHtml <- readLines(con)
-    close(con)
-    goFilePat <- "href=\"go.*-termdb.*rdf-xml.gz\""
-    goFile <- grep(goFilePat, dirIndexHtml, value=TRUE)
-    goFilePat <- "^.*href=\"(go.*rdf-xml.gz)\".*$"
-    goFile <- gsub(goFilePat, "\\1", goFile)
-    paste(.srcUrls("GO"), goFile, sep="/")
+     return(.srcUrls("GO"))
 }
 
 getRefSeqUrl <- function(organism){
@@ -120,6 +119,30 @@ getHGUrl <- function(){
     return(.srcUrls("HG"))
 }
 
+getATUrl <- function() {
+    return(.srcUrls("AT"))
+}
+
+getIPIUrl <- function() {
+    return(.srcUrls("IPI"))
+}
+
+getYEASTUrl <- function() {
+    return(.srcUrls("YEAST"))
+}
+
+getKEGGGENOMEUrl <- function(){
+    return(.srcUrls("KEGGGENOME"))
+}
+
+getCMAPUrl <- function(){
+    return(.srcUrls("CMAP"))
+}
+
+getPFAMUrl <- function(){
+    return(.srcUrls("PFAM"))
+}
+
 getUGShortName <- function(sciName){
     temp <- UGSciNames()
     return(names(temp[tolower(temp) == tolower(sciName)]))
@@ -138,6 +161,7 @@ UGSciNames <- function(){
       Sma = "Schistosoma mansoni", Ssa = "Salmo salar",
       Ssc = "Sus scrofa", Str = "Xenopus tropicalis",
       Xl = "Xenopus laevis", At = "Arabidopsis thaliana",
+      Gga = "Gallus gallus",
       Gma = "Glycine max", Han = "Helianthus annus",
       Hv = "Hordeum vulgare",  Lsa = " Lactuca sativa",
       Les = "Lycopersicon esculentum", Lco = "Lotus corniculatus",
@@ -145,7 +169,7 @@ UGSciNames <- function(){
       Os = "Oryza sativa", Pta = "Pinus taeda", Ptp = "Populus tremula",
       Ptp = "Populus tremuloides", Sbi = "Sorghum bicolor",
       Sof = "Saccharum officinarum", Ta = "Triticum aestivum",
-      Vva = "Vitis vinifera", Zm = "Zea mays",
+      Vvi = "Vitis vinifera", Zm = "Zea mays",
       Cre = "Chlamydomonas reinhardtii", Ddi = "Dictyostelium discoideum",
       Mgr = "Magnaporthe grisea", Ncr = "Neurospora crassa",
       Tgo = "Toxoplasma gondii", Hs = "Homo sapiens", Mm ="Mus musculus",
